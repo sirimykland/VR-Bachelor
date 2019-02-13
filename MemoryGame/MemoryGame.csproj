@@ -82,12 +82,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ButtonBehaviour.cs" />
-    <Compile Include="Assets\Scripts\CamMouseLook.cs" />
-    <Compile Include="Assets\Scripts\Card.cs" />
-    <Compile Include="Assets\Scripts\CharacterController.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MenuBehaviour.cs" />
+    <Compile Include="Assets\Scripts\EscapeAtoms\Atom.cs" />
+    <Compile Include="Assets\Scripts\EscapeAtoms\ListShuffeler.cs" />
+    <Compile Include="Assets\Scripts\EscapeAtoms\Molecule.cs" />
+    <Compile Include="Assets\Scripts\EscapeAtoms\MoleculeManagement.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\DBcurScoreCom.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\DBfinalScoreCom.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\GlobalVariables.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\Timer.cs" />
+    <Compile Include="Assets\Scripts\Hub\SG_GameController.cs" />
+    <Compile Include="Assets\Scripts\Keyboard.cs" />
+    <Compile Include="Assets\Scripts\Memorygame\ButtonBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Memorygame\CamMouseLook.cs" />
+    <Compile Include="Assets\Scripts\Memorygame\Card.cs" />
+    <Compile Include="Assets\Scripts\Memorygame\CharacterController.cs" />
+    <Compile Include="Assets\Scripts\Memorygame\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Memorygame\MenuBehaviour.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_ForceSteamVRMode.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
