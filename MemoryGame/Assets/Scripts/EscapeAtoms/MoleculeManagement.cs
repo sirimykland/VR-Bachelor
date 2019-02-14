@@ -6,6 +6,7 @@ public class MoleculeManagement : MonoBehaviour {
     private bool _init = false;
     public Molecule[] Molecules;
     public Atom[] Atoms;
+    public Atom[] wallAtoms;
 
 
     // Use this for initialization
@@ -33,10 +34,15 @@ public class MoleculeManagement : MonoBehaviour {
             while(Atoms[index].NoElectrons >= 7) {
                 index++;
             }
-
+            m.starterAtom = index;
             //m.transform.parent = new GameObject(Atoms[index]);
+            //a.transform.parent = m.transform;
 
             index++;
+        }
+        foreach(Molecule m in Molecules)
+        {
+            m.setupWall();
         }
         _init = true;
     }

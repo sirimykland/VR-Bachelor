@@ -5,10 +5,17 @@ using UnityEngine;
 public class Atom : MonoBehaviour {
     public int _noElectrons;
     public string _name;
+    private bool _give;
 
-	
-	// Update is called once per frame
-	public int attractable()
+    public void giveAwayState()
+    {
+        if (_noElectrons > 4 && _noElectrons < 8)
+            _give = true;
+        else
+            _give = false;
+    }
+    // Update is called once per frame
+    public int attractable()
     {
         // some counting of electrons
         return 0;
@@ -23,6 +30,12 @@ public class Atom : MonoBehaviour {
     {
         get { return _name; }
         set { _name = value; }
+    }
+
+    public bool Give
+    {
+        get { return _give; }
+        set { _give = value; }
     }
 
     void fullMolecule(){
