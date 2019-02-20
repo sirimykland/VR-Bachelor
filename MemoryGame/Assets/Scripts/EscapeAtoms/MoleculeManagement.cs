@@ -13,9 +13,12 @@ public class MoleculeManagement : MonoBehaviour {
     void Start () {
         Initialize();
 	}
-	
-	// Update is called once per frame
 
+    // Update is called once per frame
+	void Update(){
+        if(Molecules== null)
+            GameOver();
+    }
 
     void Initialize()
     {
@@ -29,11 +32,7 @@ public class MoleculeManagement : MonoBehaviour {
             while(Atoms[index].NoElectrons >= 7) {
                 index++;
             }
-            m.starterAtom = index;
-            //m.transform.parent = new GameObject(Atoms[index]);
-            //a.transform.parent = m.transform;
-
-            index++;
+            m.starterAtom = index++; //post incrementation
         }
         foreach(Molecule m in Molecules)
         {
@@ -41,4 +40,12 @@ public class MoleculeManagement : MonoBehaviour {
         }
         _init = true;
     }
+
+    void GameOver()
+    {
+            GlobalVariables.gameOver= true;
+            GlobalVariables.IsItGameOver();
+    }
+
+
 }

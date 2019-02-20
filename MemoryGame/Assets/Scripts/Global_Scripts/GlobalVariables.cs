@@ -24,10 +24,7 @@ public static class GlobalVariables
     //public static string timertekst;
     //private static int timePassed;
     
-    //public static List<string> scenes = new List<string> { "Start screen","BBEasy","Box Guesser","Box Guesser","BBHard", "TowerStackerEasy", "Box Guesser","BBExtreme", "TowerStackerMedium", "Box Guesser", "TowerStackerHard","Box Guesser",
-    //"GameOverScreen"};
-
-    public static List<string> scenes = new List<string> { "Hub", "MemoryGame2", "GameStop" };
+    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "GameStop" };
 
     public static List<Player> playerScores = new List<Player> { };
     //public static Time gameStartTime;
@@ -151,12 +148,18 @@ public static class GlobalVariables
         }
         timertekst = "Dette er tid: "+ (int)gameTimer.Elapsed.TotalSeconds;
     }
-
+     */
     public static bool IsItGameOver()
     {
-        return gameOver;
+        if(gameOver)
+            StartCoroutine(goToGameOver());
     }
-    */
+
+    IEnumerator goToGameOver() {
+        yield return new WaitForSeconds(2);
+        SceneManager.Load("GameOver");
+    }
+   
 
     public class Player
     {

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MemoryGame",
+    "\\MemoryGame\\Assets",
+    "\\MemoryGame\\Assets\\Scripts",
+    "\\MemoryGame\\Assets\\Scripts\\EscapeAtoms",
+    "\\MemoryGame\\Assets\\Scripts\\Global_Scripts",
+    "\\MemoryGame\\Assets\\Scripts\\Hub",
+    "\\MemoryGame\\Assets\\Scripts\\Memorygame"
+  ],
+  "SelectedNode": "\\MemoryGame\\Assets\\Scripts\\Memorygame\\Card.cs",
+  "PreviewInSolutionExplorer": false
+}

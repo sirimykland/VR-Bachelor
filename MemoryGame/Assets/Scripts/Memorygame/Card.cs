@@ -17,6 +17,7 @@ public class Card : MonoBehaviour {
     private bool _initialized = false;
 
     private float _speed = 10F;
+
     void Start(){
         _state = 0;
     }
@@ -33,7 +34,6 @@ public class Card : MonoBehaviour {
             root= target;
             target = 0;
         }
-
 
         while (root < target)
         {
