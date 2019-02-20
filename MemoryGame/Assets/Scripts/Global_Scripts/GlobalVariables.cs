@@ -9,37 +9,39 @@ using UnityEngine.Networking;
 public static class GlobalVariables
 {
     // Use GlobalVariables.TimeToPlay= x sec to determine the amount of time the players can play the game
-    public static double timeRemaining { get; set; }
-    public static float timeToPlay = 100;
-    public static float timeNow;
+    //public static double timeRemaining { get; set; }
+    //public static float timeToPlay = 100;
+    //public static float timeNow;
     public static int score { get; set; }
     public static int level { get; set; }
-    public static int BGLvl { get; set; }
+    public static int MGLvl { get; set; }
     public static string name { get; set; }
-    private static int tlf { get; set; }
+    public static string gameChoice { get; set; }
+    //private static int tlf { get; set; }
     //public static Stopwatch gameTimer;
     public static bool gameOver { get; set; }
-    public static System.Timers.Timer aTimer;
-    public static string timertekst;
-    private static int timePassed;
-    //public static List<string> scenes = new List<string> {  "BalanceBoard1", "TowerStacker Level1", "TowerStacker Level2", "TowerStacker Level3",
-        //"TowerStacker Level4", "TowerStacker Level5", "Box guesser", "GameOverScreen", "BalanceBoard2", "BalanceBoard3", "Start screen" , "GameOverScreen" };
-    public static List<string> scenes = new List<string> { "Start screen","BBEasy","Box Guesser","Box Guesser","BBHard", "TowerStackerEasy", "Box Guesser","BBExtreme", "TowerStackerMedium", "Box Guesser", "TowerStackerHard","Box Guesser",
-        "GameOverScreen"};
+    //public static System.Timers.Timer aTimer;
+    //public static string timertekst;
+    //private static int timePassed;
+    
+    //public static List<string> scenes = new List<string> { "Start screen","BBEasy","Box Guesser","Box Guesser","BBHard", "TowerStackerEasy", "Box Guesser","BBExtreme", "TowerStackerMedium", "Box Guesser", "TowerStackerHard","Box Guesser",
+    //"GameOverScreen"};
+
+    public static List<string> scenes = new List<string> { "Hub", "MemoryGame2", "GameStop" };
 
     public static List<Player> playerScores = new List<Player> { };
-    public static Time gameStartTime;
+    //public static Time gameStartTime;
 
-    public static float playerTime;
-    public static float timeLeft;
+    //public static float playerTime;
+    //public static float timeLeft;
     private static Player player;
     private static bool demoScoresAdded = false;
 
-
-    public static void addScore (int add_score) {
+    //trenger ikke denne om spillet  har  enkle levels
+    /*public static void addScore (int add_score) {
         score += add_score;
 
-    }
+    }*/
 
     public static void InsertSomePlayersOnScoreBoard()
     {
@@ -92,9 +94,8 @@ public static class GlobalVariables
         return scoreText;
     }
 
+    
     /*
-
-
     public static void InitiateTimer()
     {
         gameStartTime = new Time();

@@ -9,12 +9,13 @@ public class DBfinalScoreCom: MonoBehaviour
     void Start()
     {
         Debug.Log("sending entry");
-        StartCoroutine(cur_postRequest("https://us-central1-htcvruis2018.cloudfunctions.net/userentry"));
+        StartCoroutine(cur_postRequest("https://us-central1-uisvr2019.cloudfunctions.net/userentry"));
     }
 
     IEnumerator cur_postRequest(string url)
     {
         WWWForm form = new WWWForm();
+        form.AddField("game", GlobalVariables.gameChoice);
         form.AddField("username", GlobalVariables.name);
         form.AddField("score", GlobalVariables.score);
 

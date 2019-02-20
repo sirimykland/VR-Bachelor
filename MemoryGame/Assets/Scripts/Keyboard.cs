@@ -8,7 +8,7 @@ public class Keyboard : MonoBehaviour {
     private GameObject textObject;
     private GameObject keyBoardObject;
     //private GameObject playerInformation; info om tid og navn før spillet starter
-    private GameObject startButtonObject;
+    private GameObject startMemoryObject;
     private DBcurScoreCom DBRef;
     
 	// Use this for initialization
@@ -17,13 +17,13 @@ public class Keyboard : MonoBehaviour {
         if (DBRefObject != null)
         {
             DBRef = DBRefObject.GetComponent<DBcurScoreCom>();
-
         }
         textObject = GameObject.FindGameObjectWithTag("NameOfPlayer");
         keyBoardObject = GameObject.FindGameObjectWithTag("Keyboard");
-        //playerInformation = GameObject.FindGameObjectWithTag("Navn_informasjon_tid");
-        startButtonObject = GameObject.FindGameObjectWithTag("StartButton");
-        startButtonObject.SetActive(false);
+
+        //insert more buttons(doors/portals)
+        startMemoryObject = GameObject.FindGameObjectWithTag("StartMemory");
+        startMemoryObject.SetActive(false);
     }
     public void Enter_Onclick()
     {
@@ -35,7 +35,9 @@ public class Keyboard : MonoBehaviour {
         //print(playerInformation.GetComponent<Text>().text);
         //playerInformation.SetActive(true);
         keyBoardObject.SetActive(false);
-        startButtonObject.SetActive(true);
+
+        //fler knapper settes aktive her
+        startMemoryObject.SetActive(true);
     }
 	
 	// Update is called once per frame

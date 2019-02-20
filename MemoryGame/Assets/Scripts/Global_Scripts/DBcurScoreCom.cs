@@ -8,12 +8,13 @@ public class DBcurScoreCom : MonoBehaviour
     public void addScore(int score)
     {
         Debug.Log("sending entry");
-        StartCoroutine(postRequest("https://us-central1-htcvruis2018.cloudfunctions.net/cur_userentry", score));
+        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/cur_userentry", score));
     }
 
     IEnumerator postRequest(string url, int score)
     {
         WWWForm form = new WWWForm();
+        form.AddField("game", GlobalVariables.gameChoice);
         form.AddField("username", GlobalVariables.name);
         form.AddField("score", GlobalVariables.score);
 

@@ -10,6 +10,7 @@
         public void ClickKey(string character)
         {
             input.text += character;
+            Debug.Log(character);
         }
 
         public void Backspace()
