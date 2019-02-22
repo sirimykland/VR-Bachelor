@@ -149,13 +149,13 @@ public static class GlobalVariables
         timertekst = "Dette er tid: "+ (int)gameTimer.Elapsed.TotalSeconds;
     }
      */
-    public static bool IsItGameOver()
+    public static bool IsGameOver()
     {
         if(gameOver)
-            StartCoroutine(goToGameOver());
+            StartCoroutine(GoToGameOver());
     }
 
-    IEnumerator goToGameOver() {
+    IEnumerator GoToGameOver() {
         yield return new WaitForSeconds(2);
         SceneManager.Load("GameOver");
     }

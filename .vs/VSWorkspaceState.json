@@ -1,14 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\firebase_directory",
+    "\\firebase_directory\\functions",
     "\\MemoryGame",
     "\\MemoryGame\\Assets",
     "\\MemoryGame\\Assets\\Scripts",
-    "\\MemoryGame\\Assets\\Scripts\\EscapeAtoms",
-    "\\MemoryGame\\Assets\\Scripts\\Global_Scripts",
-    "\\MemoryGame\\Assets\\Scripts\\Hub",
-    "\\MemoryGame\\Assets\\Scripts\\Memorygame"
+    "\\MemoryGame\\Assets\\Scripts\\Global_Scripts"
   ],
-  "SelectedNode": "\\MemoryGame\\Assets\\Scripts\\Memorygame\\Card.cs",
+  "SelectedNode": "\\MemoryGame\\Assets\\Scripts\\Global_Scripts\\GlobalVariables.cs",
   "PreviewInSolutionExplorer": false
 }
