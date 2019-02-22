@@ -17,7 +17,7 @@ public class MoleculeManagement : MonoBehaviour {
     // Update is called once per frame
 	void Update(){
         if(Molecules== null)
-            GameOver();
+            Global.gameOver = true;
     }
 
     void Initialize()
@@ -41,10 +41,10 @@ public class MoleculeManagement : MonoBehaviour {
         _init = true;
     }
 
-    void GameOver()
+    void IsGameOver()
     {
-            GlobalVariables.gameOver= true;
-            GlobalVariables.IsItGameOver();
+        if (Global.gameOver)
+            StartCoroutine(Global.GoToGameOver());
     }
 
 

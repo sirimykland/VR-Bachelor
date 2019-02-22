@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Timers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
 
 public static class GlobalVariables
@@ -149,15 +150,11 @@ public static class GlobalVariables
         timertekst = "Dette er tid: "+ (int)gameTimer.Elapsed.TotalSeconds;
     }
      */
-    public static bool IsGameOver()
-    {
-        if(gameOver)
-            StartCoroutine(GoToGameOver());
-    }
 
-    IEnumerator GoToGameOver() {
+
+    public static IEnumerator GoToGameOver() {
         yield return new WaitForSeconds(2);
-        SceneManager.Load("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
    
 

@@ -13,14 +13,12 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>5.6.6f2</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -90,10 +88,13 @@
     <Compile Include="Assets\Scripts\EscapeAtoms\MoleculeManagement.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\DBcurScoreCom.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\DBfinalScoreCom.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\FetchDB.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\Global.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\GlobalVariables.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\ScoreDB.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\Timer - Copy.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\Timer.cs" />
-    <Compile Include="Assets\Scripts\Hub\SG_GameController.cs" />
+    <Compile Include="Assets\Scripts\Hub\HubController.cs" />
     <Compile Include="Assets\Scripts\Keyboard.cs" />
     <Compile Include="Assets\Scripts\Memorygame\ButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Memorygame\CamMouseLook.cs" />

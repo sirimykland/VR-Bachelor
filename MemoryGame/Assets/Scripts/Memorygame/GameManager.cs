@@ -120,4 +120,10 @@ public class GameManager : MonoBehaviour {
         }
 
     }
+    public void IsGameOver()
+    {
+        if (Global.gameOver)
+            StartCoroutine(Global.GoToGameOver());
+    }
+    
 }
