@@ -16,7 +16,8 @@ public class ScoreDB: MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("game", Global.gameChoice);
-        form.AddField("username", Global.name);
+        form.AddField("userID", Global.userID);
+        form.AddField("username", Global.username);
         form.AddField("score", Global.score);
 
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);

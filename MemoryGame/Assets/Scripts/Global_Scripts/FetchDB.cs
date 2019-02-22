@@ -8,10 +8,10 @@ public class FetchDB : MonoBehaviour
     public void addScore(int score)
     {
         Debug.Log("sending entry");
-        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/cur_userentry", score));
+        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/cur_userentry"));
     }
 
-    IEnumerator postRequest(string url, int score)
+    IEnumerator postRequest(string url)
     {
         WWWForm form = new WWWForm();
         form.AddField("game", GlobalVariables.gameChoice);
