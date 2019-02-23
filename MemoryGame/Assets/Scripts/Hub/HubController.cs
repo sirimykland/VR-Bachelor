@@ -24,7 +24,7 @@ public class SG_GameController : MonoBehaviour {
     public void StartMemory_Onclick()
     {
         Global.gameChoice = "MemorygGame";
-        SceneManager.LoadScene(Global.gameChoice);
+        SceneManager.LoadScene(Global.scenes[1]);
     }
 
     void Start () {
@@ -36,5 +36,6 @@ public class SG_GameController : MonoBehaviour {
         Global.score = 0;
         Global.InsertSomePlayersOnScoreBoard();
         scoreboard.GetComponent<Text>().text = Global.PlayerScoreToString();
+        Global.ResetPlayer();
 	}
 }

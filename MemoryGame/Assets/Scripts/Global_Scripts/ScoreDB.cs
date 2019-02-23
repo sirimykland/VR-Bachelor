@@ -8,15 +8,16 @@ public class ScoreDB: MonoBehaviour
 
     void Start()
     {
+        Global.ResetPlayer();
         Debug.Log("sending entry");
-        StartCoroutine(cur_postRequest("https://us-central1-uisvr2019.cloudfunctions.net/userentry"));
+        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/userentry"));
     }
 
-    IEnumerator cur_postRequest(string url)
+    IEnumerator postRequest(string url)
     {
         WWWForm form = new WWWForm();
         form.AddField("game", Global.gameChoice);
-        //form.AddField("userID", Global.userID);
+        
         form.AddField("username", Global.username);
         form.AddField("score", Global.score);
 

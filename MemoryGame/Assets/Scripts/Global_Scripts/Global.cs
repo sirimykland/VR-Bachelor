@@ -11,7 +11,7 @@ public static class Global
     public static int level { get; set; }
     public static int MGLvl { get; set; }
 
-    public static int userID { get; set; }
+    //public static int userID { get; set; }
     public static string username { get; set; }
     public static int score { get; set; }
     public static string gameChoice { get; set; }
@@ -76,6 +76,11 @@ public static class Global
             number++;
         }
         return scoreText;
+    }
+    public static void ResetPlayer() {
+        username = "test";
+        score = 2;
+        gameChoice = scenes[1];
     }
 
 
