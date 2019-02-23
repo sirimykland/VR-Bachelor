@@ -16,7 +16,7 @@ public class ScoreDB: MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("game", Global.gameChoice);
-        form.AddField("userID", Global.userID);
+        //form.AddField("userID", Global.userID);
         form.AddField("username", Global.username);
         form.AddField("score", Global.score);
 

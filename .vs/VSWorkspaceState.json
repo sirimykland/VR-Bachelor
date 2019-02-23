@@ -6,8 +6,9 @@
     "\\MemoryGame",
     "\\MemoryGame\\Assets",
     "\\MemoryGame\\Assets\\Scripts",
-    "\\MemoryGame\\Assets\\Scripts\\Global_Scripts"
+    "\\MemoryGame\\Assets\\Scripts\\Global_Scripts",
+    "\\MemoryGame\\Assets\\Scripts\\Hub"
   ],
-  "SelectedNode": "\\firebase_directory\\functions\\index.js",
+  "SelectedNode": "\\MemoryGame\\Assets\\Scripts\\Global_Scripts\\FetchDB.cs.meta",
   "PreviewInSolutionExplorer": false
 }

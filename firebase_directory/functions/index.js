@@ -1,12 +1,10 @@
-const functions = requestuire('firebase-functions');
-
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 // exports.helloWorld = functions.https.onrequestuest((request, response) => {
 //  response.send("Hello from Firebase!");
 // });
-
+const functions = require('firebase-functions');
 var firebase = require("@firebase/app").default;
 //require("firebase-auth");
 require("@firebase/database");
@@ -21,35 +19,22 @@ var config = {
 };
 firebase.initializeApp(config);
 
-function writeUser( game, userID, username, score) {
-    firebase.database().ref(game + '/' + userID).set({
-        username: username,
-        score: parseInt(score)
-    });
-    firebase.database().ref('userID').set(parseInt(userID));
-}
-function int getNextUserID(){
-    if (firebase.database().ref('userID')) {
-        int nextID = parseInt(firebase.database().ref('userID').);
-        return ++nextID;
-    } else {
-        return 0;
-    }
+function writeUser( game,  username, score) {
+    firebase.database().ref(game + '/' + username).set(parseInt(score));
+    /*firebase.database().ref('userID').set(parseInt(userID));*/
 }
 
-function deleteUser(game, userID) {
-    firebase.database().ref(game + '/' + userID).set(null);
+function deleteUser(game, username) {
+    firebase.database().ref(game + '/' + username).set(null);
 }
 
 function deleteAll(game) {
     firebase.database().ref(game+'/').set(null);
 }
 
-function editUsername(game, userID, newUsername) {
-    firebase.database().ref(game + '/' + newUsername).set({
-        username: newUsername
-    });
-    
+function editUsername(game, username, newUsername,score) {
+    firebase.database().ref(game + '/' + username).set(null);
+    firebase.database().ref(game + '/' + newUsername).set(score);   
 }
 
 //function cur_writeUserScore(username, score) {
@@ -59,23 +44,30 @@ function editUsername(game, userID, newUsername) {
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
 
-
-exports.addUser = functions.https.onrequest((request, response) => {
-    if (request.body.game !== null & request.body.userID!== null & request.body.username !== null & request.body.score !== null) {
-        writeUserScore(request.body.game, request.body.userID, request.body.username, request.body.score);
-        response.send("The score was succesfullly recived");
+exports.editUserentry = functions.https.onRequest((request, response) => {
+    if (request.body.game !== null & request.body.username !== null && request.body.newUsername !== null && request.body.score !== null) {
+        editUsername(request.body.game, request.body.username, request.body.newUsername, request.body.score);
+        response.send("The entry was succesfully edited!");
     } else {
+        response.send(":(")
+    }
+});
+exports.addUser = functions.https.onRequest((request, response) => {
+    if (request.body.game !== null & request.body.username !== null & request.body.score !== null) {
+        writeUser(request.body.game, request.body.username, request.body.score);
+        response.send("The score was succesfullly recived");
+    }else {
         response.send(":(");
     }
 });
 
-exports.nextID = functions.https.onrequest((request, response) => {
+/*exports.nextID = functions.https.onrequest((request, response) => {
     if (request.body.game !== null & request.body.username !== null & request.body.score !== null) {
         response.send(getNextUserID());
     } else {
         response.send(0);
     }
-});
+});*/
 
 /*exports.cur_userentry = functions.https.onrequest((request, response) => {
     if (request.body.game !== null, request.body.username !== null & request.body.score !== null) {
@@ -86,11 +78,3 @@ exports.nextID = functions.https.onrequest((request, response) => {
     }
 });*/
 
-exports.editUserentry = functions.https.onrequest((request, response) => {
-    if (request.body.game !== null & request.body.username !== null && request.body.newUsername !== null && request.body.score !== null) {
-        editUsername(request.body.game, request.body.username, request.body.newUsername, request.body.score);
-        response.send("The entry was succesfully edited!");
-    } else {
-        response.send(":(")
-    }
-});
