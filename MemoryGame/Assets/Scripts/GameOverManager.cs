@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour {
+    public Text message;
+    public Text points;
 
-    private void Update()
+    private void Start()
     {
-        GameObject btn = GameObject.FindGameObjectWithTag("ToHub");
+        message.text = "Well done " + Global.username+",";
+        points.text ="You scored "+ Global.score+ "points.";
     }
-    void ToHub_OnClick()
+    public void ToHub_OnClick()
     {
+        Debug.Log("To Hub button was clicked");
         SceneManager.LoadScene(Global.scenes[3]);
     }
 }

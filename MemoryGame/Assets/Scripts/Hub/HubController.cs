@@ -4,26 +4,26 @@
 //Idsø, Leiv Erling
 //Kolberg, Lars-Espen
 
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SG_GameController : MonoBehaviour {
+public class HubController : MonoBehaviour {
    
     public GameObject scoreboard;
 
-    public void StartGame_Onclick()
+    public void StartButton_OnClick()
     {
-        SceneManager.LoadScene(Global.scenes[1]);
+        Debug.Log("startbutton was clicked");
+        Global.gameChoice = "MemoryGame";
+        SceneManager.LoadScene("MemoryGame");
     }
 
     // lag en metoder per portal
-    public void StartMemory_Onclick()
+    public void StartMemory_OnClick()
     {
-        Global.gameChoice = "MemorygGame";
+        Debug.Log("Memorybutton was clicked");
+        Global.gameChoice = "MemoryGame";
         SceneManager.LoadScene(Global.scenes[1]);
     }
 

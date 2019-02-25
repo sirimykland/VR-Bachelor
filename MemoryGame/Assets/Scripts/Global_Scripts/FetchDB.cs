@@ -8,20 +8,20 @@ public class FetchDB : MonoBehaviour
     public void addScore(int score)
     {
         Debug.Log("sending entry");
-        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/cur_userentry"));
+        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/userentry"));
     }
 
     IEnumerator postRequest(string url)
     {
         WWWForm form = new WWWForm();
-        form.AddField("game", GlobalVariables.gameChoice);
-        form.AddField("username", GlobalVariables.name);
-        form.AddField("score", GlobalVariables.score);
+        form.AddField("game", Global.gameChoice);
+        form.AddField("username", Global.username);
+        form.AddField("score", Global.score);
 
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);
-        yield return uwr.Send();
+        yield return uwr.SendWebRequest();
 
-        if (uwr.isError)
+        if (uwr.isNetworkError)
         {
             Debug.Log("Error While Sending: " + uwr.error);
         }

@@ -9,6 +9,7 @@
 
         public void ClickKey(string character)
         {
+            Debug.Log("Character pressed "+character);
             input.text += character;
         }
 

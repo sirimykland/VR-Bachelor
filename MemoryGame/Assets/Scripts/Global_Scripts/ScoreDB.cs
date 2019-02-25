@@ -17,14 +17,14 @@ public class ScoreDB: MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("game", Global.gameChoice);
-        
+   
         form.AddField("username", Global.username);
         form.AddField("score", Global.score);
 
         UnityWebRequest uwr = UnityWebRequest.Post(url, form);
-        yield return uwr.Send();
+        yield return uwr.SendWebRequest();
 
-        if (uwr.isError)
+        if (uwr.isNetworkError)
         {
             Debug.Log("Error While Sending: " + uwr.error);
         }

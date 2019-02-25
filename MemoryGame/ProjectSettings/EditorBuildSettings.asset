@@ -4,4 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Hub.unity
+    guid: 87d445d8af05e9942b66542fc80c61cb
+  - enabled: 1
+    path: Assets/Scenes/MemoryGame.unity
+    guid: 04ab8dac796eaaf4b9174cd1a7bef24f
+  - enabled: 1
+    path: Assets/Scenes/EscapeAtoms.unity
+    guid: 21bb731dc56532c4790af6f12528a7d3
+  - enabled: 1
+    path: Assets/Scenes/GameStop.unity
+    guid: 668b84dfc6791ca4b83f5d54d4d0c479
+  m_configObjects: {}
