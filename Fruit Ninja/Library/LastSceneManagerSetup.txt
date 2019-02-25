@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/main.unity
+- path: Assets/VRTK/Examples/[004 - Locomotion] Teleporting.unity
   isLoaded: 1
   isActive: 1

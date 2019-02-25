@@ -8,8 +8,9 @@ TagManager:
   - projectile
   - Undefined
   - Sword
-  - Metal
+  - Atom1
   - NonMetal
+  - Metal
   layers:
   - Default
   - TransparentFX
