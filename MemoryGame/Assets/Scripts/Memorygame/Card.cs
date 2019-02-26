@@ -44,16 +44,13 @@ public class Card : MonoBehaviour {
         }
     }
     
-
-    void OnMouseUpAsButton() { 
-            //Debug.Log("Pressed card.");
-            FlipCard();
-    }
     public void SetupGraphics(Material backside) {
         this.gameObject.GetComponentInChildren<Renderer>().material = new Material(backside);
     }
 
     public void FlipCard() {
+        Debug.Log("Flipped card" + _state);
+
         if (_state == 0){
             _state = 1;
         }else if (_state == 1){
@@ -67,7 +64,7 @@ public class Card : MonoBehaviour {
             StartCoroutine(rotateStuff());
         }
 
-        //Debug.Log("Flipped card"+ _state);
+        
     }
 
     public int CardValue{
@@ -91,6 +88,7 @@ public class Card : MonoBehaviour {
     }
 
     public void falseCheck() {
+        Debug.Log("falscheck");
         StartCoroutine(pause());
     }
 

@@ -23,17 +23,12 @@ public class GameManager : MonoBehaviour {
     private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
     private WaitForSeconds m_EndWait;           // Used to have a delay whilst the round or game ends.
 
-   
 
-    // Update is called once per frame
-    void Update(){
-        if (!_init)
-            InitializeCards();
 
-        if (Input.GetMouseButtonUp(0)) {
-            //Debug.Log("Pressed button.");
-            CheckCards();
-        }
+    
+    void Start()
+    {
+        InitializeCards();
     }
 
     void InitializeCards(){
@@ -75,7 +70,7 @@ public class GameManager : MonoBehaviour {
         return backsides[i - 1];
     }
 
-    void CheckCards(){
+    public void CheckCards() { 
         List<int> c = new List<int>();
         //Debug.Log("Checking cards...");
         for(int i=0; i< cards.Length; i++)

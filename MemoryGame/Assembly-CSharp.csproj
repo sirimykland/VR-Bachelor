@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Memorygame\ButtonBehaviour.cs" />
     <Compile Include="Assets\Scripts\Memorygame\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Memorygame\Card.cs" />
+    <Compile Include="Assets\Scripts\Memorygame\CardHandler.cs" />
     <Compile Include="Assets\Scripts\Memorygame\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Memorygame\GameManager.cs" />
     <Compile Include="Assets\Scripts\Memorygame\MenuBehaviour.cs" />

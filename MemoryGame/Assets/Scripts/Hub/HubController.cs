@@ -12,19 +12,25 @@ public class HubController : MonoBehaviour {
    
     public GameObject scoreboard;
 
-    public void StartButton_OnClick()
+    public void StartButton_OnClick(Collider col)
     {
-        Debug.Log("startbutton was clicked");
-        Global.gameChoice = "MemoryGame";
-        SceneManager.LoadScene("MemoryGame");
+        Debug.Log("StartButton_OnClick(Collider col):  was entered");
+        if (col.CompareTag("StartButton"))
+        {
+            Debug.Log("startbutton was clicked");
+            Global.gameChoice = "MemoryGame";
+            SceneManager.LoadScene("MemoryGame");
+        }
     }
 
     // lag en metoder per portal
     public void StartMemory_OnClick()
     {
-        Debug.Log("Memorybutton was clicked");
-        Global.gameChoice = "MemoryGame";
-        SceneManager.LoadScene(Global.scenes[1]);
+        
+            Debug.Log("Memorybutton was clicked");
+            Global.gameChoice = "MemoryGame";
+            SceneManager.LoadScene("MemoryGame");//Global.scenes[1]);
+        
     }
 
     void Start () {
