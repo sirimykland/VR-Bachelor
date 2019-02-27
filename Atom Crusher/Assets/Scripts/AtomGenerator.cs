@@ -98,17 +98,17 @@ public class AtomGenerator : MonoBehaviour {
         {
             case 1:
                 //position = new Vector3(-4f, 3.5f, 21f);
-                position = new Vector3(-4f, 6.2f, 21f);
+                position = new Vector3(-2f, 0.5f, 21f);
                 break;
             case 2:
-                position = new Vector3(-1.5f, 6.2f, 21f);
+                position = new Vector3(-1.3f, 2f, 21f);
                 break;
             case 3:
-                position = new Vector3(1.5f, 6.2f, 21f);
+                position = new Vector3(1.3f, 2f, 21f);
                 break;
             case 4:
                 //position = new Vector3(4f, 3.5f, 21f);
-                position = new Vector3(4f, 6.2f, 21f);
+                position = new Vector3(2f, 0.5f, 21f);
                 break;
         }
         //if metal atom

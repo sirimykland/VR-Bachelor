@@ -20,7 +20,7 @@ public class WallCollider : MonoBehaviour {
     {
         if ((!gameBehaviour.gameOver) && atom.gameObject.CompareTag("NonMetal"))
         {
-            source.PlayOneShot(negativeWallSound, 1f);
+            source.PlayOneShot(negativeWallSound, 0.4f);
 
             gameBehaviour.lives--;
             gameBehaviour.livesText.text = "Lives: " + gameBehaviour.lives.ToString();
@@ -29,7 +29,7 @@ public class WallCollider : MonoBehaviour {
         
         if (atom.gameObject.CompareTag("Metal"))
         {
-            source.PlayOneShot(positiveWallSound, 1f);
+            source.PlayOneShot(positiveWallSound, 0.4f);
             Destroy(atom.gameObject);
         }
     }

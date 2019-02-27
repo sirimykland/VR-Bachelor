@@ -29,7 +29,7 @@ public class AtomCollider : MonoBehaviour {
             if (atom.gameObject.CompareTag("NonMetal"))
             {
                 AtomExplode(atom.gameObject, nonMetalCube);
-                source.PlayOneShot(positiveHitSound, 1f);
+                source.PlayOneShot(positiveHitSound, 0.3f);
                 Destroy(atom.gameObject);
                 gameBehaviour.score++;
                 gameBehaviour.scoreText.text = "Score: " + gameBehaviour.score.ToString();
@@ -37,7 +37,7 @@ public class AtomCollider : MonoBehaviour {
             if (atom.gameObject.CompareTag("Metal"))
             {
                 AtomExplode(atom.gameObject, metalCube);
-                source.PlayOneShot(negativeHitSound, 1f);
+                source.PlayOneShot(negativeHitSound, 0.4f);
                 Destroy(atom.gameObject);
                 gameBehaviour.lives--;
                 gameBehaviour.livesText.text = "Lives: " + gameBehaviour.lives.ToString();
