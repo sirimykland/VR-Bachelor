@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: faf17ca97d6e5464895085a4d5c07262
+  productGUID: 60307f03fba9d3e4eb56778dc65cedfc
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -681,7 +681,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: ac41d3e6-c0d1-4ea0-bcea-fd83862fa8fb
   framebufferDepthMemorylessMode: 0
-  projectName: Fruit Ninja
+  projectName: 
   organizationId: ssebsson
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

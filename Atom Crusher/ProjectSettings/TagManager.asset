@@ -4,14 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ExcludeTeleport
   - projectile
   - FxTemporaire
-  - TeleportIgnore
-  - Metal
-  - NonMetal
+  - ExcludeTeleport
   - Sword
   - Atom1
+  - Metal
+  - NonMetal
   - Cube
   layers:
   - Default
