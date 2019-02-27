@@ -10,13 +10,20 @@ public class Molecule : MonoBehaviour {
     [HideInInspector]
     public int starterAtom;
     private bool _give;
+    private bool _init= false;
     
     public void setupWall(){
         _atomsList = new List<Atom>();
         Atom a = Instantiate(GetComponentInParent<MoleculeManagement>().Atoms[starterAtom]);
-        //Destroy(a.rigidbody);
+        a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        Destroy(a.GetComponent<Rigidbody>());
+        Destroy(a.GetComponent<SphereCollider>());
+        gameObject.AddComponent<SphereCollider>().radius=0.75f;
+
         addAtom(a);
         giveAwayState();
+        _init = true;
+
     }
 
     public void giveAwayState() {
@@ -30,20 +37,26 @@ public class Molecule : MonoBehaviour {
         get { return _noElectrons; }
     }
 
-    void OnCollisionEnter(Collision col) {
-        if (col.gameObject.GetComponent<Atom>())
+    void OnTriggerEnter(Collider col) {
+        if (_init)
         {
-            Atom _collidedAtom = col.gameObject.GetComponent<Atom>();
-            int sum = _noElectrons + _collidedAtom.NoElectrons;
-
-            if ((_give && !_collidedAtom.Give) || (!_give && _collidedAtom.Give))
+            if (col.gameObject.GetComponent<Atom>())
             {
-                if (sum <= 8)
-                {   
-                    addAtom(_collidedAtom);
+                Atom _collidedAtom = col.gameObject.GetComponent<Atom>();
+                Debug.Log(_init+": "+_collidedAtom.Name + " collided with " + _atomsList[0].Name);
+                int sum = _noElectrons + _collidedAtom.NoElectrons;
+
+                if ((_give && !_collidedAtom.Give) || (!_give && _collidedAtom.Give))
+                {
+
+                    if (sum <= 8)
+                        Debug.Log("Collition valid");
+                    {
+                        addAtom(_collidedAtom);
+                    }
                 }
+
             }
-                
         }
     }
 
@@ -54,9 +67,15 @@ public class Molecule : MonoBehaviour {
         Destroy(newAtom.GetComponent<Rigidbody>());
         _atomsList.Add(newAtom);
         _noElectrons = newAtom.NoElectrons;
-        newAtom.transform.parent = transform;
+
+        // her og nedover må noe gjøres for å få posisjon 000
+        newAtom.transform.parent = gameObject.transform;
+        newAtom.transform.localScale += new Vector3(1, 1, 1);
+
+        Debug.Log(newAtom.transform.localPosition + "  =   " + setLocation());
         newAtom.transform.localPosition = setLocation();
-        newAtom.transform.localScale+= new Vector3(1,1,1);
+        Debug.Log(newAtom.transform.localPosition );
+        
 
         //sjekker om fullt ytterskal
         fullMolecule();
@@ -64,6 +83,7 @@ public class Molecule : MonoBehaviour {
     Vector3 setLocation()
     {
         int length = _atomsList.Count;
+        Debug.Log("atomlist is of length "+length);
         switch (length)
         {
             case 1:

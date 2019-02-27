@@ -6,18 +6,15 @@ using UnityEngine;
 public class Atom : MonoBehaviour {
     public int _noElectrons;
     public string _name;
-    private bool _give;
-    
-    void Start(){
-        gameObject.AddComponent<Rigidbody>();  
-    }
+
+
     
     public void giveAwayState()
     {
         if (_noElectrons > 4 && _noElectrons < 8)
-            _give = true;
+            Give = true;
         else
-            _give = false;
+            Give = false;
     }
     // Update is called once per frame
     public int attractable()
@@ -37,11 +34,7 @@ public class Atom : MonoBehaviour {
         set { _name = value; }
     }
 
-    public bool Give
-    {
-        get { return _give; }
-        set { _give = value; }
-    }
+    public bool Give { get; set; }
 
     void fullMolecule(){
         if (_noElectrons == 8)
