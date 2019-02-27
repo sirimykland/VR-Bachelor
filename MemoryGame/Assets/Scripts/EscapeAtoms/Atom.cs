@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Atom : MonoBehaviour {
     public int _noElectrons;
     public string _name;
     private bool _give;
-
+    
+    void Start(){
+        gameObject.AddComponent<Rigidbody>();  
+    }
+    
     public void giveAwayState()
     {
         if (_noElectrons > 4 && _noElectrons < 8)

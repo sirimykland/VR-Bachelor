@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Molecule : MonoBehaviour {
     private List<Atom> _atomsList;
+
     // Use this for initialization
     private int _noElectrons=0;
     [HideInInspector]
@@ -13,7 +14,7 @@ public class Molecule : MonoBehaviour {
     public void setupWall(){
         _atomsList = new List<Atom>();
         Atom a = Instantiate(GetComponentInParent<MoleculeManagement>().Atoms[starterAtom]);
-
+        //Destroy(a.rigidbody);
         addAtom(a);
         giveAwayState();
     }
@@ -38,7 +39,7 @@ public class Molecule : MonoBehaviour {
             if ((_give && !_collidedAtom.Give) || (!_give && _collidedAtom.Give))
             {
                 if (sum <= 8)
-                {
+                {   
                     addAtom(_collidedAtom);
                 }
             }
@@ -47,14 +48,15 @@ public class Molecule : MonoBehaviour {
     }
 
     void addAtom(Atom newAtom){
+        //sky av collisjon elns
+
+        //fjerner ridgid body
+        Destroy(newAtom.GetComponent<Rigidbody>());
         _atomsList.Add(newAtom);
         _noElectrons = newAtom.NoElectrons;
         newAtom.transform.parent = transform;
         newAtom.transform.localPosition = setLocation();
         newAtom.transform.localScale+= new Vector3(1,1,1);
-
-
-        //sky av collisjon elns
 
         //sjekker om fullt ytterskal
         fullMolecule();
@@ -78,7 +80,18 @@ public class Molecule : MonoBehaviour {
     }
 
     void fullMolecule(){
-        if(_noElectrons==8)
+        if (_noElectrons == 8)
+        {
+            //eksplosjon 
+            Explode(gameObject.GetComponent<Vector3>());
             Destroy(gameObject);
+        }
+    }
+
+    public ParticleSystem explosion;
+
+    public void Explode(Vector3 position)
+    { 
+        Instantiate(explosion, position, Quaternion.identity);
     }
 }

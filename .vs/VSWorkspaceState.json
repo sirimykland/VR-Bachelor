@@ -6,9 +6,11 @@
     "\\MemoryGame",
     "\\MemoryGame\\Assets",
     "\\MemoryGame\\Assets\\Scripts",
+    "\\MemoryGame\\Assets\\Scripts\\EscapeAtoms",
     "\\MemoryGame\\Assets\\Scripts\\Global_Scripts",
-    "\\MemoryGame\\Assets\\Scripts\\Hub"
+    "\\MemoryGame\\Assets\\Scripts\\Hub",
+    "\\MemoryGame\\Assets\\Scripts\\Memorygame"
   ],
-  "SelectedNode": "\\MemoryGame\\Assets\\Scripts\\Global_Scripts\\FetchDB.cs.meta",
+  "SelectedNode": "\\MemoryGame\\Assets\\Scripts\\EscapeAtoms\\Atom.cs",
   "PreviewInSolutionExplorer": false
 }
