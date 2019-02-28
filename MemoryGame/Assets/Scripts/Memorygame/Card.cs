@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public class Card : MonoBehaviour {
-
+    
     public static bool DO_NOT_TURN = false;
 
     [SerializeField]
@@ -17,9 +17,11 @@ public class Card : MonoBehaviour {
     private bool _initialized = false;
 
     private float _speed = 10F;
+    private int _timesFlipped;
 
     void Start(){
         _state = 0;
+        _timesFlipped = 0;
     }
 
     IEnumerator rotateStuff()
@@ -42,6 +44,7 @@ public class Card : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, root, 0);
             yield return null;
         }
+        Debug.Log("fully rotated ");
     }
     
     public void SetupGraphics(Material backside) {
@@ -49,22 +52,21 @@ public class Card : MonoBehaviour {
     }
 
     public void FlipCard() {
-        Debug.Log("Flipped card" + _state);
+        //Debug.Log("Flipped card" + _state);
 
         if (_state == 0){
             _state = 1;
         }else if (_state == 1){
             _state = 0;
         }
-
+        _timesFlipped++;
+        //Debug.Log("TimesFlipped " + _timesFlipped);
         if (_state == 0 && !DO_NOT_TURN){
-            StartCoroutine(rotateStuff());        
+            StartCoroutine(rotateStuff());     
         }
         else if (_state == 1 && !DO_NOT_TURN){
             StartCoroutine(rotateStuff());
-        }
-
-        
+        }  
     }
 
     public int CardValue{
@@ -75,6 +77,11 @@ public class Card : MonoBehaviour {
     public int CardType{
         get { return _cardType; }
         set { _cardType = value; }
+    }
+    public int TimesFlipped
+    {
+        get { return _timesFlipped; }
+        set { _timesFlipped = value; }
     }
 
     public int State {
@@ -88,19 +95,22 @@ public class Card : MonoBehaviour {
     }
 
     public void falseCheck() {
-        Debug.Log("falscheck");
+        Debug.Log("falsecheck");
         StartCoroutine(pause());
     }
 
+
     IEnumerator pause() {
         yield return new WaitForSeconds(2);
-        if (_state == 0){
+        if (_state == 0)
+        {
             StartCoroutine(rotateStuff());
-            
-        } else if (_state == 1) {
-           StartCoroutine(rotateStuff());
         }
-        DO_NOT_TURN = false;
+        else if (_state == 1)
+        {
+            StartCoroutine(rotateStuff());
+        } 
+        //DO_NOT_TURN = false;
     }
 
 }

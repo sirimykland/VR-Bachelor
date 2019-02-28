@@ -29,7 +29,7 @@ public class HubController : MonoBehaviour {
         
             Debug.Log("Memorybutton was clicked");
             Global.gameChoice = "MemoryGame";
-            SceneManager.LoadScene("MemoryGame");//Global.scenes[1]);
+            SceneManager.LoadScene("GameOver");//Global.scenes[1]);
         
     }
 

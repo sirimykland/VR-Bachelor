@@ -11,7 +11,11 @@ public class CardHandler : MonoBehaviour
     public void Card_OnClick(Card card)
     {
         Debug.Log("click");
-        card.FlipCard();
+        if (!gameManger.lockState)
+        {
+            Debug.Log("click");
+            card.FlipCard();
+        }
     }
 
     // Update is called once per frame
@@ -19,4 +23,7 @@ public class CardHandler : MonoBehaviour
     {
         gameManger.CheckCards();
     }
+
+
+
 }

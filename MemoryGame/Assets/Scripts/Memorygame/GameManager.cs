@@ -10,16 +10,31 @@ public class GameManager : MonoBehaviour {
     public Material[] backsides;
     public Card[] cards;
 
-    public Text matchText;
-    public Text mistakesText;
-
     private bool _init = false;
-    private int matches = 8;
-    private int mistakes = 0;
+
+    public Text pointsText;
+    public Text pairsText;
+    public Text attemptsText;
+
+    public AudioClip positiveSound;
+    public AudioClip negativeSound;
+    private AudioSource source;
+
+    private int points = 0;
+    private int pairs = 8;
+    private int attempts = 0;
+    private bool lastAttemptSuccessful = false;
+
+    public bool lockState = false;
     
     void Start()
     {
         InitializeCards();
+    }
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
     }
 
     void InitializeCards(){
@@ -28,13 +43,11 @@ public class GameManager : MonoBehaviour {
         {
             for (int j = 0; j < 2; j++)
             {
-                //Debug.Log(i + ", " + j);
                 bool test = false;
                 int choice = 0;
                 while (!test)
                 {
                     choice = UnityEngine.Random.Range(0, cards.Length);
-                    //Debug.Log(choice);
                     test = !(cards[choice].Initialized);
                 }
                 cards[choice].CardValue = i;
@@ -45,18 +58,33 @@ public class GameManager : MonoBehaviour {
 
         foreach (Card c in cards) { 
             c.SetupGraphics(backsides[(c.CardValue + c.CardValue + c.CardType)]);
-            //Debug.Log("card no: " + (c.CardValue + c.CardValue + c.CardType) );
         }
 
         if (!_init)
             _init = true;
     }
 
+    void SetLockState(bool state)
+    {
+        if (state)
+        {
+            Card.DO_NOT_TURN = true;
+            lockState = true;
+        }else
+        {
+            Card.DO_NOT_TURN = false;
+            lockState = false;
+        }
+        Debug.Log("lockstate "+ lockState);
+        
+    }
+
     public Material GetBackside(int i){
         return backsides[i - 1];
     }
 
-    public void CheckCards() { 
+    public void CheckCards() {
+        
         List<int> c = new List<int>();
 
         for(int i=0; i< cards.Length; i++)
@@ -75,35 +103,73 @@ public class GameManager : MonoBehaviour {
     void CardComparison(List<int> c)
     {
         // sets all card to do not turn
-        Card.DO_NOT_TURN = true;
+        SetLockState(true);
 
         int x = 0;
         if(cards[c[0]].CardValue ==  cards[c[1]].CardValue && cards[c[0]].CardType != cards[c[1]].CardType)
         {
             x = 2;
-            matches--;
-            matchText.text = "Pairs left: "+matches;
-            //Debug.Log("Cards matches.");
-            if (matches == 0)
-                SceneManager.LoadScene("GameMenu");
+            pairs--;
+            pairsText.text = "Pairs left: "+pairs;
+            source.PlayOneShot(positiveSound, 0.4f);
 
-        }else
+            Points(true, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
+            //Debug.Log("Cards matches.");
+            if (pairs == 0)
+            {
+                GameOver();
+            }
+        }
+        else
         {
-            mistakes++;
-            mistakesText.text = "Mistakes made: "+ mistakes;
+            attempts++;
+            attemptsText.text = "Attempts: "+ attempts;
+
+            source.PlayOneShot(negativeSound, 0.4f);
+
+            Points( false, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
         }
         for (int i =0; i<c.Count; i++)
         {
             cards[c[i]].GetComponent<Card>().State = x;
             cards[c[i]].GetComponent<Card>().falseCheck();
         }
-        
-
+        SetLockState(false);
     }
-    public void IsGameOver()
+
+    /*  The player gets 40 points for each pairs that he or she matches,
+     *  If the player manages to match 2 pairs in a row, the points will be doubled.
+     *  For each mistake the player looses at least -10 points for each mistake, 
+     *  NOTE: if the card have been flipped before this number will increase.  
+     *   ex:    timesflipped1 =number_of_times_the_first_card_have_been_flipped
+     *          timesflipped2 =number_of_times_the_second_card_have_been_flipped
+     *          points+= -5*timesflipped1 + -5*timesflipped2;
+     */
+    public void Points(bool succesStatus, int timesflipped1, int timesflipped2)
     {
-        if (Global.gameOver)
-            StartCoroutine(Global.GoToGameOver());
+        if (succesStatus && lastAttemptSuccessful)
+        {
+            points += 80;
+        }
+        else if (succesStatus)
+        {
+            points += 40;
+        }
+        else if (!succesStatus)
+        {
+            points += -5*timesflipped1 + -5*timesflipped2;
+        }
+        lastAttemptSuccessful = succesStatus;
+
+        // update scoreboard:
+        pointsText.text = "Points: " + points;
+    }
+
+    public void GameOver()
+    {
+        Global.score = points;
+        Global.gameOver = true;
+        StartCoroutine(Global.GoToGameOver());
     }
     
 }
