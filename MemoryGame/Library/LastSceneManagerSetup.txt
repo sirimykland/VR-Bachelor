@@ -1,8 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Memory.unity
-=======
-- path: Assets/Scenes/MemoryGame.unity
->>>>>>> parent of ae428086... 27.02.2019
-  isLoaded: 1
-  isActive: 1
