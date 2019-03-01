@@ -4,45 +4,63 @@ using UnityEngine;
 
 
 public class Atom : MonoBehaviour {
-    public int _noElectrons;
-    public string _name;
+    public int electrons;
+    public string atomname;
 
-
+    public int Outer { get; set; }
+    public int Give { get; set; }
     
-    public void giveAwayState()
-    {
-        if (_noElectrons > 4 && _noElectrons < 8)
-            Give = true;
-        else
-            Give = false;
-    }
-    // Update is called once per frame
-    public int attractable()
-    {
-        // some counting of electrons
-        return 0;
-    }
 
-    public int NoElectrons
+    private void Start()
     {
-        get { return _noElectrons; }
-        set { _noElectrons = value; }
+        OuterShell();
+    }
+    public void SetValues(int elect, string name)
+    {
+        electrons = elect;
+        atomname = name;
+        OuterShell();
+    }
+    /* give meaning:
+     * 0: give electrons
+     * 1: give and receive (Hydrogen only)
+     * 2: receive electrons
+     * 3: full outer shell
+     */
+    public void GiveAwayState()
+    {
+        if (Outer == 0 || Outer == 8){
+            Give = 3;
+        }else if (Outer <= 4)
+        {
+            Give = 0;
+        }else if (Outer >= 5 )
+        {
+            Give=2;
+        }
+    }
+    public int Electrons
+    {
+        get { return electrons; }
+        set { electrons = value; }
     }
     public string Name
     {
-        get { return _name; }
-        set { _name = value; }
+        get { return atomname; }
+        set { atomname = value; }
     }
-
-    public bool Give { get; set; }
-
-    void fullMolecule(){
-        if (_noElectrons == 8)
+    private void OuterShell()
+    {
+        if (electrons ==1)
         {
-            //explode animation
+            Outer = 1;
+            Give = 1;
+        }else if (electrons >= 2)
+        {
+            Outer = (electrons - 2) % 8;
+            //Debug.Log("Outer = " + (electrons - 2) % 8);
+            GiveAwayState();
         }
-        
     }
-
-
+    
 }

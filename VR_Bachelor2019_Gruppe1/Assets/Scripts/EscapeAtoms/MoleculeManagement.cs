@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoleculeManagement : MonoBehaviour {
     private bool _init = false;
     public Molecule[] Molecules;
-    public Atom[] Atoms;
+    public GameObject[] Atoms;
     public Atom[] wallAtoms;
 
 
@@ -31,15 +31,12 @@ public class MoleculeManagement : MonoBehaviour {
             if (index>Atoms.Length)
                 index++;
 
-            while(Atoms[index].NoElectrons >= 7) {
+            while(Atoms[index].GetComponent<Atom>().Outer > 7) {
                 index++;
             }
-            m.starterAtom = index++; //post incrementation
+            m.SetupWall(Atoms[index++].GetComponent<Atom>()); //post incrementation
         }
-        foreach(Molecule m in Molecules)
-        {
-            m.setupWall();
-        }
+
         _init = true;
     }
 

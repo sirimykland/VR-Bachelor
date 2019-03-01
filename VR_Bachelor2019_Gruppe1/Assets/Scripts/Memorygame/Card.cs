@@ -25,7 +25,7 @@ public class Card : MonoBehaviour {
        
     }
 
-    IEnumerator rotateStuff(int angle)
+    IEnumerator RotateStuff(int angle)
     {
         float t = 0;
         float root = transform.eulerAngles.y;
@@ -49,7 +49,7 @@ public class Card : MonoBehaviour {
     }
     
     public void SetupGraphics(Material backside) {
-        StartCoroutine(rotateStuff(360));
+        StartCoroutine(RotateStuff(360));
         this.gameObject.GetComponentInChildren<Renderer>().material = new Material(backside);
     }
 
@@ -64,10 +64,10 @@ public class Card : MonoBehaviour {
         _timesFlipped++;
         //Debug.Log("TimesFlipped " + _timesFlipped);
         if (_state == 0 && !DO_NOT_TURN){
-            StartCoroutine(rotateStuff(180));     
+            StartCoroutine(RotateStuff(180));     
         }
         else if (_state == 1 && !DO_NOT_TURN){
-            StartCoroutine(rotateStuff(180));
+            StartCoroutine(RotateStuff(180));
         }  
     }
 
@@ -106,11 +106,11 @@ public class Card : MonoBehaviour {
         yield return new WaitForSeconds(2);
         if (_state == 0)
         {
-            StartCoroutine(rotateStuff(180));
+            StartCoroutine(RotateStuff(180));
         }
         else if (_state == 1)
         {
-            StartCoroutine(rotateStuff(180));
+            StartCoroutine(RotateStuff(180));
         } 
         //DO_NOT_TURN = false;
     }

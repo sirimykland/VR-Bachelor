@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MemoryGame.unity
+- path: Assets/Scenes/EscapeAtoms.unity
   isLoaded: 1
   isActive: 1
