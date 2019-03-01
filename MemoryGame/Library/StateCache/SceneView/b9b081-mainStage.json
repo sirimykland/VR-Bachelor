@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":0.138671875,"y":0.602783203125,"z":-1.9002685546875},"rotation":{"x":-0.08113885670900345,"y":0.8354763984680176,"z":-0.1284237504005432,"w":-0.5281126499176025},"size":5.637363433837891,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":0.0,"y":5.0,"z":-5.0},"rotation":{"x":-0.15551474690437318,"y":0.6455435752868652,"z":-0.13660305738449098,"w":-0.7351383566856384},"size":7.844655513763428,"orthographic":true}
+>>>>>>> parent of ae428086... 27.02.2019

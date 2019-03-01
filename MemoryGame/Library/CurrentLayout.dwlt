@@ -14,10 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 8
     y: 51
     width: 1904
     height: 1101
+=======
+    x: 0
+    y: 43
+    width: 1920
+    height: 1117
+>>>>>>> parent of ae428086... 27.02.2019
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
@@ -43,8 +50,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1904
     height: 1101
+=======
+    width: 1920
+    height: 1117
+>>>>>>> parent of ae428086... 27.02.2019
   m_MinSize: {x: 950, y: 498}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
@@ -64,7 +76,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1904
+=======
+    width: 1920
+>>>>>>> parent of ae428086... 27.02.2019
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -85,8 +101,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 1081
     width: 1904
+=======
+    y: 1097
+    width: 1920
+>>>>>>> parent of ae428086... 27.02.2019
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -108,12 +129,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1904
     height: 1051
   m_MinSize: {x: 583, y: 448}
   m_MaxSize: {x: 12008, y: 8048}
   vertical: 1
   controlID: 126
+=======
+    width: 1920
+    height: 1067
+  m_MinSize: {x: 583, y: 448}
+  m_MaxSize: {x: 12008, y: 8048}
+  vertical: 1
+  controlID: 10
+>>>>>>> parent of ae428086... 27.02.2019
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,12 +163,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1904
     height: 1051
   m_MinSize: {x: 583, y: 448}
   m_MaxSize: {x: 12008, y: 8048}
   vertical: 0
   controlID: 127
+=======
+    width: 1920
+    height: 1067
+  m_MinSize: {x: 583, y: 448}
+  m_MaxSize: {x: 12008, y: 8048}
+  vertical: 0
+  controlID: 11
+>>>>>>> parent of ae428086... 27.02.2019
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -158,12 +197,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1379
     height: 1051
   m_MinSize: {x: 306, y: 448}
   m_MaxSize: {x: 8006, y: 8048}
   vertical: 1
   controlID: 128
+=======
+    width: 1268
+    height: 1067
+  m_MinSize: {x: 306, y: 448}
+  m_MaxSize: {x: 8006, y: 8048}
+  vertical: 1
+  controlID: 12
+>>>>>>> parent of ae428086... 27.02.2019
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -183,8 +231,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1379
     height: 547
+=======
+    width: 1268
+    height: 551
+>>>>>>> parent of ae428086... 27.02.2019
   m_MinSize: {x: 306, y: 224}
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
@@ -206,8 +259,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 410
     height: 547
+=======
+    width: 202
+    height: 551
+>>>>>>> parent of ae428086... 27.02.2019
   m_MinSize: {x: 202, y: 224}
   m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 16}
@@ -230,12 +288,21 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 410
     y: 0
     width: 969
     height: 547
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
+=======
+    x: 202
+    y: 0
+    width: 1066
+    height: 551
+  m_MinSize: {x: 104, y: 124}
+  m_MaxSize: {x: 4004, y: 4024}
+>>>>>>> parent of ae428086... 27.02.2019
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -260,6 +327,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 547
     width: 1379
     height: 504
@@ -267,6 +335,15 @@ MonoBehaviour:
   m_MaxSize: {x: 8006, y: 4024}
   vertical: 0
   controlID: 129
+=======
+    y: 551
+    width: 1268
+    height: 516
+  m_MinSize: {x: 306, y: 224}
+  m_MaxSize: {x: 8006, y: 4024}
+  vertical: 0
+  controlID: 38
+>>>>>>> parent of ae428086... 27.02.2019
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -284,8 +361,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 467
     height: 504
+=======
+    width: 338
+    height: 516
+>>>>>>> parent of ae428086... 27.02.2019
   m_MinSize: {x: 202, y: 224}
   m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 15}
@@ -308,10 +390,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 467
     y: 0
     width: 912
     height: 504
+=======
+    x: 338
+    y: 0
+    width: 930
+    height: 516
+>>>>>>> parent of ae428086... 27.02.2019
   m_MinSize: {x: 104, y: 124}
   m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 19}
@@ -335,10 +424,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1379
     y: 0
     width: 525
     height: 1051
+=======
+    x: 1268
+    y: 0
+    width: 652
+    height: 1067
+>>>>>>> parent of ae428086... 27.02.2019
   m_MinSize: {x: 277, y: 74}
   m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 21}
@@ -367,10 +463,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 8
     y: 628
     width: 465
     height: 484
+=======
+    x: 0
+    y: 624
+    width: 336
+    height: 496
+>>>>>>> parent of ae428086... 27.02.2019
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
@@ -382,10 +485,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+<<<<<<< HEAD
     m_HBaseRangeMin: -232.5
     m_HBaseRangeMax: 232.5
     m_VBaseRangeMin: -233.5
     m_VBaseRangeMax: 233.5
+=======
+    m_HBaseRangeMin: -168
+    m_HBaseRangeMax: 168
+    m_VBaseRangeMin: -239.5
+    m_VBaseRangeMax: 239.5
+>>>>>>> parent of ae428086... 27.02.2019
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -403,25 +513,43 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
+<<<<<<< HEAD
       width: 465
       height: 467
     m_Scale: {x: 1.5, y: 1.5}
     m_Translation: {x: 232.5, y: 233.5}
+=======
+      width: 336
+      height: 479
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 168, y: 239.5}
+>>>>>>> parent of ae428086... 27.02.2019
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -155
       y: -155.66667
       width: 310
       height: 311.33334
+=======
+      x: -168
+      y: -239.5
+      width: 336
+      height: 479
+>>>>>>> parent of ae428086... 27.02.2019
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 1
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 465, y: 484}
+=======
+  m_LastWindowPixelSize: {x: 336, y: 496}
+>>>>>>> parent of ae428086... 27.02.2019
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -447,17 +575,30 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 8
     y: 81
     width: 408
     height: 527
+=======
+    x: 0
+    y: 73
+    width: 200
+    height: 531
+>>>>>>> parent of ae428086... 27.02.2019
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 6ce6ffff
       m_LastClickedID: -6548
       m_ExpandedIDs: 3ee6ffffb2e6ffffb6e6ffff18e7ffff34e7ffff56e8fffffcebffff4eefffffaeefffffe4f5ffffcefbffff084f0000dc5000002e510000
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: cefbffff4a220000
+>>>>>>> parent of ae428086... 27.02.2019
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -502,10 +643,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 418
     y: 81
     width: 965
     height: 527
+=======
+    x: 202
+    y: 73
+    width: 1062
+    height: 531
+>>>>>>> parent of ae428086... 27.02.2019
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: b9b08174e9141544ab39e1881708cf94
   m_SceneLighting: 1
@@ -513,9 +661,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 0.13867188, y: 0.6027832, z: -1.9002686}
     speed: 2
     m_Value: {x: 0.13867188, y: 0.6027832, z: -1.9002686}
+=======
+    m_Target: {x: 0, y: 5, z: -5}
+    speed: 2
+    m_Value: {x: 0, y: 5, z: -5}
+>>>>>>> parent of ae428086... 27.02.2019
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -543,6 +697,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.08113886, y: 0.8354764, z: -0.12842375, w: -0.52811265}
     speed: 2
     m_Value: {x: -0.08113886, y: 0.8354764, z: -0.12842375, w: -0.52811265}
@@ -550,6 +705,15 @@ MonoBehaviour:
     m_Target: 5.6373634
     speed: 2
     m_Value: 5.6373634
+=======
+    m_Target: {x: -0.15551475, y: 0.6455436, z: -0.13660306, w: -0.73513836}
+    speed: 2
+    m_Value: {x: -0.15551475, y: 0.6455436, z: -0.13660306, w: -0.73513836}
+  m_Size:
+    m_Target: 7.8446555
+    speed: 2
+    m_Value: 7.8446555
+>>>>>>> parent of ae428086... 27.02.2019
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -608,10 +772,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 475
     y: 628
     width: 908
     height: 484
+=======
+    x: 338
+    y: 624
+    width: 926
+    height: 496
+>>>>>>> parent of ae428086... 27.02.2019
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &20
 MonoBehaviour:
@@ -634,10 +805,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 475
     y: 628
     width: 908
     height: 484
+=======
+    x: 338
+    y: 624
+    width: 926
+    height: 496
+>>>>>>> parent of ae428086... 27.02.2019
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -663,7 +841,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: b6280000
     m_LastClickedID: 10422
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000640e0000460f000018110000f811000042130000741300009a140000aa140000c014000014150000ba1600006c1700004e180000c21a0000a41b00009e1c0000de1d0000ac480000ae480000b0480000
+=======
+    m_ExpandedIDs: 00000000620e0000440f000014100000fa1000001013000042130000661400008a140000dc1400001e1700003c1800007c1900003a1b0000741c0000e01c00004a1d0000561d00000e4800001048000012480000
+>>>>>>> parent of ae428086... 27.02.2019
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -688,10 +870,17 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 690}
     m_SelectedIDs: 94e7ffff
     m_LastClickedID: 0
     m_ExpandedIDs: ffffffff00000000640e0000460f000018110000f4110000f811000042130000741300009a140000aa140000c01400000215000014150000ba1600006c1700004e18000098180000dc190000c21a0000a41b00009e1c0000de1d0000ac480000ae480000b0480000
+=======
+    scrollPos: {x: 0, y: 134}
+    m_SelectedIDs: be0a0500
+    m_LastClickedID: 0
+    m_ExpandedIDs: 00000000620e0000440f000014100000fa1000001013000042130000661400008a140000dc1400001e1700003c1800007c1900003a1b0000741c0000e01c00004a1d0000561d00000e4800001048000012480000
+>>>>>>> parent of ae428086... 27.02.2019
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: MemoryGame
@@ -716,8 +905,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 94e7ffff
     m_LastClickedInstanceID: -6252
+=======
+    m_SelectedInstanceIDs: be0a0500
+    m_LastClickedInstanceID: 330430
+>>>>>>> parent of ae428086... 27.02.2019
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
@@ -767,17 +961,24 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1387
     y: 81
     width: 523
     height: 1031
+=======
+    x: 1268
+    y: 73
+    width: 650
+    height: 1047
+>>>>>>> parent of ae428086... 27.02.2019
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewResizer:
-    m_CachedPref: 283
+    m_CachedPref: -100
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}

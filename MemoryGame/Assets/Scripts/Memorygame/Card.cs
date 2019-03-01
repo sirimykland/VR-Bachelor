@@ -101,9 +101,14 @@ public class Card : MonoBehaviour {
 
 
     IEnumerator pause() {
+<<<<<<< HEAD
         yield return new WaitForSeconds(2);
         if (_state == 0)
         {
+=======
+        yield return new WaitForSeconds(1);
+        if (_state == 0){
+>>>>>>> parent of ae428086... 27.02.2019
             StartCoroutine(rotateStuff());
         }
         else if (_state == 1)
