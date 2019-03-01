@@ -1,10 +1,4 @@
-﻿/* File retrieved from  VR Bachelor thesis 2018
- * http://www.ux.uis.no/~tossebro/tek_nat_spill/2018_VR_teknat_app_uten_vedlegg.pdf
- * http://www.ux.uis.no/~tossebro/tek_nat_spill/oversikt.html - from souce code
- * 
- */
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

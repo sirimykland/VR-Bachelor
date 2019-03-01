@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\EscapeAtoms\Atom.cs" />
-    <Compile Include="Assets\Scripts\EscapeAtoms\AtomShelfReplacer.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\ListShuffeler.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\Molecule.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\MoleculeManagement.cs" />

@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Atom : MonoBehaviour {
     public int _noElectrons;
     public string _name;
+<<<<<<< HEAD
 
 
     
+=======
+    private bool _give;
+
+>>>>>>> parent of ae428086... 27.02.2019
     public void giveAwayState()
     {
         if (_noElectrons > 4 && _noElectrons < 8)

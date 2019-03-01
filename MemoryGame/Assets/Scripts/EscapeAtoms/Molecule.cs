@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Molecule : MonoBehaviour {
     private List<Atom> _atomsList;
-
     // Use this for initialization
     private int _noElectrons=0;
     [HideInInspector]
@@ -15,10 +14,13 @@ public class Molecule : MonoBehaviour {
     public void setupWall(){
         _atomsList = new List<Atom>();
         Atom a = Instantiate(GetComponentInParent<MoleculeManagement>().Atoms[starterAtom]);
+<<<<<<< HEAD
         a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         Destroy(a.GetComponent<Rigidbody>());
         Destroy(a.GetComponent<SphereCollider>());
         gameObject.AddComponent<SphereCollider>().radius=0.75f;
+=======
+>>>>>>> parent of ae428086... 27.02.2019
 
         addAtom(a);
         giveAwayState();
@@ -42,6 +44,7 @@ public class Molecule : MonoBehaviour {
         {
             if (col.gameObject.GetComponent<Atom>())
             {
+<<<<<<< HEAD
                 Atom _collidedAtom = col.gameObject.GetComponent<Atom>();
                 Debug.Log(_init+": "+_collidedAtom.Name + " collided with " + _atomsList[0].Name);
                 int sum = _noElectrons + _collidedAtom.NoElectrons;
@@ -54,6 +57,11 @@ public class Molecule : MonoBehaviour {
                     {
                         addAtom(_collidedAtom);
                     }
+=======
+                if (sum <= 8)
+                {
+                    addAtom(_collidedAtom);
+>>>>>>> parent of ae428086... 27.02.2019
                 }
 
             }
@@ -61,10 +69,6 @@ public class Molecule : MonoBehaviour {
     }
 
     void addAtom(Atom newAtom){
-        //sky av collisjon elns
-
-        //fjerner ridgid body
-        Destroy(newAtom.GetComponent<Rigidbody>());
         _atomsList.Add(newAtom);
         _noElectrons = newAtom.NoElectrons;
 
@@ -76,6 +80,9 @@ public class Molecule : MonoBehaviour {
         newAtom.transform.localPosition = setLocation();
         Debug.Log(newAtom.transform.localPosition );
         
+
+
+        //sky av collisjon elns
 
         //sjekker om fullt ytterskal
         fullMolecule();
@@ -100,18 +107,7 @@ public class Molecule : MonoBehaviour {
     }
 
     void fullMolecule(){
-        if (_noElectrons == 8)
-        {
-            //eksplosjon 
-            Explode(gameObject.GetComponent<Vector3>());
+        if(_noElectrons==8)
             Destroy(gameObject);
-        }
-    }
-
-    public ParticleSystem explosion;
-
-    public void Explode(Vector3 position)
-    { 
-        Instantiate(explosion, position, Quaternion.identity);
     }
 }

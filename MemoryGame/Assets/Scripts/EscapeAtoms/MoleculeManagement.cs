@@ -20,8 +20,6 @@ public class MoleculeManagement : MonoBehaviour {
             Global.gameOver = true;
     }
 
-
-    // set up wall of 9 atoms
     void Initialize()
     {
         ListShuffeler.Shuffle(Atoms);

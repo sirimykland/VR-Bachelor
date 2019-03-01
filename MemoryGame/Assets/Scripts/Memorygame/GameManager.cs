@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public Card[] cards;
 
     private bool _init = false;
+<<<<<<< HEAD
 
     public Text pointsText;
     public Text pairsText;
@@ -26,6 +27,19 @@ public class GameManager : MonoBehaviour {
     private bool lastAttemptSuccessful = false;
 
     public bool lockState = false;
+=======
+    private int matches = 8;
+    private int mistakes = 0;
+
+    public float m_StartDelay = 3f;             // The delay between the start of RoundStarting and RoundPlaying phases.
+    public float m_EndDelay = 3f;               // The delay between the end of RoundPlaying and RoundEnding phases.
+
+    private WaitForSeconds m_StartWait;         // Used to have a delay whilst the round starts.
+    private WaitForSeconds m_EndWait;           // Used to have a delay whilst the round or game ends.
+
+
+
+>>>>>>> parent of ae428086... 27.02.2019
     
     void Start()
     {
@@ -38,6 +52,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void InitializeCards(){
+        // Create the delays so they only have to be made once.
+        m_StartWait = new WaitForSeconds(m_StartDelay);
+        m_EndWait = new WaitForSeconds(m_EndDelay);
 
         for (int i = 0; i < 8; i++)
         {
@@ -62,6 +79,8 @@ public class GameManager : MonoBehaviour {
 
         if (!_init)
             _init = true;
+
+        //Debug.Log("cards initialized");
     }
 
     void SetLockState(bool state)
@@ -86,24 +105,31 @@ public class GameManager : MonoBehaviour {
     public void CheckCards() {
         
         List<int> c = new List<int>();
-
+        //Debug.Log("Checking cards...");
         for(int i=0; i< cards.Length; i++)
         {
             if (cards[i].State == 1)
             {
                 c.Add(i);
+                //Debug.Log("Card no " + cards[i].CardValue + "was clicked."+ cards[i].State);
             }
         }
 
         if (c.Count == 2)
         {
+            //Debug.Log("two cards chosen");
             CardComparison(c);
         }
+        //Debug.Log("cards have been checked");
     }
     void CardComparison(List<int> c)
     {
+<<<<<<< HEAD
         // sets all card to do not turn
         SetLockState(true);
+=======
+        Card.DO_NOT_TURN = true;
+>>>>>>> parent of ae428086... 27.02.2019
 
         int x = 0;
         if(cards[c[0]].CardValue ==  cards[c[1]].CardValue && cards[c[0]].CardType != cards[c[1]].CardType)
@@ -134,8 +160,11 @@ public class GameManager : MonoBehaviour {
             cards[c[i]].GetComponent<Card>().State = x;
             cards[c[i]].GetComponent<Card>().falseCheck();
         }
+<<<<<<< HEAD
         SetLockState(false);
     }
+=======
+>>>>>>> parent of ae428086... 27.02.2019
 
     /*  The player gets 40 points for each pairs that he or she matches,
      *  If the player manages to match 2 pairs in a row, the points will be doubled.
