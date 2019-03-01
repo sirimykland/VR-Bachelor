@@ -10,7 +10,7 @@ public class AtomCollider : MonoBehaviour {
     public AudioClip negativeHitSound;
     private AudioSource source;
 
-    public Material dissolveMaterial;
+    //public Material dissolveMaterial;
 
     public GameObject nonMetalCube;
     public GameObject metalCube;

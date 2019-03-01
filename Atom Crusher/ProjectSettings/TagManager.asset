@@ -8,6 +8,10 @@ TagManager:
   - projectile
   - FxTemporaire
   - TeleportIgnore
+  - Sword
+  - Metal
+  - NonMetal
+  - Cube
   layers:
   - Default
   - TransparentFX
