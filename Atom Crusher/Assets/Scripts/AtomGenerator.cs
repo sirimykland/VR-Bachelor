@@ -11,7 +11,6 @@ public class AtomGenerator : MonoBehaviour {
 
     public GameObject[] nonMetal;
     public GameObject[] metal;
-    public Text timeText;
 
     private Rigidbody rB;
     private SphereCollider sC;
@@ -21,16 +20,10 @@ public class AtomGenerator : MonoBehaviour {
     private float nextFire;
     private System.Random random = new System.Random();
 
-    private int seconds;
-    private int minutes;
-
     // Initialization
     void Start () {
         fireRate = 3.5f;
         nextFire = 0.0f;
-        seconds = 0;
-        minutes = 0;
-        timeText.text = "0";
         score = gameBehaviour.score;
     }
 	
@@ -40,7 +33,6 @@ public class AtomGenerator : MonoBehaviour {
 
         if (!gameBehaviour.gameOver)
         {
-            UpdateTimer();
 
             if (Time.time >= 15f && score < 10)
             {
@@ -88,10 +80,19 @@ public class AtomGenerator : MonoBehaviour {
             velocity = -3f;
             fireRate = 0.8f;
         }
-        else if (score >= 40)
+        else if (score >= 40 && score < 50)
         {
             velocity = -4f;
             fireRate = 0.5f;
+        }
+        else if (score >= 50 && score < 50)
+        {
+            velocity = -4.7f;
+            fireRate = 0.4f;
+        }
+        else if (score >= 65)
+        {
+            velocity = -5.5f;
         }
 
         switch (atomPath)
@@ -143,19 +144,4 @@ public class AtomGenerator : MonoBehaviour {
         gO.transform.rotation = new Quaternion(0f, 90f, 0f, 0f);
     }
 
-
-    private void UpdateTimer()
-    {
-        seconds = (int)Time.time % 60;
-        minutes = (int)Time.time / 60;
-        if (seconds < 10)
-        {
-            timeText.text = minutes.ToString() + ":0" + seconds.ToString();
-        }
-        else
-        {
-            timeText.text = minutes.ToString() + ":" + seconds.ToString();
-        }
-
-    }
 }

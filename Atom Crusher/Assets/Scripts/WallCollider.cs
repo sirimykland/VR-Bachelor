@@ -23,7 +23,6 @@ public class WallCollider : MonoBehaviour {
             source.PlayOneShot(negativeWallSound, 0.4f);
 
             gameBehaviour.lives--;
-            gameBehaviour.livesText.text = "Lives: " + gameBehaviour.lives.ToString();
             Destroy(atom.gameObject);
         }
         

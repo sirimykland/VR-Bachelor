@@ -10,8 +10,6 @@ public class AtomCollider : MonoBehaviour {
     public AudioClip negativeHitSound;
     private AudioSource source;
 
-    //public Material dissolveMaterial;
-
     public GameObject nonMetalCube;
     public GameObject metalCube;
 
@@ -32,7 +30,6 @@ public class AtomCollider : MonoBehaviour {
                 source.PlayOneShot(positiveHitSound, 0.3f);
                 Destroy(atom.gameObject);
                 gameBehaviour.score++;
-                gameBehaviour.scoreText.text = "Score: " + gameBehaviour.score.ToString();
             }
             if (atom.gameObject.CompareTag("Metal"))
             {
@@ -40,7 +37,6 @@ public class AtomCollider : MonoBehaviour {
                 source.PlayOneShot(negativeHitSound, 0.4f);
                 Destroy(atom.gameObject);
                 gameBehaviour.lives--;
-                gameBehaviour.livesText.text = "Lives: " + gameBehaviour.lives.ToString();
             }
         }
     }
@@ -77,23 +73,4 @@ public class AtomCollider : MonoBehaviour {
         }
     }
 
-
-    /*
-    private void DissolveAtom(Collider atom)
-    {
-        //GameObject sphere = atom.transform.GetChild(0).gameObject;
-        //Renderer rend = sphere.GetComponent<Renderer>();
-        if (atom.gameObject.GetComponent<MeshRenderer>() == null)
-        {
-            Renderer rend = atom.gameObject.AddComponent<MeshRenderer>();
-            rend.material = dissolveMaterial;
-        }
-
-    }
-
-    IEnumerator WaitMethod(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
-    */
 }
