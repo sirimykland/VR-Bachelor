@@ -7,11 +7,11 @@ public class AtomGenerator : MonoBehaviour {
 
     //Connects script with the script AtomCollider to get its public variables
     public GameBehaviour gameBehaviour;
+    public TextMesh infoText;
     private int score;
 
     public GameObject[] nonMetal;
     public GameObject[] metal;
-    public Text timeText;
 
     private Rigidbody rB;
     private SphereCollider sC;
@@ -21,17 +21,16 @@ public class AtomGenerator : MonoBehaviour {
     private float nextFire;
     private System.Random random = new System.Random();
 
-    private int seconds;
-    private int minutes;
+    private bool tutorialNonMetal;
+    private bool tutorialMetal;
 
     // Initialization
     void Start () {
-        fireRate = 3.5f;
-        nextFire = 0.0f;
-        seconds = 0;
-        minutes = 0;
-        timeText.text = "0";
+        fireRate = 3f;
+        nextFire = 25f;
         score = gameBehaviour.score;
+        tutorialNonMetal = true;
+        tutorialMetal = false;
     }
 	
 	// Update is called once per frame
@@ -40,13 +39,31 @@ public class AtomGenerator : MonoBehaviour {
 
         if (!gameBehaviour.gameOver)
         {
-            UpdateTimer();
 
-            if (Time.time >= 15f && score < 10)
+            if (tutorialNonMetal)
+            {
+                Vector3 position = new Vector3(-1.3f, 2f, 21f);
+                GameObject atom = Instantiate(nonMetal[0]);
+                AddComponents(atom, -0.5f, position);
+                atom.tag = "NonMetal";
+                tutorialNonMetal = false;
+                tutorialMetal = true;
+            }
+            else if (tutorialMetal && Time.time > 10f)
+            {
+                Vector3 position = new Vector3(1.3f, 2f, 21f);
+                GameObject atom = Instantiate(metal[0]);
+                AddComponents(atom, -0.5f, position);
+                atom.tag = "Metal";
+                infoText.text = "Avoid metal atoms like this one";
+                tutorialMetal = false;
+            }
+
+            if ((!tutorialMetal && !tutorialNonMetal) && score < 8 && Time.time > 25)
             {
                 fireRate = 2f;
+                infoText.text = "";
             }
-          
 
             if (Time.time > nextFire)
             {
@@ -88,10 +105,18 @@ public class AtomGenerator : MonoBehaviour {
             velocity = -3f;
             fireRate = 0.8f;
         }
-        else if (score >= 40)
+        else if (score >= 40 && score < 50)
         {
             velocity = -4f;
             fireRate = 0.5f;
+        }
+        else if (score >= 50 && score < 65)
+        {
+            velocity = -4.7f;
+        }
+        else if (score >= 65)
+        {
+            velocity = -5.5f;
         }
 
         switch (atomPath)
@@ -143,19 +168,4 @@ public class AtomGenerator : MonoBehaviour {
         gO.transform.rotation = new Quaternion(0f, 90f, 0f, 0f);
     }
 
-
-    private void UpdateTimer()
-    {
-        seconds = (int)Time.time % 60;
-        minutes = (int)Time.time / 60;
-        if (seconds < 10)
-        {
-            timeText.text = minutes.ToString() + ":0" + seconds.ToString();
-        }
-        else
-        {
-            timeText.text = minutes.ToString() + ":" + seconds.ToString();
-        }
-
-    }
 }
