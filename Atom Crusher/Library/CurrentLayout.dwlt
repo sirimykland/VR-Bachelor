@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_PixelRect:
     serializedVersion: 2
     x: 0
@@ -19,21 +19,18 @@ MonoBehaviour:
     width: 1280
     height: 709
   m_ShowMode: 4
-  m_Title: 
+  m_Title:
   m_RootView: {fileID: 2}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+  m_MinSize: {x: 950, y: 524}
+=======
   m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
   m_MinSize: {x: 950, y: 524}
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
-=======
-  m_MinSize: {x: 950, y: 300}
->>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
-=======
-  m_MinSize: {x: 950, y: 300}
->>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -45,8 +42,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children:
   - {fileID: 3}
   - {fileID: 5}
@@ -55,22 +52,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1280
-    height: 709
-<<<<<<< HEAD
-  m_MinSize: {x: 950, y: 300}
-=======
   m_MinSize: {x: 950, y: 524}
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
     width: 1920
     height: 1117
   m_MinSize: {x: 950, y: 300}
-<<<<<<< HEAD
->>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
->>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -82,8 +70,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12011, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children: []
   m_Position:
     serializedVersion: 2
@@ -93,7 +81,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: 
+  m_LastLoadedLayoutName:
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -104,8 +92,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12042, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children: []
   m_Position:
     serializedVersion: 2
@@ -125,8 +113,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children:
   - {fileID: 6}
   - {fileID: 9}
@@ -137,6 +125,7 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 659
+<<<<<<< HEAD
   m_MinSize: {x: 713, y: 474}
   m_MaxSize: {x: 18008, y: 14024}
   vertical: 0
@@ -146,13 +135,19 @@ MonoBehaviour:
   controlID: 93
 =======
   controlID: 86
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
   controlID: 536
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
   controlID: 536
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+>>>>>>> ff24b467ba7de9841579da8a160587387877085a
+  m_MinSize: {x: 711, y: 474}
+  m_MaxSize: {x: 18006, y: 14024}
+  vertical: 0
+  controlID: 107
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,8 +158,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children:
   - {fileID: 7}
   - {fileID: 8}
@@ -177,15 +172,13 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 448}
   m_MaxSize: {x: 4002, y: 8048}
   vertical: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-  controlID: 94
+  controlID: 515
 =======
   controlID: 515
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
-  controlID: 515
->>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+  controlID: 44
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,28 +189,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 670
-    height: 391
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_ActualView: {fileID: 15}
-=======
     width: 761
     height: 391
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
   m_ActualView: {fileID: 14}
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
@@ -238,28 +221,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 391
-<<<<<<< HEAD
-    width: 670
-    height: 268
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_ActualView: {fileID: 14}
-=======
     width: 761
     height: 268
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
   m_ActualView: {fileID: 13}
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
@@ -280,8 +253,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children:
   - {fileID: 10}
   - {fileID: 11}
@@ -289,24 +262,26 @@ MonoBehaviour:
     serializedVersion: 2
     x: 670
     y: 0
-    width: 287
+<<<<<<< HEAD
+    width: 362
+    height: 1067
+=======
+    width: 241
     height: 659
+>>>>>>> ff24b467ba7de9841579da8a160587387877085a
   m_MinSize: {x: 234, y: 474}
   m_MaxSize: {x: 10004, y: 14024}
   vertical: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  controlID: 54
-=======
   controlID: 61
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
   controlID: 537
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
   controlID: 537
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+  controlID: 108
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,20 +292,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 287
-    height: 385
-  m_MinSize: {x: 204, y: 224}
-  m_MaxSize: {x: 4004, y: 4024}
-<<<<<<< HEAD
-<<<<<<< HEAD
+    width: 362
+    height: 592
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
 =======
     width: 241
@@ -359,8 +331,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children: []
   m_Position:
     serializedVersion: 2
@@ -385,20 +357,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 957
     y: 0
-<<<<<<< HEAD
-    width: 323
-    height: 659
-  m_MinSize: {x: 277, y: 74}
-  m_MaxSize: {x: 4002, y: 4024}
-<<<<<<< HEAD
-<<<<<<< HEAD
+    width: 417
+    height: 1067
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
 =======
     width: 278
@@ -425,52 +394,21 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12111, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MinSize: {x: 400, y: 100}
-  m_MaxSize: {x: 2048, y: 2048}
-  m_TitleContent:
-    m_Text: Asset Store
-    m_Image: {fileID: 357073275683767465, guid: 0000000000000000d000000000000000,
-      type: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 73
-    width: 1139
-    height: 613
-  m_PersistentViewDataDictionary: {fileID: 0}
---- !u!114 &14
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-=======
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
   m_EditorHideFlags: 1
   m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
     m_Image: {fileID: -2087823869225018852, guid: 0000000000000000d000000000000000,
       type: 0}
-    m_Tooltip: 
+    m_Tooltip:
   m_Pos:
     serializedVersion: 2
     x: 0
@@ -497,8 +435,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -509,20 +447,34 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-      width: 668
+<<<<<<< HEAD
+      width: 1139
+      height: 397
+    m_Scale: {x: 1.0599452, y: 1.0599452}
+    m_Translation: {x: 566.95233, y: 196.25204}
+=======
+      width: 759
       height: 231
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 334, y: 115.5}
+    m_Translation: {x: 379.5, y: 115.5}
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -334
+<<<<<<< HEAD
+      x: -534.8883
+      y: -185.153
+      width: 1074.5839
+      height: 374.54767
+=======
+      x: -379.5
       y: -115.5
       width: 668
       height: 231
+>>>>>>> ff24b467ba7de9841579da8a160587387877085a
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
@@ -542,15 +494,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12013, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
     m_Image: {fileID: 2318424515335265636, guid: 0000000000000000d000000000000000,
       type: 0}
-    m_Tooltip: 
+    m_Tooltip:
   m_Pos:
     serializedVersion: 2
     x: 0
@@ -564,27 +516,24 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+    m_Target: {x: 1.1476048, y: -38.84655, z: 142.48735}
+    speed: 2
+    m_Value: {x: 1.1476048, y: -38.84655, z: 142.48735}
+=======
+    m_Target: {x: 1.1476048, y: -38.84655, z: 142.48735}
+    speed: 2
+    m_Value: {x: 1.1476048, y: -38.84655, z: 142.48735}
+>>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+    m_Target: {x: 1.1476048, y: -38.84655, z: 142.48735}
+    speed: 2
+    m_Value: {x: 1.1476048, y: -38.84655, z: 142.48735}
+>>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
     m_Target: {x: -19.370403, y: -7.3768916, z: 121.38615}
     speed: 2
     m_Value: {x: -19.370403, y: -7.3768916, z: 121.38615}
-=======
-    m_Target: {x: 1.1476048, y: -38.84655, z: 142.48735}
-    speed: 2
-    m_Value: {x: 1.1476048, y: -38.84655, z: 142.48735}
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
-=======
-    m_Target: {x: 1.1476048, y: -38.84655, z: 142.48735}
-    speed: 2
-    m_Value: {x: 1.1476048, y: -38.84655, z: 142.48735}
->>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
-=======
-    m_Target: {x: 1.1476048, y: -38.84655, z: 142.48735}
-    speed: 2
-    m_Value: {x: 1.1476048, y: -38.84655, z: 142.48735}
->>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -612,17 +561,10 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     m_Target: {x: -0.054110613, y: 0.08052318, z: -0.0043785986, w: -0.99527335}
     speed: 2
     m_Value: {x: -0.054110613, y: 0.08052318, z: -0.0043785986, w: -0.99527335}
   m_Size:
-    m_Target: 149.40512
-    speed: 2
-    m_Value: 149.40512
-=======
     m_Target: {x: -0.15122859, y: -0.006198926, z: 0.00094759616, w: -0.98847896}
     speed: 2
     m_Value: {x: -0.15122859, y: -0.006198926, z: 0.00094759616, w: -0.98847896}
@@ -630,7 +572,6 @@ MonoBehaviour:
     m_Target: 153.40025
     speed: 2
     m_Value: 153.40025
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
     m_Target: {x: -0.15122859, y: -0.006198926, z: 0.00094759616, w: -0.98847896}
     speed: 2
@@ -649,6 +590,11 @@ MonoBehaviour:
     speed: 2
     m_Value: 150.95433
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+    m_Target: 125.92656
+    speed: 2
+    m_Value: 125.92656
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -657,7 +603,7 @@ MonoBehaviour:
   m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
-  m_ReplacementString: 
+  m_ReplacementString:
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
 --- !u!114 &15
@@ -670,15 +616,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
     m_Image: {fileID: -590624980919486359, guid: 0000000000000000d000000000000000,
       type: 0}
-    m_Tooltip: 
+    m_Tooltip:
   m_Pos:
     serializedVersion: 2
     x: 670
@@ -689,17 +635,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      m_SelectedIDs: 2a320000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 2cfaffffc6fbffff
-=======
-      m_SelectedIDs: 
+      m_SelectedIDs:
       m_LastClickedID: 0
       m_ExpandedIDs: cefbffff
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
       m_SelectedIDs: 0863fdff
       m_LastClickedID: -171256
@@ -710,10 +648,15 @@ MonoBehaviour:
       m_LastClickedID: -171256
       m_ExpandedIDs: 7adcfeff685effff547a0000f47a0000e47b0000e87b0000ea7b0000be7c0000327d0000f47d0000
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+      m_SelectedIDs:
+      m_LastClickedID: 0
+      m_ExpandedIDs: d202ffff7a20ffff8824ffff9a28ffffb42cffffcefbffff3c1e0000de1f0000e21f0000e41f0000c2200000002200007e9300002a9400007294000010950000
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name:
+        m_OriginalName:
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
@@ -726,7 +669,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 10}
-      m_SearchString: 
+      m_SearchString:
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
     m_LockTracker:
@@ -743,15 +686,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_MinSize: {x: 230, y: 250}
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
     m_Image: {fileID: -7501376956915960154, guid: 0000000000000000d000000000000000,
       type: 0}
-    m_Tooltip: 
+    m_Tooltip:
   m_Pos:
     serializedVersion: 2
     x: 670
@@ -760,30 +703,26 @@ MonoBehaviour:
     height: 254
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter:
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
     m_VersionControlStates: []
     m_SoftLockControlStates: []
-    m_ReferencingInstanceIDs: 
-    m_SceneHandles: 
+    m_ReferencingInstanceIDs:
+    m_SceneHandles:
     m_ShowAllHits: 0
     m_SearchArea: 1
-<<<<<<< HEAD
-    m_Folders:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    - Assets/Prefabs/Atoms
-=======
     m_Folders: []
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
     - Assets/Scripts
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
     - Assets/Scripts
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+    - Assets/Prefabs/Atoms/Easy-Mode Metal
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders: []
@@ -796,23 +735,20 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: a60e0000
     m_LastClickedID: 3750
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_ExpandedIDs: 000000000a2b0000ec2d0000703100002a320000d8360000
-=======
     m_ExpandedIDs: 00000000520e0000361100007815000068180000
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
     m_ExpandedIDs: ffffffff00000000fc7300003675000044770000
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
     m_ExpandedIDs: ffffffff00000000fc7300003675000044770000
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+    m_ExpandedIDs: 00000000540e000036110000be140000781500002a1a0000
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name:
+      m_OriginalName:
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
@@ -825,33 +761,36 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 0}
-    m_SearchString: 
+    m_SearchString:
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
-      m_Path: 
+      m_Path:
       m_Icon: {fileID: 0}
-      m_ResourceFile: 
+      m_ResourceFile:
   m_AssetTreeState:
-<<<<<<< HEAD
-    scrollPos: {x: 0, y: 22.000122}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000005e0e00000a2b0000ec2d0000703100002a320000
-=======
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs:
     m_LastClickedID: 0
 <<<<<<< HEAD
 <<<<<<< HEAD
     m_ExpandedIDs: ffffffff00000000520e0000361100007815000068180000
->>>>>>> parent of ff24b467... Merge branch 'AtomCrusher' of https://github.com/sirimykland/VR_Bachelor_Thesis into AtomCrusher
 =======
     m_ExpandedIDs: ffffffff00000000fc730000367500004477000096780000
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
 =======
     m_ExpandedIDs: ffffffff00000000fc730000367500004477000096780000
 >>>>>>> parent of 6ed16eb8... implements tutorial and easy-mode (git)
+=======
+    scrollPos: {x: 0, y: 167}
+    m_SelectedIDs:
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs:
+>>>>>>> ff24b467ba7de9841579da8a160587387877085a
+    m_LastClickedID: 0
+    m_ExpandedIDs: ffffffff00000000540e000036110000e0110000be140000781500008e170000a61700006818000026840000
+>>>>>>> a7c591e4b6b7fbdbb601bfb2a03e6a62a9b47d17
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: WallCollider
@@ -868,22 +807,22 @@ MonoBehaviour:
       m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
-    m_SearchString: 
+    m_SearchString:
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
-      m_Path: 
+      m_Path:
       m_Icon: {fileID: 0}
-      m_ResourceFile: 
+      m_ResourceFile:
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
+    m_SelectedInstanceIDs:
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: 
+    m_ExpandedInstanceIDs:
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name:
+      m_OriginalName:
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
@@ -899,9 +838,9 @@ MonoBehaviour:
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
-      m_Path: 
+      m_Path:
       m_Icon: {fileID: 0}
-      m_ResourceFile: 
+      m_ResourceFile:
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
@@ -916,15 +855,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_MinSize: {x: 275, y: 50}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
     m_Image: {fileID: -6905738622615590433, guid: 0000000000000000d000000000000000,
       type: 0}
-    m_Tooltip: 
+    m_Tooltip:
   m_Pos:
     serializedVersion: 2
     x: 957
@@ -933,7 +872,7 @@ MonoBehaviour:
     height: 639
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ObjectsLockedBeforeSerialization: []
-  m_InstanceIDsLockedBeforeSerialization: 
+  m_InstanceIDsLockedBeforeSerialization:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewResizer:
