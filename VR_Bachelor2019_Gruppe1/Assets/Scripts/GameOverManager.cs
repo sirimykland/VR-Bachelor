@@ -17,7 +17,7 @@ public class GameOverManager : MonoBehaviour {
     {
 
         Debug.Log("To Hub button was clicked");
-        SceneManager.LoadScene(Global.scenes[0]);
+        SceneManager.LoadScene(Global.scenes[1]);
         
     }
 }

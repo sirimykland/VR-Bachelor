@@ -19,7 +19,7 @@ public class MoleculeManagement : MonoBehaviour {
         if(Molecules== null)
             Global.gameOver = true;
 
-        testing();
+        //testing();
     }
 
 
@@ -42,7 +42,7 @@ public class MoleculeManagement : MonoBehaviour {
         _init = true;
     }
 
-    void testing()
+    /*void testing()
     {
         int index = 0;
         ListShuffeler.Shuffle(Atoms);
@@ -57,7 +57,7 @@ public class MoleculeManagement : MonoBehaviour {
             }
             m.SetupWall(Atoms[index++].GetComponent<Atom>()); //post incrementation
         }
-    }
+    }*/
 
     void IsGameOver()
     {
