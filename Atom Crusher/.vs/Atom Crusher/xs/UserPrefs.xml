@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{C04D4393-2061-7DB7-DA28-DC083F7AB449}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FloorCollider.cs">
+    <Files>
+      <File FileName="Assets/Scripts/AtomCollider.cs" Line="65" Column="43" />
+      <File FileName="Assets/Scripts/AtomGenerator.cs" Line="110" Column="19" />
+      <File FileName="Assets/Scripts/GameBehaviour.cs" Line="34" Column="33" />
+      <File FileName="Assets/Scripts/WallCollider.cs" Line="32" Column="55" />
+      <File FileName="Assets/Scripts/FloorCollider.cs" Line="7" Column="15" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
