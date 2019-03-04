@@ -18,6 +18,6 @@ public class AtomShelfReplacer : MonoBehaviour
     IEnumerator ReplaceAtom()
     {
         yield return new WaitForSeconds(2);
-        Instantiate(atomobject);
+        Instantiate(atomobject, transform.position, transform.rotation);
     }
 }

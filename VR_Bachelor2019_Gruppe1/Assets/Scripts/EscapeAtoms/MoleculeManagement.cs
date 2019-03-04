@@ -5,8 +5,8 @@ using UnityEngine;
 public class MoleculeManagement : MonoBehaviour {
     private bool _init = false;
     public Molecule[] Molecules;
-    public Atom[] Atoms;
-    public Atom[] wallAtoms;
+    public GameObject[] Atoms;
+   
 
 
     // Use this for initialization
@@ -18,6 +18,8 @@ public class MoleculeManagement : MonoBehaviour {
 	void Update(){
         if(Molecules== null)
             Global.gameOver = true;
+
+        testing();
     }
 
 
@@ -31,16 +33,30 @@ public class MoleculeManagement : MonoBehaviour {
             if (index>Atoms.Length)
                 index++;
 
-            while(Atoms[index].NoElectrons >= 7) {
+            while(Atoms[index].GetComponent<Atom>().Outer != 0) {
                 index++;
             }
-            m.starterAtom = index++; //post incrementation
+            m.SetupWall(Atoms[index++].GetComponent<Atom>()); //post incrementation
         }
-        foreach(Molecule m in Molecules)
-        {
-            m.setupWall();
-        }
+
         _init = true;
+    }
+
+    void testing()
+    {
+        int index = 0;
+        ListShuffeler.Shuffle(Atoms);
+        foreach (Molecule m in Molecules)
+        {
+            if (index > Atoms.Length)
+                index++;
+
+            while (Atoms[index].GetComponent<Atom>().Outer != 0)
+            {
+                index++;
+            }
+            m.SetupWall(Atoms[index++].GetComponent<Atom>()); //post incrementation
+        }
     }
 
     void IsGameOver()
