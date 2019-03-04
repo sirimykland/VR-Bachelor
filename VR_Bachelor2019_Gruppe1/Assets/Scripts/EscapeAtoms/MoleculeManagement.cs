@@ -6,7 +6,7 @@ public class MoleculeManagement : MonoBehaviour {
     private bool _init = false;
     public Molecule[] Molecules;
     public GameObject[] Atoms;
-    public Atom[] wallAtoms;
+   
 
 
     // Use this for initialization
@@ -18,6 +18,8 @@ public class MoleculeManagement : MonoBehaviour {
 	void Update(){
         if(Molecules== null)
             Global.gameOver = true;
+
+        testing();
     }
 
 
@@ -31,13 +33,30 @@ public class MoleculeManagement : MonoBehaviour {
             if (index>Atoms.Length)
                 index++;
 
-            while(Atoms[index].GetComponent<Atom>().Outer > 7) {
+            while(Atoms[index].GetComponent<Atom>().Outer != 0) {
                 index++;
             }
             m.SetupWall(Atoms[index++].GetComponent<Atom>()); //post incrementation
         }
 
         _init = true;
+    }
+
+    void testing()
+    {
+        int index = 0;
+        ListShuffeler.Shuffle(Atoms);
+        foreach (Molecule m in Molecules)
+        {
+            if (index > Atoms.Length)
+                index++;
+
+            while (Atoms[index].GetComponent<Atom>().Outer != 0)
+            {
+                index++;
+            }
+            m.SetupWall(Atoms[index++].GetComponent<Atom>()); //post incrementation
+        }
     }
 
     void IsGameOver()

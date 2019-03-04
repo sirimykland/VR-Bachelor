@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Molecule : MonoBehaviour {
     private List<Atom> atomsList;
+    public ParticleSystem explosion;
+
 
     // Use this for initialization
     [HideInInspector]
@@ -19,22 +21,17 @@ public class Molecule : MonoBehaviour {
 
     public void SetupWall(Atom gObj){
         atomsList = new List<Atom>();
-        Atom oldAtom = gObj.GetComponent<Atom>();
+        //Atom oldAtom = gObj.GetComponent<Atom>();
+        Atom newAtom = (Atom)Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
 
-        
-        //yield return new WaitForSeconds(3);
-        Atom g = (Atom)Instantiate(gObj, transform.parent.position, transform.parent.rotation);
-
-        g.GetComponent<Atom>().SetValues(oldAtom.Electrons, oldAtom.Name);
+        //g.GetComponent<Atom>().SetValues(oldAtom.Electrons, oldAtom.Name);
         
         //Debug.Log("Old atom had "+oldAtom.electrons+" electrons and  was named "+oldAtom.atomname);
 
         //a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-        Destroy(g.GetComponent<Rigidbody>());
-        Destroy(g.GetComponent<SphereCollider>());
-        gameObject.AddComponent<SphereCollider>().radius=0.75f;
+        
         Outer = 0;
-        AddAtom(g);
+        AddAtom(newAtom);
         _init = true;
 
     }
@@ -56,6 +53,7 @@ public class Molecule : MonoBehaviour {
         {
             Give = 2;
         }
+        
     }
 
 
@@ -91,11 +89,6 @@ public class Molecule : MonoBehaviour {
         }
     }
 
-    /*IEnumerator AddAtomNow(Atom g) {
-        yield return new WaitForSeconds(3);
-        AddAtom(g);
-    }*/
-
     void AddAtom(Atom newAtom){
         //sky av collisjon elns
 
@@ -105,7 +98,6 @@ public class Molecule : MonoBehaviour {
         atomsList.Add(newAtom);//.GetComponent<Atom>());
         Outer += newAtom.Outer;
         Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ Outer+" and new atom is"+ newAtom.Outer);
-        //Destroy(newAtom.GetComponent<Rigidbody>());
 
 
         // her og nedover må noe gjøres for å få posisjon 000
@@ -126,7 +118,7 @@ public class Molecule : MonoBehaviour {
         switch (length)
         {
             case 1:
-                trans.localScale = new Vector3(3, 3, 3);
+                trans.localScale = new Vector3(5, 5, 5);
                 trans.localPosition=new Vector3(0, 0, 0);
                 Debug.Log(trans.localPosition);
                 break;
@@ -154,14 +146,14 @@ public class Molecule : MonoBehaviour {
         yield return new WaitForSeconds(2);
         Debug.Log("Destroying");
         //eksplosjon 
-        //Explode(gameObject.GetComponent<Vector3>());
+        Explode();
         Destroy(gameObject);
     }
 
-    public ParticleSystem explosion;
+    
 
-    public void Explode(Vector3 position)
+    public void Explode()
     { 
-        Instantiate(explosion, position, Quaternion.identity);
+        Instantiate(explosion, transform.position, Quaternion.identity);
     }
 }
