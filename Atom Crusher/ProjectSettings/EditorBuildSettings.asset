@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/AtomCrusherNormal.unity
+    guid: 090774411979042228d1baa53074f387
+  - enabled: 1
+    path: Assets/Scenes/AtomCrusherEasy.unity
+    guid: 39779c6a5dd0d2f4b97a409c606df346
+  m_configObjects: {}

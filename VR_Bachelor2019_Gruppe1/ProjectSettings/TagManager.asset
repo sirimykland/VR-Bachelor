@@ -18,6 +18,11 @@ TagManager:
   - ToHub
   - LevelButtons
   - CardList
+  - Sword
+  - StartAtom
+  - Metal
+  - NonMetal
+  - Cube
   layers:
   - Default
   - TransparentFX

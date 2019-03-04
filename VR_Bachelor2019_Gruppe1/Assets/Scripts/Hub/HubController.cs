@@ -28,7 +28,18 @@ public class HubController : MonoBehaviour {
     {
             Debug.Log("Memorybutton was clicked");
             Global.gameChoice = "MemoryGame";
-            SceneManager.LoadScene("MemoryGame");//Global.scenes[1]);
+        SceneManager.UnloadSceneAsync("Hub");
+        SceneManager.LoadScene("MemoryGame");//Global.scenes[1]);
+            
+    }
+
+    public void StartAtomCrusher_OnClick()
+    {
+        Debug.Log("AtomCrusher was clicked");
+        Global.gameChoice = "AtomCrusher";
+        SceneManager.UnloadSceneAsync(Global.scenes[0]);
+        SceneManager.LoadScene("AtomCrusherNormal");//Global.scenes[1]);
+        
     }
 
     void Start () {
@@ -41,5 +52,6 @@ public class HubController : MonoBehaviour {
         Global.InsertSomePlayersOnScoreBoard();
         scoreboard.GetComponent<Text>().text = Global.PlayerScoreToString();
         Global.ResetPlayer();
+        Debug.Log("HubController loaded");
 	}
 }
