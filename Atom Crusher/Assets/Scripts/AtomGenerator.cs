@@ -7,6 +7,7 @@ public class AtomGenerator : MonoBehaviour {
 
     //Connects script with the script AtomCollider to get its public variables
     public GameBehaviour gameBehaviour;
+    public TextMesh infoText;
     private int score;
 
     public GameObject[] nonMetal;
@@ -20,11 +21,16 @@ public class AtomGenerator : MonoBehaviour {
     private float nextFire;
     private System.Random random = new System.Random();
 
+    private bool tutorialNonMetal;
+    private bool tutorialMetal;
+
     // Initialization
     void Start () {
-        fireRate = 3.5f;
-        nextFire = 0.0f;
+        fireRate = 3f;
+        nextFire = 25f;
         score = gameBehaviour.score;
+        tutorialNonMetal = true;
+        tutorialMetal = false;
     }
 	
 	// Update is called once per frame
@@ -34,11 +40,30 @@ public class AtomGenerator : MonoBehaviour {
         if (!gameBehaviour.gameOver)
         {
 
-            if (Time.time >= 15f && score < 10)
+            if (tutorialNonMetal)
+            {
+                Vector3 position = new Vector3(-1.3f, 2f, 21f);
+                GameObject atom = Instantiate(nonMetal[0]);
+                AddComponents(atom, -0.5f, position);
+                atom.tag = "NonMetal";
+                tutorialNonMetal = false;
+                tutorialMetal = true;
+            }
+            else if (tutorialMetal && Time.time > 10f)
+            {
+                Vector3 position = new Vector3(1.3f, 2f, 21f);
+                GameObject atom = Instantiate(metal[0]);
+                AddComponents(atom, -0.5f, position);
+                atom.tag = "Metal";
+                infoText.text = "Avoid metal atoms like this one";
+                tutorialMetal = false;
+            }
+
+            if ((!tutorialMetal && !tutorialNonMetal) && score < 8 && Time.time > 25)
             {
                 fireRate = 2f;
+                infoText.text = "";
             }
-          
 
             if (Time.time > nextFire)
             {
@@ -85,10 +110,9 @@ public class AtomGenerator : MonoBehaviour {
             velocity = -4f;
             fireRate = 0.5f;
         }
-        else if (score >= 50 && score < 50)
+        else if (score >= 50 && score < 65)
         {
             velocity = -4.7f;
-            fireRate = 0.4f;
         }
         else if (score >= 65)
         {
