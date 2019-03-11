@@ -60,6 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AtomCrusher\AtomCollider.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\AtomGenerator.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\FloorCollider.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\GameBehaviour.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\WallCollider.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\Atom.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\AtomShelfReplacer.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\ListShuffeler.cs" />
@@ -543,19 +548,19 @@
     <None Include="Assets\SteamVR\InteractionSystem\Core\Shaders\SeeThru.shader" />
     <None Include="Assets\SteamVR\InteractionSystem\Readme_InteractionSystem.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -759,13 +764,13 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/sirim/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/VR_Bachelor2019_Gruppe1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

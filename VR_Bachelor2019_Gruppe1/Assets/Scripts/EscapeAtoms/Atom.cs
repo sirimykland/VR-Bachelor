@@ -11,10 +11,11 @@ public class Atom : MonoBehaviour {
     public int Give { get; set; }
     
 
-    private void Start()
+    public void Start()
     {
         OuterShell();
     }
+
     public void SetValues(int elect, string name)
     {
         electrons = elect;

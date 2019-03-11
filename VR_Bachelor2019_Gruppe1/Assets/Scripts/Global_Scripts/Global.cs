@@ -78,9 +78,10 @@ public static class Global
         return scoreText;
     }
     public static void ResetPlayer() {
-        username = "test";
-        score = 2;
+        username = "";
+        score = 0;
         gameChoice = scenes[1];
+        player = null;
     }
 
 
