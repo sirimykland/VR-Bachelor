@@ -113,20 +113,20 @@ public class GameManager : MonoBehaviour {
         {
             x = 2;
             pairs--;
-            pairsText.text = "Pairs left: "+pairs;
+            pairsText.text = "Par igjen: "+pairs;
             source.PlayOneShot(positiveSound, 0.4f);
 
             Points(true, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
             //Debug.Log("Cards matches.");
             if (pairs == 0)
             {
-                GameOver();
+                StartCoroutine(GameOver());
             }
         }
         else
         {
             attempts++;
-            attemptsText.text = "Attempts: "+ attempts;
+            attemptsText.text = "Forsøk: "+ attempts;
 
             //source.PlayOneShot(negativeSound, 0.4f);
 
@@ -165,14 +165,15 @@ public class GameManager : MonoBehaviour {
         lastAttemptSuccessful = succesStatus;
 
         // update scoreboard:
-        pointsText.text = "Points: " + points;
+        pointsText.text = "Poeng: " + points;
     }
 
-    public void GameOver()
+    public IEnumerator GameOver()
     {
         Global.score = points;
         Global.gameOver = true;
-        StartCoroutine(Global.GoToGameOver());
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(Global.scenes[3]);
     }
     
 }

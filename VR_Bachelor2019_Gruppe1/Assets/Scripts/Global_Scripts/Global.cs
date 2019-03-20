@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class Global
+public class Global
 {
     // Use GlobalVariables.TimeToPlay= x sec to determine the amount of time the players can play the game
-    
+
     public static int level { get; set; }
     public static int MGLvl { get; set; }
 
@@ -19,7 +19,7 @@ public static class Global
     public static bool gameOver { get; set; }
 
 
-    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "GameStop" };
+    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "AtomCrusher", "GameOver" };
 
     public static List<Player> playerScores = new List<Player> { };
 
@@ -57,10 +57,8 @@ public static class Global
                     break;
                 }
             }
-            if (!scoreAdded)
-            {
+            if (!scoreAdded){
                 playerScores.Add(player);
-
             }
         }
     }
@@ -77,20 +75,12 @@ public static class Global
         }
         return scoreText;
     }
-    public static void ResetPlayer() {
+    /*public static void ResetPlayer() {
         username = "";
         score = 0;
         gameChoice = scenes[1];
         player = null;
-    }
-
-
-    public static IEnumerator GoToGameOver()
-    {
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("GameOver");
-    }
-
+    }*/
 
     public class Player
     {

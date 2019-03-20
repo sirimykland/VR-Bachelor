@@ -5,10 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Hub.unity
     guid: 87d445d8af05e9942b66542fc80c61cb
   - enabled: 1
@@ -17,10 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: ad328c887bbad224480c56c072a48bdd
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/AtomCrusherNormal.unity
     guid: 97fef6cfd6842a943b4164720f95fdcc
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/AtomCrusherEasy.unity
     guid: e9f64aa9a2a035547a794671bcba1051
   m_configObjects: {}

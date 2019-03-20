@@ -478,7 +478,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -676,7 +676,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -1133,7 +1133,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Attempts: 0'
+  m_Text: 'Antall snudd: 0'
 --- !u!222 &92561177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2651,7 +2651,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -2850,7 +2850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &245462447
 Transform:
   m_ObjectHideFlags: 0
@@ -3155,7 +3155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &280651875
 Transform:
   m_ObjectHideFlags: 0
@@ -3341,7 +3341,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4344,7 +4344,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4756,7 +4756,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -5920,7 +5920,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 3
 --- !u!223 &623232895
 Canvas:
   m_ObjectHideFlags: 0
@@ -6131,7 +6131,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -6440,7 +6440,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pairs Left: 9'
+  m_Text: 'Par igjen: 9'
 --- !u!222 &657583325
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7666,7 +7666,7 @@ MonoBehaviour:
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
+  m_DynamicPixelsPerUnit: 2
 --- !u!223 &817066942
 Canvas:
   m_ObjectHideFlags: 0
@@ -9470,7 +9470,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Player: null'
+  m_Text: 'Spiller: null'
 --- !u!222 &931670831
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10608,7 +10608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1070686762
 Transform:
   m_ObjectHideFlags: 0
@@ -11024,7 +11024,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.65
   m_Range: 20
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -13165,7 +13165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1290084588
 Transform:
   m_ObjectHideFlags: 0
@@ -15532,7 +15532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1625016252
 Transform:
   m_ObjectHideFlags: 0
@@ -16687,7 +16687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1796371433
 Transform:
   m_ObjectHideFlags: 0
@@ -17366,7 +17366,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Level: null'
+  m_Text: 'Level: '
 --- !u!222 &1885954497
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17523,7 +17523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1925042388
 Transform:
   m_ObjectHideFlags: 0
@@ -18043,7 +18043,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Points: 0'
+  m_Text: 'Poeng: 0'
 --- !u!222 &1995011152
 CanvasRenderer:
   m_ObjectHideFlags: 0

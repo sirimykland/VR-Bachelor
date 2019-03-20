@@ -18,6 +18,10 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     GameObject gamemanagerObject;
     GameObject cardlistObject;
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
@@ -32,7 +36,7 @@ public class LevelController : MonoBehaviour
         levels.Add(level1);
         levels.Add(level2);
         levels.Add(level3);
-        playerText.text = "Player: " + Global.username;
+        playerText.text = "Spiller: " + Global.username;
         
     }
     // Update is called once per frame

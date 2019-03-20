@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoleculeManagement : MonoBehaviour {
     private bool _init = false;
@@ -17,9 +18,7 @@ public class MoleculeManagement : MonoBehaviour {
     // Update is called once per frame
 	void Update(){
         if(Molecules== null)
-            Global.gameOver = true;
-
-        //testing();
+            StartCoroutine(GameOver()); 
     }
 
 
@@ -59,10 +58,12 @@ public class MoleculeManagement : MonoBehaviour {
         }
     }*/
 
-    void IsGameOver()
+    public IEnumerator GameOver()
     {
-        if (Global.gameOver)
-            StartCoroutine(Global.GoToGameOver());
+        Global.score = 200;//points;
+        Global.gameOver = true;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(Global.scenes[3]);
     }
 
 
