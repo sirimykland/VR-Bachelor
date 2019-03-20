@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-C:/Users/IDE/Documents/GitHub/VR_Bachelor_Thesis/Builds/Atom Crusher/Atom Crusher Easy/Atom Crusher.exe
+C:/Users/IDE/Documents/Builds/Atom Crusher.exe
 SceneListBegin?
 Assets/Scenes/AtomCrusherEasy.unity
 SceneListEnd?
@@ -112,8 +112,6 @@ c71e2a86b483a4d46c8103d75fcc8732 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_
 d32e4ed26298e8faf5b53e981cf669c1 Assembly-CSharp.dll:.WallCollider
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.SDK_WindowsMRController
 9d75f25b111151a15ebf17e35cd30206 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_DashTeleport_UnityEvents
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 1ebb0c7a5fb503d2eaaefdbeeeabd99b Assembly-CSharp.dll:VRTK.UICircle
 0a178a1c85198b9dad8fc799b8bfaa65 Assembly-CSharp.dll:Valve.VR.InteractionSystem.BodyCollider
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SteamVR_CameraMask
