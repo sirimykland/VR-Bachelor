@@ -12,38 +12,37 @@ public class HubController : MonoBehaviour {
 
     public GameObject scoreboard;
 
-    public void StartButton_OnClick(Collider col)
+    // lag en metoder per portal
+
+    public void StartGame(int gameindex)
     {
-        Debug.Log("StartButton_OnClick(Collider col):  was entered");
-        if (col.CompareTag("StartButton"))
-        {
-            Debug.Log("startbutton was clicked");
-            Global.gameChoice = "MemoryGame";
-            SceneManager.LoadScene("MemoryGame");
-        }
+        Debug.Log(Global.scenes[gameindex]+"button was clicked");
+        Global.gameChoice = Global.scenes[gameindex];
+        SceneManager.LoadScene(Global.scenes[1]);
     }
 
-    // lag en metoder per portal
+
     public void StartMemory_OnClick()
     {
         Debug.Log("Memorybutton was clicked");
         Global.gameChoice = "MemoryGame";
-        SceneManager.LoadScene("MemoryGame");//Global.scenes[1]);
+        SceneManager.LoadScene(Global.scenes[1]);
             
     }
+
 
     public void StartAtomCrusher_OnClick()
     {
         Debug.Log("AtomCrusher was clicked");
-        Global.gameChoice = "AtomCrusher";
-        SceneManager.LoadScene("AtomCrusherNormal");//Global.scenes[1]);
+        Global.gameChoice = "AtomCrusherNomal";
+        SceneManager.LoadScene(Global.scenes[2]);
         
     }
 
 
     void Start () {
         // lage et scoreboard per game, bruk loop til å fylle dem
-        Debug.Log(" player name"+ Global.username);
+        //Debug.Log(" player name"+ Global.username);
         scoreboard = GameObject.FindGameObjectWithTag("ScoreBoard");
         Global.gameOver = false;
         Global.score = 0;

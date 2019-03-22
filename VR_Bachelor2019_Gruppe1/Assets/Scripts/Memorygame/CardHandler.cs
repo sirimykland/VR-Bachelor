@@ -4,24 +4,12 @@ using UnityEngine;
 
 public class CardHandler : MonoBehaviour
 {
-    public GameManager gameManger;
+    public GameManager gameManager;
 
     public void Card_OnClick(Card card)
     {
-        Debug.Log("click");
-        if (!gameManger.lockState)
-        {
-            Debug.Log("click");
+        if (!gameManager.lockState){
             card.FlipCard();
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        gameManger.CheckCards();
-    }
-
-
-
 }

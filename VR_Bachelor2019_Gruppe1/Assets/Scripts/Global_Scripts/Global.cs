@@ -19,7 +19,7 @@ public class Global
     public static bool gameOver { get; set; }
 
 
-    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "AtomCrusher", "GameOver" };
+    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "AtomCrusherNormal", "GameOver" };
 
     public static List<Player> playerScores = new List<Player> { };
 
@@ -69,7 +69,6 @@ public class Global
         int number = 1;
         for (int i = 0; i < playerScores.Count; i++)
         {
-
             scoreText += number.ToString() + ". " + playerScores[i].playerName + "  -  " + playerScores[i].playerscore + " POENG" + "\n";
             number++;
         }

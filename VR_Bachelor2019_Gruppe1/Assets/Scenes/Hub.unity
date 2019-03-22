@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26799375, g: 0.311278, b: 0.3268421, a: 1}
+  m_IndirectSpecularColor: {r: 0.26784867, g: 0.31121793, b: 0.32696852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6757,6 +6757,7 @@ GameObject:
   - component: {fileID: 924003456}
   - component: {fileID: 924003457}
   - component: {fileID: 924003458}
+  - component: {fileID: 924003459}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -6803,6 +6804,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreboard: {fileID: 813382844}
+--- !u!114 &924003459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924003455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798ce54e9439777488bf3aff0bf129fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventSystem: {fileID: 1333313512}
+  PointerController: {fileID: 386382380}
 --- !u!1 &939326396
 GameObject:
   m_ObjectHideFlags: 0

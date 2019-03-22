@@ -8,23 +8,17 @@ public class GameOverManager : MonoBehaviour {
     public Text message;
     public Text points;
 
-    void Awake()
-    {
+    void Awake(){
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
+    void Start(){
         message.text = "Well done " + Global.username +",";
-        points.text ="You scored "+ Global.score + "points.";
-        Debug.Log(Global.username + "  " + Global.score);
+        points.text ="You scored "+ Global.score + " points.";
+        Debug.Log(Global.username + " - " + Global.score);
     }
-    public void ToHub_OnClick()
-    {
-
-        //Destroy(gameObject);
+    public void ToHub_OnClick(){
         Debug.Log("To Hub button was clicked");
         SceneManager.LoadScene(Global.scenes[0]);
-        
     }
 }
