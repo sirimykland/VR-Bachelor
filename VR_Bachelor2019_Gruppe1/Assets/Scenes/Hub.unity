@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26799375, g: 0.311278, b: 0.3268421, a: 1}
+  m_IndirectSpecularColor: {r: 0.26784867, g: 0.31121793, b: 0.32696852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2808,7 +2808,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &302515181
 Transform:
   m_ObjectHideFlags: 0
@@ -2835,6 +2835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beb8ba5269a9b6428328832bb8475d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  games:
+  - {fileID: 527962636}
 --- !u!1 &302657893
 GameObject:
   m_ObjectHideFlags: 0
@@ -4599,6 +4601,7 @@ GameObject:
   - component: {fileID: 527962632}
   - component: {fileID: 527962631}
   - component: {fileID: 527962635}
+  - component: {fileID: 527962636}
   m_Layer: 0
   m_Name: ScoreList
   m_TagString: Untagged
@@ -4693,6 +4696,21 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &527962636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527962630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97a58de0b2143ff4fa58482021153b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Title: {fileID: 1963054393}
+  textbox: {fileID: 1963054393}
+  gameName: MemoryGame
 --- !u!1 &541475280
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,8 +5710,8 @@ GameObject:
   - component: {fileID: 813382847}
   - component: {fileID: 813382846}
   m_Layer: 5
-  m_Name: ScoreBoard
-  m_TagString: ScoreBoard
+  m_Name: Text
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15421,7 +15439,7 @@ GameObject:
   - component: {fileID: 1963054394}
   - component: {fileID: 1963054393}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

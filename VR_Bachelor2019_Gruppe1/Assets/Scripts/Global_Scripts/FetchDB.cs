@@ -1,33 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using System;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+using System.Collections.Generic;
+
 
 public class FetchDB : MonoBehaviour
 {
-    public void addScore(int score)
+    ///Fill in your server data here.
+    private string privateKey = "ebba3c2d54e68e4bdd33b638d48cb4ab";
+    private string Top3ScoresURL = "http://ux.uis.no/~vrbach19/GetTop3.php?";
+
+    
+    public Scoreboard[] scoreboards;
+
+    //Our standard Unity functions
+    //Called as soon as the class is activated.
+    void Start()
     {
         Debug.Log("sending entry");
-        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/userentry"));
+        StartCoroutine(GetTopScores()); // We post our scores.
     }
 
-    IEnumerator postRequest(string url)
+    IEnumerator GetTopScores()
     {
-        WWWForm form = new WWWForm();
-        form.AddField("game", Global.gameChoice);
-        form.AddField("username", Global.username);
-        form.AddField("score", Global.score);
-
-        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
-        yield return uwr.SendWebRequest();
-
-        if (uwr.isNetworkError)
+        foreach (Scoreboard g in scoreboards)
         {
-            Debug.Log("Error While Sending: " + uwr.error);
+
+            UnityWebRequest www = UnityWebRequest.Post(Top3ScoresURL, "game=" + g.gameName);
+            //www.downloadHandler = new DownloadHandlerBuffer();
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log("an error occured when posting new score...\n" + www.error);
+            }
+            else
+            {
+                //string[] textlist = GetTop3.text.Split(new string[] { "\n", "\t" }, System.StringSplitOptions.RemoveEmptyEntries);
+                g.textbox.text = www.downloadHandler.text;
+            }
         }
-        else
-        {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
-        }
+
     }
 }
