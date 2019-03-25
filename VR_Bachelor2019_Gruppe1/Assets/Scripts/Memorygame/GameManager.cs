@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
     public Text attemptsText;
 
     public AudioClip positiveSound;
-    public AudioClip negativeSound;
     private AudioSource source;
 
     private int points;
@@ -25,7 +24,7 @@ public class GameManager : MonoBehaviour {
     private int attempts;
     private bool lastAttemptSuccessful;
 
-    public bool lockState = true;
+    public bool lockState;
     
     void Awake()
     {
@@ -33,6 +32,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void InitializeCards(){
+        lockState = true;
         points = 0;
         pairs = 8;
         attempts = 0;
@@ -79,7 +79,6 @@ public class GameManager : MonoBehaviour {
         }
         
         Debug.Log("lockstate "+ lockState);
-        
     }
     
     public Material GetBackside(int i){
@@ -127,8 +126,6 @@ public class GameManager : MonoBehaviour {
         {
             attempts++;
             attemptsText.text = "Attempts: "+ attempts;
-
-            //source.PlayOneShot(negativeSound, 0.4f);
 
             Points( false, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
         }

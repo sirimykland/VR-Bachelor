@@ -11,13 +11,15 @@ TagManager:
   - Keyboard
   - StartMemory
   - DB
-  - StartButton
   - ScoreBoard
   - NameOfPlayer
   - GameManager
   - ToHub
   - LevelButtons
   - CardList
+  - Menu
+  - StartButton
+  - Controller
   layers:
   - Default
   - TransparentFX

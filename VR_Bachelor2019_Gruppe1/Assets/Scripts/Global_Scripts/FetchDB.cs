@@ -19,7 +19,7 @@ public class FetchDB : MonoBehaviour
     //Called as soon as the class is activated.
     void Start()
     {
-        Debug.Log("sending entry");
+        Debug.Log("retrieving scores");
         StartCoroutine(GetTopScores()); // We post our scores.
     }
 

@@ -5,13 +5,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour {
+    public Text title;
     public Text message;
-    public Text points;
 
     void Start()
     {
-        message.text = "Well done " + Global.username+",";
-        points.text ="You scored "+ Global.score+ "points.";
+        switch (Global.gameChoice)
+        {
+            case "MemoryGame":
+                title.text = "MemoryGame Level "+ Global.level;
+                message.text = "Godt jobbet " + Global.username + ", \nDu fikk " + Global.score + " poeng!";
+                break;
+            default:
+                title.text = Global.gameChoice;
+                message.text = "Godt jobbet " + Global.username + ", \nDu fikk " + Global.score + " poeng!";
+                break;
+        }
+
     }
     public void ToHub_OnClick()
     {

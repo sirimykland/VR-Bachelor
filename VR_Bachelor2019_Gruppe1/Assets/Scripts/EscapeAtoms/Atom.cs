@@ -6,13 +6,13 @@ using UnityEngine;
 public class Atom : MonoBehaviour {
     public int electrons;
     public string atomname;
+    public int Outer;
 
-    public int Outer { get; set; }
-    public int Give { get; set; }
-    
+    //public int Outer { get; set; }
+    public int Give;
 
-    private void Start()
-    {
+    // public because some atoms ar instantiated in Molucule.cs (AddAtom();)
+    public void Start(){
         OuterShell();
     }
     public void SetValues(int elect, string name)
@@ -25,12 +25,12 @@ public class Atom : MonoBehaviour {
      * 0: give electrons
      * 1: give and receive (Hydrogen only)
      * 2: receive electrons
-     * 3: full outer shell
+     * 4: full outer shell
      */
     public void GiveAwayState()
     {
         if (Outer == 0 || Outer == 8){
-            Give = 3;
+            Give = 4;
         }else if (Outer <= 4)
         {
             Give = 0;
@@ -58,7 +58,6 @@ public class Atom : MonoBehaviour {
         }else if (electrons >= 2)
         {
             Outer = (electrons - 2) % 8;
-            //Debug.Log("Outer = " + (electrons - 2) % 8);
             GiveAwayState();
         }
     }
