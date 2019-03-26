@@ -7,84 +7,98 @@ public class Molecule : MonoBehaviour {
     private List<Atom> atomsList;
     public ParticleSystem explosion;
 
+    public EscapeAtomsGameManager gameManager;
+
+ 
+
 
     // Use this for initialization
-    [HideInInspector]
-    //public int starterAtom;
-    // private int _give;
-    //public int Electrons { get; set; }
-    public int Outer { get; set; }
-    public int Give { get; set; }
+    private int BadCollision;
+    private int outer;
+    private int give;
 
     private bool _init= false;
 
 
     public void SetupWall(Atom gObj){
         atomsList = new List<Atom>();
-        //Atom oldAtom = gObj.GetComponent<Atom>();
         Atom newAtom = (Atom)Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
-        newAtom.Start();
-        //g.GetComponent<Atom>().SetValues(oldAtom.Electrons, oldAtom.Name);
+        //gObj.Start();
         
-        //Debug.Log("Old atom had "+newAtom.electrons+" electrons and  was named "+newAtom.atomname);
-
-        //a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-        
-        Outer = 0;
+        outer = 0;
+        BadCollision=0;
         AddAtom(newAtom);
         _init = true;
 
     }
 
 
-
-    public void GiveAwayState()
+    /* give meaning:
+ * 0: give electrons
+ * 1: give and receive (Hydrogen only)
+ * 2: receive electrons
+ * 4: full outer shell
+ */
+    public  GiveAwayState()
     {
-        if (Outer == 8 )//|| Outer == 8)
+        if(outer==2 && atomslist)
+        if (outer == 0 || outer == 8 || ())
         {
-            Give = 3;
+            give = 4;
             StartCoroutine(FullMolecule());
         }
-        else if (Outer <= 4)
+        else if (outer <= 4)
         {
-            Give = 0;
+            give = 0;
         }
-        else if (Outer >= 5)
+        else if (outer >= 5)
         {
-            Give = 2;
+            give = 2;
         }
         
     }
 
 
-    void OnTriggerEnter(Collider col) {
+    public void OnCollisionEnter(Collision col) {
+        Debug.Log("collision");
+
         if (_init)
         {
             if (col.gameObject.GetComponent<Atom>())
             {
                 Atom colAtom = col.gameObject.GetComponent<Atom>();
                 Debug.Log(_init+": "+ colAtom.Name + " collided with " + atomsList[0].Name);
-                int sum = Outer + colAtom.Outer;
+
+                int sum = outer + colAtom.Outer;
+
+                Debug.Log("GiveState: " + colAtom.Give + " collided with givestate" + give);
+                Debug.Log("Outer: " + colAtom.Outer + " collided with Outer" + outer);
                 if (sum <= 8) { 
-                    if(((Give + colAtom.Give) > 1))
+                    if(((give + colAtom.Give) <4 && (give + colAtom.Give) > 0)) // give: 0+1,1+0 | 1+1,0+2,2+0 | 1+2,2+1
                     {
-                        Debug.Log("Collition valid give > 1");
+                        Debug.Log("Collition valid give [2 between 1]");
                         AddAtom(colAtom);
-                    }else if ((Give==0 && colAtom.Give ==2) || (Give==2 && colAtom.Give==0))
-                    {
-                        Debug.Log("Collition valid");
-                        AddAtom(colAtom);
-                    }else if (Give == 1 && colAtom.Give==1)
+                    }/*else if ((give==0 && colAtom.Give ==2) || (give==2 && colAtom.Give==0))
                     {
                         Debug.Log("Collition valid");
                         AddAtom(colAtom);
-                    }
-                    else if (Give == 1 && colAtom.Give == 2 || (Give == 2 && colAtom.Give == 1))
+                    }else if (give == 1 && colAtom.Give==1)
                     {
                         Debug.Log("Collition valid");
                         AddAtom(colAtom);
                     }
+                    else if (give == 1 && colAtom.Give == 2 || (give == 2 && colAtom.Give == 1))
+                    {
+                        Debug.Log("Collition valid");
+                        AddAtom(colAtom);
+                    }*/
+                    BadCollision = 0;
                 }
+                else
+                {
+                    BadCollision++;
+                }
+                gameManager.Points(BadCollision, colAtom.electrons);
             }
         }
     }
@@ -94,10 +108,11 @@ public class Molecule : MonoBehaviour {
 
         //Atom atomScript = newAtom.GetComponent<Atom>();
         //fjerner ridgid body
+        Destroy(newAtom.GetComponent<Rigidbody>());
 
         atomsList.Add(newAtom);//.GetComponent<Atom>());
-        Outer += newAtom.Outer;
-        Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ Outer+" and new atom is"+ newAtom.Outer);
+        outer += newAtom.Outer;
+        //Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ outer);
 
 
         // her og nedover må noe gjøres for å få posisjon 000
@@ -105,6 +120,7 @@ public class Molecule : MonoBehaviour {
 
         //Debug.Log(newAtom.transform.localPosition);
         SetLocation(newAtom.transform);
+        newAtom.transform.rotation =  Quaternion.Euler(0, -90, 0);//gameObject.transform.parent.rotation;
         //Debug.Log(newAtom.transform.localPosition );
 
         //sjekker om fullt ytterskal
@@ -114,29 +130,29 @@ public class Molecule : MonoBehaviour {
     void SetLocation(Transform trans)
     {
         int length = atomsList.Count;
-        Debug.Log("atomlist is of length "+length);
+        //Debug.Log("atomlist is of length "+length);
         switch (length)
         {
             case 1:
                 trans.localScale = new Vector3(5, 5, 5);
                 trans.localPosition=new Vector3(0, 0, 0);
-                Debug.Log(trans.localPosition);
                 break;
             case 2:
                 trans.localScale = new Vector3(3, 3, 3);
                 trans.localPosition = new Vector3(1, 0, 0);
+
                 break;
             case 3:
-                trans.localScale = new Vector3(2, 2, 2);
-                trans.localPosition = new Vector3(-1, -1, 0);
+                trans.localScale = new Vector3(3, 3, 3);
+                trans.localPosition = new Vector3(0, -1, 0);
                 break;
             case 4:
-                trans.localScale = new Vector3(2, 2, 2);
+                trans.localScale = new Vector3(3, 3, 3);
                 trans.localPosition = new Vector3(0, 1, 0);
                 break;
             default:
                 trans.localScale = new Vector3(3, 3, 3);
-                trans.localPosition = new Vector3(0, 0, 0);
+                trans.localPosition = new Vector3(-1, 0, 0);
                 break;
         }
     }
@@ -147,13 +163,13 @@ public class Molecule : MonoBehaviour {
         Debug.Log("Destroying");
         //eksplosjon 
         Explode();
+        gameManager.moleculesLeft--;
         Destroy(gameObject);
+        
     }
-
-    
 
     public void Explode()
     { 
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        explosion= Instantiate(explosion, transform.position, Quaternion.identity);
     }
 }

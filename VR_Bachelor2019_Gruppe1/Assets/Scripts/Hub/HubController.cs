@@ -9,45 +9,24 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HubController : MonoBehaviour {
-
-    public GameObject scoreboard;
-
+   
     // lag en metoder per portal
-
-    public void StartGame(int gameindex)
-    {
-        Debug.Log(Global.scenes[gameindex]+"button was clicked");
-        Global.gameChoice = Global.scenes[gameindex];
-        SceneManager.LoadScene(Global.scenes[1]);
-    }
-
-
     public void StartMemory_OnClick()
     {
-        Debug.Log("Memorybutton was clicked");
-        Global.gameChoice = "MemoryGame";
-        SceneManager.LoadScene(Global.scenes[1]);
-            
+            Debug.Log("Memorybutton was clicked");
+            Global.gameChoice = Global.scenes[1];
+        Initiate.Fade(Global.scenes[1], Color.red, 1.0f);
+        //SceneManager.LoadScene(Global.scenes[1]);
     }
-
-
-    public void StartAtomCrusher_OnClick()
-    {
-        Debug.Log("AtomCrusher was clicked");
-        Global.gameChoice = "AtomCrusherNomal";
-        SceneManager.LoadScene(Global.scenes[2]);
-        
-    }
-
 
     void Start () {
         // lage et scoreboard per game, bruk loop til å fylle dem
-        //Debug.Log(" player name"+ Global.username);
-        scoreboard = GameObject.FindGameObjectWithTag("ScoreBoard");
+        //scoreboard = GameObject.FindGameObjectWithTag("ScoreBoard");
+        Global.level = 1;
         Global.gameOver = false;
         Global.score = 0;
-        Global.InsertSomePlayersOnScoreBoard();
-        scoreboard.GetComponent<Text>().text = Global.PlayerScoreToString();
-        Debug.Log("HubController loaded");
+        //Global.InsertSomePlayersOnScoreBoard();
+        //scoreboard.GetComponent<Text>().text = Global.PlayerScoreToString();
+        //Global.ResetPlayer();
 	}
 }
