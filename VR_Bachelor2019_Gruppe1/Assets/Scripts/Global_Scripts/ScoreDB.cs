@@ -8,7 +8,6 @@ public class ScoreDB: MonoBehaviour
 
     void Start()
     {
-        Global.ResetPlayer();
         Debug.Log("sending entry");
         StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/userentry"));
     }

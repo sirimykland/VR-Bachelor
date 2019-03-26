@@ -114,9 +114,14 @@ public class AtomGenerator : MonoBehaviour {
         {
             velocity = -4.7f;
         }
-        else if (score >= 65)
+        else if (score >= 65 && score < 85)
         {
             velocity = -5.5f;
+        }
+        else if (score >= 85)
+        {
+            velocity = -7f;
+            fireRate = 0.3f;
         }
 
         switch (atomPath)

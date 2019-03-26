@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoleculeManagement : MonoBehaviour {
     private bool _init = false;
     public Molecule[] Molecules;
     public GameObject[] Atoms;
-   
 
+    void Awake(){
+        DontDestroyOnLoad(gameObject);
+    }
 
     // Use this for initialization
     void Start () {
@@ -17,9 +20,7 @@ public class MoleculeManagement : MonoBehaviour {
     // Update is called once per frame
 	void Update(){
         if(Molecules== null)
-            Global.gameOver = true;
-
-        testing();
+            StartCoroutine(GameOver()); 
     }
 
 
@@ -42,27 +43,12 @@ public class MoleculeManagement : MonoBehaviour {
         _init = true;
     }
 
-    void testing()
-    {
-        int index = 0;
-        ListShuffeler.Shuffle(Atoms);
-        foreach (Molecule m in Molecules)
-        {
-            if (index > Atoms.Length)
-                index++;
 
-            while (Atoms[index].GetComponent<Atom>().Outer != 0)
-            {
-                index++;
-            }
-            m.SetupWall(Atoms[index++].GetComponent<Atom>()); //post incrementation
-        }
-    }
-
-    void IsGameOver()
-    {
-        if (Global.gameOver)
-            StartCoroutine(Global.GoToGameOver());
+    public IEnumerator GameOver(){
+        Global.score = 200;//points;
+        Global.gameOver = true;
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(Global.scenes[3]);
     }
 
 

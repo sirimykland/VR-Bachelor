@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/* LevelController.cs
+ * 
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,39 +16,36 @@ public class LevelController : MonoBehaviour
 
     private static List<Material[]> levels;
     public Text playerText;
-    public Text levelText;
 
+    private GameObject gameManagerObject;
+    private GameObject cardCanvas;
 
-    // Start is called before the first frame update
-    GameObject gamemanagerObject;
-    GameObject cardlistObject;
+    // Called on scene loading, and conserves Global.cs script 
+    private void Awake(){
+        DontDestroyOnLoad(gameObject);
+    }
 
-    private void Start()
-    {
-        
-        gamemanagerObject = GameObject.FindGameObjectWithTag("GameManager");
-        cardlistObject = GameObject.FindGameObjectWithTag("CardList");
+    void Start(){
+        gameManagerObject = GameObject.FindGameObjectWithTag("GameManager");
+        cardCanvas = GameObject.FindGameObjectWithTag("CardList");
        
-        gamemanagerObject.SetActive(false);
-        cardlistObject.SetActive(false);
+        gameManagerObject.SetActive(false);
+        cardCanvas.SetActive(false);
 
         levels = new List<Material[]>();
         levels.Add(level1);
         levels.Add(level2);
         levels.Add(level3);
-        playerText.text = "Player: " + Global.username;
-        
-    }
-    // Update is called once per frame
-    public void level_OnClick(int i){
 
-        Debug.Log("Level "+i+" chosen");
+        playerText.text = "Spiller: " + Global.username; 
+    }
+
+    // On level clicked, cards are initialized, and the LevelController are destroyed.
+    public void level_OnClick(int i){
         GameObject.FindGameObjectWithTag("LevelButtons").SetActive(false);
-        gamemanagerObject.SetActive(true);
-        cardlistObject.SetActive(true);
-        gamemanager.backsides = levels[i-1];
-        gamemanager.InitializeCards();
-        levelText.text = "Level: "+i;
+        gameManagerObject.SetActive(true);
+        cardCanvas.SetActive(true);
+        gamemanager.InitializeCards(levels[i-1],i);
         Global.level = i;
 
         Destroy(gameObject);

@@ -23,10 +23,10 @@ public class Molecule : MonoBehaviour {
         atomsList = new List<Atom>();
         //Atom oldAtom = gObj.GetComponent<Atom>();
         Atom newAtom = (Atom)Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
-
+        newAtom.Start();
         //g.GetComponent<Atom>().SetValues(oldAtom.Electrons, oldAtom.Name);
         
-        //Debug.Log("Old atom had "+oldAtom.electrons+" electrons and  was named "+oldAtom.atomname);
+        //Debug.Log("Old atom had "+newAtom.electrons+" electrons and  was named "+newAtom.atomname);
 
         //a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         
@@ -40,7 +40,7 @@ public class Molecule : MonoBehaviour {
 
     public void GiveAwayState()
     {
-        if (Outer == 0 || Outer == 8)
+        if (Outer == 8 )//|| Outer == 8)
         {
             Give = 3;
             StartCoroutine(FullMolecule());
@@ -69,20 +69,20 @@ public class Molecule : MonoBehaviour {
                     if(((Give + colAtom.Give) > 1))
                     {
                         Debug.Log("Collition valid give > 1");
-                        //AddAtom(col.gameObject);
+                        AddAtom(colAtom);
                     }else if ((Give==0 && colAtom.Give ==2) || (Give==2 && colAtom.Give==0))
                     {
                         Debug.Log("Collition valid");
-                        //AddAtom(col.gameObject);
+                        AddAtom(colAtom);
                     }else if (Give == 1 && colAtom.Give==1)
                     {
                         Debug.Log("Collition valid");
-                        //AddAtom(col.gameObject);
+                        AddAtom(colAtom);
                     }
                     else if (Give == 1 && colAtom.Give == 2 || (Give == 2 && colAtom.Give == 1))
                     {
                         Debug.Log("Collition valid");
-                        //AddAtom(col.gameObject);
+                        AddAtom(colAtom);
                     }
                 }
             }
