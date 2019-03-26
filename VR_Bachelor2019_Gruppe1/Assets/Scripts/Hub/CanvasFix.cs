@@ -12,7 +12,7 @@ using VRTK;
 public class CanvasFix : MonoBehaviour
 {
     public GameObject EventSystem;
-    public VRTK_UIPointer[] PointerController;
+    public VRTK_UIPointer PointerController;
 
     private VRTK_VRInputModule[] inputModule;
 
@@ -25,12 +25,14 @@ public class CanvasFix : MonoBehaviour
     {
         if (inputModule != null)
         {
+            Debug.Log("inputModule != null : " + inputModule != null);
             if (inputModule.Length > 0)
             {
+                Debug.Log("inputModule.Length > 0: " + (inputModule.Length > 0));
                 inputModule[0].enabled = true;
+                Debug.Log(inputModule[0].pointers.Count == 0);
                 if (inputModule[0].pointers.Count == 0)
-                    inputModule[0].pointers.Add(PointerController[0]);
-                    inputModule[0].pointers.Add(PointerController[1]);
+                    inputModule[0].pointers.Add(PointerController);
             }
             else
                 inputModule = EventSystem.GetComponents<VRTK_VRInputModule>();

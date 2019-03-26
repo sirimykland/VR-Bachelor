@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &38862891
 Transform:
   m_ObjectHideFlags: 0
@@ -10712,7 +10712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1903884498
 Transform:
   m_ObjectHideFlags: 0
@@ -10835,8 +10835,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Molecules:
-  - {fileID: 38862892}
-  - {fileID: 1903884499}
+  - {fileID: 1037390940}
+  - {fileID: 2023546813}
+  - {fileID: 1129453214}
+  - {fileID: 946054100}
   Atoms:
   - {fileID: 1033705510087851827, guid: 393f8fade75666643ad50867a8128953, type: 3}
   - {fileID: 6410628299431758107, guid: bbe5f97b6807eb94c9ade454a0967360, type: 3}

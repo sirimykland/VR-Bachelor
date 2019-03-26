@@ -37,7 +37,7 @@ public class EscapeAtomsGameManager : MonoBehaviour {
         }
         else
         {
-            points -= badHits * electrons;
+            points = -badHits * electrons;
         }
         //lastAttemptSuccessful = succesStatus;
 
@@ -54,11 +54,11 @@ public class EscapeAtomsGameManager : MonoBehaviour {
         moleculesLeft = Molecules.Length;
         foreach (Molecule m in Molecules)
         {
-            Debug.Log("outer "+Atoms[index].GetComponent<Atom>().Outer+ (Atoms[index].GetComponent<Atom>().Outer == 0));
+            //Debug.Log("outer "+Atoms[index].GetComponent<Atom>().Outer+ (Atoms[index].GetComponent<Atom>().Outer == 0));
             do{
                 index++;
                 index=(index < Atoms.Length) ?  index : 0 ;
-                Debug.Log(Atoms.Length+"  "+Atoms[index] +"  " + index);
+                //Debug.Log(Atoms.Length+"  "+Atoms[index] +"  " + index);
             } while (Atoms[index].GetComponent<Atom>().Outer == 0);
            
             m.SetupWall(Atoms[index]); //post incrementation

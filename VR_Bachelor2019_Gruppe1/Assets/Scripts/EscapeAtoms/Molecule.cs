@@ -39,9 +39,10 @@ public class Molecule : MonoBehaviour {
  * 2: receive electrons
  * 4: full outer shell
  */
-    public void GiveAwayState()
+    public  GiveAwayState()
     {
-        if (outer == 0 || outer == 8)
+        if(outer==2 && atomslist)
+        if (outer == 0 || outer == 8 || ())
         {
             give = 4;
             StartCoroutine(FullMolecule());
@@ -111,7 +112,7 @@ public class Molecule : MonoBehaviour {
 
         atomsList.Add(newAtom);//.GetComponent<Atom>());
         outer += newAtom.Outer;
-        Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ outer);
+        //Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ outer);
 
 
         // her og nedover må noe gjøres for å få posisjon 000

@@ -15,7 +15,8 @@ public class HubController : MonoBehaviour {
     {
             Debug.Log("Memorybutton was clicked");
             Global.gameChoice = Global.scenes[1];
-            SceneManager.LoadScene(Global.scenes[1]);
+        Initiate.Fade(Global.scenes[1], Color.red, 1.0f);
+        //SceneManager.LoadScene(Global.scenes[1]);
     }
 
     void Start () {
