@@ -1,32 +1,59 @@
-﻿//Hentet fra "VR Application for the Faculty
-// of Science and Technology"
-// av Oanæs, Sondre
-//Idsø, Leiv Erling
-//Kolberg, Lars-Espen
-
+﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HubController : MonoBehaviour {
-   
-    // lag en metoder per portal
-    public void StartMemory_OnClick()
+
+    
+    private string playerName;
+    private GameObject textBox;
+    private GameObject keyBoardObject;
+    //private GameObject playerInformation; info om tid og navn før spillet starter
+    private GameObject startMemoryObject;
+    private GameObject startAtomCrusherObject;
+    private GameObject startEscapeAtomsObject;
+
+    public GameObject eventSystem;
+
+    // Use this for initialization
+    void Start()
     {
-            Debug.Log("Memorybutton was clicked");
-            Global.gameChoice = Global.scenes[1];
-        Initiate.Fade(Global.scenes[1], Color.red, 1.0f);
-        //SceneManager.LoadScene(Global.scenes[1]);
+
+        textBox = GameObject.FindGameObjectWithTag("NameOfPlayer");
+        keyBoardObject = GameObject.FindGameObjectWithTag("Keyboard");
+
+        //insert more buttons(doors/portals)
+
+        startMemoryObject = GameObject.FindGameObjectWithTag("StartMemory");
+        startAtomCrusherObject = GameObject.FindGameObjectWithTag("StartAtomCrusher");
+        startEscapeAtomsObject = GameObject.FindGameObjectWithTag("StartEscapeAtoms");
+        ActivateObjects(true);
+
     }
 
-    void Start () {
-        // lage et scoreboard per game, bruk loop til å fylle dem
-        //scoreboard = GameObject.FindGameObjectWithTag("ScoreBoard");
-        Global.level = 1;
-        Global.gameOver = false;
-        Global.score = 0;
-        //Global.InsertSomePlayersOnScoreBoard();
-        //scoreboard.GetComponent<Text>().text = Global.PlayerScoreToString();
-        //Global.ResetPlayer();
-	}
+    // lag en metoder per portal
+    public void StartGame_OnClick(int i)
+    {
+        Debug.Log("startbutton for " + Global.scenes[i] + " was clicked");
+        Global.gameChoice = Global.scenes[i];
+        SceneManager.LoadScene(Global.scenes[i]);
+    }
+
+    public void Enter_Onclick()
+    {
+        Debug.Log(textBox.GetComponent<Text>().text);
+        playerName = textBox.GetComponent<Text>().text;
+        Global.username = playerName;
+        ActivateObjects(false);
+    }
+
+    private void ActivateObjects(bool state)
+    {
+        textBox.SetActive(state);
+        keyBoardObject.SetActive(state);
+        startMemoryObject.SetActive(!state);
+        startAtomCrusherObject.SetActive(!state);
+        startEscapeAtomsObject.SetActive(!state);
+    }
 }

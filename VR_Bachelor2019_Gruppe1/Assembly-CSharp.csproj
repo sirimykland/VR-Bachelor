@@ -72,7 +72,6 @@
     <Compile Include="Assets\Scripts\Global_Scripts\ScoreDB.cs" />
     <Compile Include="Assets\Scripts\Hub\CanvasFix.cs" />
     <Compile Include="Assets\Scripts\Hub\HubController.cs" />
-    <Compile Include="Assets\Scripts\Hub\Keyboard.cs" />
     <Compile Include="Assets\Scripts\Hub\Scoreboard.cs" />
     <Compile Include="Assets\Scripts\Memorygame\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Memorygame\Card.cs" />

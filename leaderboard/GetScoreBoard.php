@@ -4,7 +4,7 @@
         mysql_select_db('YOURDATABASE') or die('Failed to access database');
 
      //This query grabs the top 10 scores, sorting by score and timestamp.
-    $query = "SELECT * FROM Score ORDER by score DESC LIMIT 3 WHERE game="+game+;
+    $query = "SELECT * FROM Score ORDER by score DESC LIMIT 3 WHERE game="+game;
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 
     //We find our number of rows

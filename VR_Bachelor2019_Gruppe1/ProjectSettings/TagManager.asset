@@ -20,6 +20,9 @@ TagManager:
   - Menu
   - StartButton
   - Controller
+  - StartEscapeAtoms
+  - StartAtomCrusher
+  - EventSystem
   layers:
   - Default
   - TransparentFX

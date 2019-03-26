@@ -19,7 +19,7 @@ public static class Global
     public static bool gameOver { get; set; }
 
 
-    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "GameStop" };
+    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "AtomCrusher","EscapeAtoms","GameStop" };
 
     public static List<Player> playerScores = new List<Player> { };
 

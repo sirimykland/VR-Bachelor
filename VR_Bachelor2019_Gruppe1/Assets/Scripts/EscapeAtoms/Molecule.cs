@@ -8,9 +8,7 @@ public class Molecule : MonoBehaviour {
     public ParticleSystem explosion;
 
     public EscapeAtomsGameManager gameManager;
-
- 
-
+    public Material[] materials;
 
     // Use this for initialization
     private int BadCollision;
@@ -39,10 +37,9 @@ public class Molecule : MonoBehaviour {
  * 2: receive electrons
  * 4: full outer shell
  */
-    public  GiveAwayState()
+    private void GiveAwayState()
     {
-        if(outer==2 && atomslist)
-        if (outer == 0 || outer == 8 || ())
+        if (outer == 0 || outer == 8 || (outer == 2 && atomsList.Count == 2))
         {
             give = 4;
             StartCoroutine(FullMolecule());
@@ -55,7 +52,10 @@ public class Molecule : MonoBehaviour {
         {
             give = 2;
         }
-        
+    }
+    private void ChangeStateColor()
+    {
+        this.gameObject.GetComponentInChildren<Renderer>().material = new Material(materials[outer-1]);
     }
 
 
@@ -78,20 +78,7 @@ public class Molecule : MonoBehaviour {
                     {
                         Debug.Log("Collition valid give [2 between 1]");
                         AddAtom(colAtom);
-                    }/*else if ((give==0 && colAtom.Give ==2) || (give==2 && colAtom.Give==0))
-                    {
-                        Debug.Log("Collition valid");
-                        AddAtom(colAtom);
-                    }else if (give == 1 && colAtom.Give==1)
-                    {
-                        Debug.Log("Collition valid");
-                        AddAtom(colAtom);
                     }
-                    else if (give == 1 && colAtom.Give == 2 || (give == 2 && colAtom.Give == 1))
-                    {
-                        Debug.Log("Collition valid");
-                        AddAtom(colAtom);
-                    }*/
                     BadCollision = 0;
                 }
                 else
@@ -125,7 +112,7 @@ public class Molecule : MonoBehaviour {
 
         //sjekker om fullt ytterskal
         GiveAwayState();
-        
+        ChangeStateColor();
     }
     void SetLocation(Transform trans)
     {
