@@ -11,7 +11,6 @@ firebase.initializeApp(config);
 
 
 var dbSBRef = firebase.database().ref().child('MemoryGame\scoreboard');
-var dbCPRef = firebase.database().ref().child('curPlayer');
 
 // referance to the specific database table
 function openGame(evt, game) {

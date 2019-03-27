@@ -1,117 +1,162 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Molecule : MonoBehaviour {
-    private List<Atom> _atomsList;
+    private List<Atom> atomsList;
+    public ParticleSystem explosion;
+
+    public EscapeAtomsGameManager gameManager;
+    public Material[] materials;
 
     // Use this for initialization
-    private int _noElectrons=0;
-    [HideInInspector]
-    public int starterAtom;
-    private bool _give;
-    private bool _init= false;
-    
-    public void setupWall(){
-        _atomsList = new List<Atom>();
-        Atom a = Instantiate(GetComponentInParent<MoleculeManagement>().Atoms[starterAtom]);
-        a.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-        Destroy(a.GetComponent<Rigidbody>());
-        Destroy(a.GetComponent<SphereCollider>());
-        gameObject.AddComponent<SphereCollider>().radius=0.75f;
+    private int BadCollision;
+    private int outer;
+    private int give;
 
-        addAtom(a);
-        giveAwayState();
+    private bool _init= false;
+
+
+    public void SetupWall(Atom gObj){
+        atomsList = new List<Atom>();
+        Atom newAtom = (Atom)Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
+        //gObj.Start();
+        
+        outer = 0;
+        BadCollision=0;
+        AddAtom(newAtom);
         _init = true;
 
     }
 
-    public void giveAwayState() {
-        if (_noElectrons > 4 && _noElectrons < 8)
-            _give = true;
-        else
-            _give = false;
+
+    /* give meaning:
+ * 0: give electrons
+ * 1: give and receive (Hydrogen only)
+ * 2: receive electrons
+ * 4: full outer shell
+ */
+    private void GiveAwayState()
+    {
+        if (outer == 0 || outer == 8 || (outer == 2 && atomsList.Count == 2))
+        {
+            give = 4;
+            StartCoroutine(FullMolecule());
+        }
+        else if (outer <= 4)
+        {
+            give = 0;
+        }
+        else if (outer >= 5)
+        {
+            give = 2;
+        }
+    }
+    private void ChangeStateColor()
+    {
+        this.gameObject.GetComponentInChildren<Renderer>().material = new Material(materials[outer-1]);
     }
 
-    public int NoElectrons{
-        get { return _noElectrons; }
-    }
 
-    void OnTriggerEnter(Collider col) {
+    public void OnCollisionEnter(Collision col) {
+        Debug.Log("collision");
+
         if (_init)
         {
             if (col.gameObject.GetComponent<Atom>())
             {
-                Atom _collidedAtom = col.gameObject.GetComponent<Atom>();
-                Debug.Log(_init+": "+_collidedAtom.Name + " collided with " + _atomsList[0].Name);
-                int sum = _noElectrons + _collidedAtom.NoElectrons;
+                Atom colAtom = col.gameObject.GetComponent<Atom>();
+                Debug.Log(_init+": "+ colAtom.Name + " collided with " + atomsList[0].Name);
 
-                if ((_give && !_collidedAtom.Give) || (!_give && _collidedAtom.Give))
-                {
+                int sum = outer + colAtom.Outer;
 
-                    if (sum <= 8)
-                        Debug.Log("Collition valid");
+                Debug.Log("GiveState: " + colAtom.Give + " collided with givestate" + give);
+                Debug.Log("Outer: " + colAtom.Outer + " collided with Outer" + outer);
+                if (sum <= 8) { 
+                    if(((give + colAtom.Give) <4 && (give + colAtom.Give) > 0)) // give: 0+1,1+0 | 1+1,0+2,2+0 | 1+2,2+1
                     {
-                        addAtom(_collidedAtom);
+                        Debug.Log("Collition valid give [2 between 1]");
+                        AddAtom(colAtom);
                     }
+                    BadCollision = 0;
                 }
-
+                else
+                {
+                    BadCollision++;
+                }
+                gameManager.Points(BadCollision, colAtom.electrons);
             }
         }
     }
 
-    void addAtom(Atom newAtom){
+    void AddAtom(Atom newAtom){
         //sky av collisjon elns
 
+        //Atom atomScript = newAtom.GetComponent<Atom>();
         //fjerner ridgid body
         Destroy(newAtom.GetComponent<Rigidbody>());
-        _atomsList.Add(newAtom);
-        _noElectrons = newAtom.NoElectrons;
+
+        atomsList.Add(newAtom);//.GetComponent<Atom>());
+        outer += newAtom.Outer;
+        //Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ outer);
+
 
         // her og nedover må noe gjøres for å få posisjon 000
         newAtom.transform.parent = gameObject.transform;
-        newAtom.transform.localScale += new Vector3(1, 1, 1);
 
-        Debug.Log(newAtom.transform.localPosition + "  =   " + setLocation());
-        newAtom.transform.localPosition = setLocation();
-        Debug.Log(newAtom.transform.localPosition );
-        
+        //Debug.Log(newAtom.transform.localPosition);
+        SetLocation(newAtom.transform);
+        newAtom.transform.rotation =  Quaternion.Euler(0, -90, 0);//gameObject.transform.parent.rotation;
+        //Debug.Log(newAtom.transform.localPosition );
 
         //sjekker om fullt ytterskal
-        fullMolecule();
+        GiveAwayState();
+        ChangeStateColor();
     }
-    Vector3 setLocation()
+    void SetLocation(Transform trans)
     {
-        int length = _atomsList.Count;
-        Debug.Log("atomlist is of length "+length);
+        int length = atomsList.Count;
+        //Debug.Log("atomlist is of length "+length);
         switch (length)
         {
             case 1:
-                return new Vector3(0, 0, 0);
+                trans.localScale = new Vector3(5, 5, 5);
+                trans.localPosition=new Vector3(0, 0, 0);
+                break;
             case 2:
-                return new Vector3(1, 0, 0);
+                trans.localScale = new Vector3(3, 3, 3);
+                trans.localPosition = new Vector3(1, 0, 0);
+
+                break;
             case 3:
-                return new Vector3(-1, -1, 0);
+                trans.localScale = new Vector3(3, 3, 3);
+                trans.localPosition = new Vector3(0, -1, 0);
+                break;
             case 4:
-                return new Vector3(0, 1, 0);
+                trans.localScale = new Vector3(3, 3, 3);
+                trans.localPosition = new Vector3(0, 1, 0);
+                break;
             default:
-                return new Vector3(0, 0, 0);
+                trans.localScale = new Vector3(3, 3, 3);
+                trans.localPosition = new Vector3(-1, 0, 0);
+                break;
         }
     }
 
-    void fullMolecule(){
-        if (_noElectrons == 8)
-        {
-            //eksplosjon 
-            Explode(gameObject.GetComponent<Vector3>());
-            Destroy(gameObject);
-        }
+    IEnumerator FullMolecule(){
+
+        yield return new WaitForSeconds(2);
+        Debug.Log("Destroying");
+        //eksplosjon 
+        Explode();
+        gameManager.moleculesLeft--;
+        Destroy(gameObject);
+        
     }
 
-    public ParticleSystem explosion;
-
-    public void Explode(Vector3 position)
+    public void Explode()
     { 
-        Instantiate(explosion, position, Quaternion.identity);
+        explosion= Instantiate(explosion, transform.position, Quaternion.identity);
     }
 }
