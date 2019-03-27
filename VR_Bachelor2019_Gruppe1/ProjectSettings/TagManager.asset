@@ -23,6 +23,10 @@ TagManager:
   - StartEscapeAtoms
   - StartAtomCrusher
   - EventSystem
+  - Sword
+  - Metal
+  - NonMetal
+  - Cube
   layers:
   - Default
   - TransparentFX
