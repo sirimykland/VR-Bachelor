@@ -87,8 +87,7 @@ public static class Global
     public static IEnumerator GoToGameOver()
     {
         yield return new WaitForSeconds(3);
-        Initiate.Fade("GameOver", Color.black, 1.0f);
-        //SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 
 
