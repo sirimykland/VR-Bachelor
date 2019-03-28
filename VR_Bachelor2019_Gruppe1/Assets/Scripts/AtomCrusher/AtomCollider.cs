@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AtomCollider : MonoBehaviour {
+public class AtomCollider : MonoBehaviour
+{
 
     public GameBehaviour gameBehaviour;
 
@@ -46,7 +47,7 @@ public class AtomCollider : MonoBehaviour {
     {
         float cubeSize = 0.2f;
         float explosionRadius = 0.5f;
-        float explosionForce = 500f;
+        float explosionForce = 5f;
         float explosionUpwards = 0.2f;
         GameObject partOfAtom;
         for (int i = 0; i < 3; i++)
@@ -56,18 +57,16 @@ public class AtomCollider : MonoBehaviour {
                 for (int k = 0; k < 3; k++)
                 {
                     partOfAtom = Instantiate(cube);
-                    partOfAtom.transform.position = atom.transform.position + new Vector3(cubeSize * i, cubeSize * j, cubeSize*k);
+                    partOfAtom.transform.position = atom.transform.position + new Vector3(cubeSize * i, cubeSize * j, cubeSize * k);
                     partOfAtom.tag = "Cube";
-                    Vector3 explosionPos = new Vector3(-1.17f, 0.73f, 1.52f);
-                    //Vector3 explosionPos = partOfAtom.transform.position;
+                    Vector3 explosionPos = partOfAtom.transform.position;
                     Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
                     foreach (Collider col in colliders)
                     {
                         Rigidbody rB = col.GetComponent<Rigidbody>();
                         if (rB != null)
                         {
-                            rB.AddExplosionForce(explosionForce, explosionPos, 10f, 1f);
-                            Debug.Log("EXPLOSION");
+                            rB.AddExplosionForce(explosionForce, explosionPos, explosionRadius, explosionUpwards);
                         }
                     }
                 }
