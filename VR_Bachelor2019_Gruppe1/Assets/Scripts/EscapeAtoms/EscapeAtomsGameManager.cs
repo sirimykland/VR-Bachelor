@@ -12,6 +12,7 @@ public class EscapeAtomsGameManager : MonoBehaviour {
     public Text playerText;
     public Text scoreText;
     private int points;
+    
 
     // Use this for initialization
     void Start () {
@@ -39,7 +40,6 @@ public class EscapeAtomsGameManager : MonoBehaviour {
         {
             points = -badHits * electrons;
         }
-        //lastAttemptSuccessful = succesStatus;
 
         // update scoreboard
         scoreText.text = "Poeng: " + points;

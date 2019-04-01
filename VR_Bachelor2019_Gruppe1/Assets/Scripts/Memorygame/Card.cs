@@ -45,7 +45,7 @@ public class Card : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, root, 0);
             yield return null;
         }
-        Debug.Log("fully rotated ");
+        //Debug.Log("fully rotated ");
     }
     
     public void SetupGraphics(Material backside) {
@@ -54,15 +54,15 @@ public class Card : MonoBehaviour {
     }
 
     public void FlipCard() {
-        //Debug.Log("Flipped card" + _state);
 
         if (_state == 0){
             _state = 1;
         }else if (_state == 1){
             _state = 0;
         }
+
         _timesFlipped++;
-        //Debug.Log("TimesFlipped " + _timesFlipped);
+
         if (_state == 0 && !DO_NOT_TURN){
             StartCoroutine(RotateStuff(180));     
         }
@@ -96,8 +96,7 @@ public class Card : MonoBehaviour {
         set { _initialized = value; }
     }
 
-    public void falseCheck() {
-        Debug.Log("falsecheck");
+    public void FalseCheck() {
         StartCoroutine(pause());
     }
 

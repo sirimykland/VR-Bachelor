@@ -4,25 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ExcludeTeleport
-  - projectile
-  - FxTemporaire
-  - TeleportIgnore
-  - Keyboard
-  - StartMemory
-  - DB
-  - ScoreBoard
+  - KeyBoard
+  - Portal
+  - IncludeTeleport
   - NameOfPlayer
-  - GameManager
-  - ToHub
+  - ScoreBoard
   - LevelButtons
   - CardList
-  - Menu
-  - StartButton
-  - Controller
-  - StartEscapeAtoms
-  - StartAtomCrusher
+  - DB
   - EventSystem
+  - Message
+  - GameManager
+  - Menu
   layers:
   - Default
   - TransparentFX
@@ -32,7 +25,7 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
+  - 
   - 
   - 
   - 

@@ -9,26 +9,26 @@ public class HubController : MonoBehaviour {
     private string playerName;
     private GameObject textBox;
     private GameObject keyBoardObject;
-    //private GameObject playerInformation; info om tid og navn før spillet starter
-    private GameObject startMemoryObject;
-    private GameObject startAtomCrusherObject;
-    private GameObject startEscapeAtomsObject;
+    private GameObject messageObject;
+    private GameObject[] startPortal;
 
     public GameObject eventSystem;
 
     // Use this for initialization
     void Start()
     {
-
+        //finds all Objects with these tags
         textBox = GameObject.FindGameObjectWithTag("NameOfPlayer");
-        keyBoardObject = GameObject.FindGameObjectWithTag("Keyboard");
+        keyBoardObject = GameObject.FindGameObjectWithTag("KeyBoard");
+        messageObject = GameObject.FindGameObjectWithTag("Message");
+        startPortal = GameObject.FindGameObjectsWithTag("Portal");
 
-        //insert more buttons(doors/portals)
-
-        startMemoryObject = GameObject.FindGameObjectWithTag("StartMemory");
-        startAtomCrusherObject = GameObject.FindGameObjectWithTag("StartAtomCrusher");
-        startEscapeAtomsObject = GameObject.FindGameObjectWithTag("StartEscapeAtoms");
         ActivateObjects(true);
+        messageObject.GetComponent<Text>().text = "Skriv på tastaturet ved å trykke på: \n" +
+            "1. Touchpad-knappen med tommelen \n" +
+            "2. Trigger-knappen med pekefingeren \n\n" +
+            "Du kan telepotere deg rundt på gresset ved å trykke på Touchpadden mens du peker på gulvet";
+
 
     }
 
@@ -46,14 +46,18 @@ public class HubController : MonoBehaviour {
         playerName = textBox.GetComponent<Text>().text;
         Global.username = playerName;
         ActivateObjects(false);
+        messageObject.GetComponent<Text>().text = "Velg spill ved å klikke\n på tilhørende dør.";
     }
 
     private void ActivateObjects(bool state)
     {
         textBox.SetActive(state);
         keyBoardObject.SetActive(state);
-        startMemoryObject.SetActive(!state);
-        startAtomCrusherObject.SetActive(!state);
-        startEscapeAtomsObject.SetActive(!state);
+        //messageObject.SetActive(!state);
+        foreach(GameObject g in startPortal)
+        {
+            g.SetActive(!state);
+        }
+        
     }
 }

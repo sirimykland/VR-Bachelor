@@ -77,8 +77,6 @@ public class GameManager : MonoBehaviour {
             Card.DO_NOT_TURN = false;
             lockState = false;
         }
-        
-        Debug.Log("lockstate "+ lockState);
     }
     
     public Material GetBackside(int i){
@@ -112,7 +110,7 @@ public class GameManager : MonoBehaviour {
         {
             x = 2;
             pairs--;
-            pairsText.text = "Pairs left: "+pairs;
+            pairsText.text = "Par igjen: "+pairs;
             source.PlayOneShot(positiveSound, 0.4f);
 
             Points(true, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
@@ -125,14 +123,14 @@ public class GameManager : MonoBehaviour {
         else
         {
             attempts++;
-            attemptsText.text = "Attempts: "+ attempts;
+            attemptsText.text = "Forsok: "+ attempts;
 
             Points( false, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
         }
         for (int i =0; i<c.Count; i++)
         {
             cards[c[i]].GetComponent<Card>().State = x;
-            cards[c[i]].GetComponent<Card>().falseCheck();
+            cards[c[i]].GetComponent<Card>().FalseCheck();
         }
         SetLockState(false);
     }
@@ -162,7 +160,7 @@ public class GameManager : MonoBehaviour {
         lastAttemptSuccessful = succesStatus;
 
         // update scoreboard:
-        pointsText.text = "Points: " + points;
+        pointsText.text = "Poeng: " + points;
     }
 
     public void GameOver()
