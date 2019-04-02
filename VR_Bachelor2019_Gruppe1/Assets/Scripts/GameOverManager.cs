@@ -10,14 +10,22 @@ public class GameOverManager : MonoBehaviour {
 
     void Start()
     {
-        switch (Global.gameChoice)
+        switch (Global.gameID)
         {
-            case "MemoryGame":
+            case 100:
                 title.text = "MemoryGame Level "+ Global.level;
                 message.text = "Godt jobbet " + Global.username + ", \nDu fikk " + Global.score + " poeng!";
                 break;
+            case 200:
+                title.text = "Atom Crusher Level " + Global.level;
+                message.text = "Godt jobbet " + Global.username + ", \nDu fikk " + Global.score + " poeng!";
+                break;
+            case 300:
+                title.text = "Atom Thrower";
+                message.text = "Godt jobbet " + Global.username + ", \nDu fikk " + Global.score + " poeng!";
+                break;
             default:
-                title.text = Global.gameChoice;
+                title.text = "Feil";
                 message.text = "Godt jobbet " + Global.username + ", \nDu fikk " + Global.score + " poeng!";
                 break;
         }
@@ -25,7 +33,6 @@ public class GameOverManager : MonoBehaviour {
     }
     public void ToHub_OnClick()
     {
-        Debug.Log("To Hub button was clicked");
         SceneManager.LoadScene(Global.scenes[0]);
     }
 }

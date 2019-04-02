@@ -1,26 +1,30 @@
-﻿using System.Collections;
+﻿/* Card.cs - 02.04.2019
+ * Card class that contains all variables and functions of a Card.
+ */
+using System.Collections;
 using UnityEngine;
 
 public class Card : MonoBehaviour {
 
-    public static bool DO_NOT_TURN = false;
+    // Getters and Setters
+    public int state { get; set; }
+    public int cardValue { get; set; }
+    public int cardType { get; set; }
+    public bool init { get; set; }
+    public int timesFlipped { get; set; }
 
 
-    private int _state; //has a state, being {0=not open, 1= open, 2= locked open }
-    private int _cardValue;
-    private int _cardType;
-
-    private bool _initialized = false;
-
-    private int _timesFlipped;
+    public static bool DO_NOT_TURN;
 
     void Start(){
-        _state = 0;
-        _timesFlipped = 0;
+        state = 0;
+        init = false;
+        timesFlipped = 0;
+        DO_NOT_TURN = false;
     }
 
-    //rotates the position of the GameObject over time
-    IEnumerator RotateStuff(int angle)
+    // Rotates the Card over time.
+    IEnumerator RotateCard(int angle)
     {
         float t = 0;
         float root = transform.eulerAngles.y;
@@ -39,84 +43,31 @@ public class Card : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, root, 0);
             yield return null;
         }
-        //Debug.Log("fully rotated ");
     }
 
-    // rotatong animation, and adding backside material to Card object
+    // Adding backside material to the Card.
     public void SetupGraphics(Material backside) {
-        StartCoroutine(RotateStuff(360));
+        StartCoroutine(RotateCard(360));
         this.gameObject.GetComponentInChildren<Renderer>().material = new Material(backside);
     }
 
+    // Changes the state of the card and starts rotating it
     public void FlipCard() {
-
-        if (_state == 0){
-            _state = 1;
-        }else if (_state == 1){
-            _state = 0;
-        }
-        _timesFlipped++; // counter used to calculate points.
-
-        if (_state == 0 && !DO_NOT_TURN){
-            StartCoroutine(RotateStuff(180));
-        }
-        else if (_state == 1 && !DO_NOT_TURN){
-            StartCoroutine(RotateStuff(180));
+        if (state == 0 && !DO_NOT_TURN){
+            state = 1;
+            StartCoroutine(RotateCard(180));
         }
     }
 
-    public void FailedAttempt(){
-        StartCoroutine(RotateBack());
-    }
 
-    IEnumerator RotateBack()
+    public IEnumerator RotateBack()
     {
-        yield return new WaitForSeconds(2);
-        if (_state == 0 || _state==1)
+        yield return new WaitForSeconds(1);
+        if (state == 0)
         {
-            StartCoroutine(RotateStuff(180));
+            StartCoroutine(RotateCard(180));
         }
-    }
-
-    // Getters and Setters
-    public int CardValue{
-        get { return _cardValue; }
-        set { _cardValue = value; }
-    }
-    public int CardType{
-        get { return _cardType; }
-        set { _cardType = value; }
-    }
-    public int TimesFlipped
-    {
-        get { return _timesFlipped; }
-        set { _timesFlipped = value; }
-    }
-    public int State {
-        get { return _state; }
-        set { _state = value; }
-    }
-    public bool Initialized{
-        get { return _initialized; }
-        set { _initialized = value; }
-    }
-
-    public void FalseCheck() {
-        StartCoroutine(pause());
-    }
-
-
-    IEnumerator pause() {
-        yield return new WaitForSeconds(2);
-        if (_state == 0)
-        {
-            StartCoroutine(RotateStuff(180));
-        }
-        else if (_state == 1)
-        {
-            StartCoroutine(RotateStuff(180));
-        }
-        //DO_NOT_TURN = false;
+        DO_NOT_TURN = false;
     }
 
 }

@@ -60,6 +60,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AtomCrusher\AtomCollider.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\AtomGenerator.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\FloorCollider.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\GameBehaviour.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\WallCollider.cs" />
+    <Compile Include="Assets\Scripts\CamMouseLook.cs" />
+    <Compile Include="Assets\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\Atom.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\AtomShelfReplacer.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\EscapeAtomsGameManager.cs" />
@@ -72,11 +79,9 @@
     <Compile Include="Assets\Scripts\Global_Scripts\ScoreDB.cs" />
     <Compile Include="Assets\Scripts\Hub\CanvasFix.cs" />
     <Compile Include="Assets\Scripts\Hub\HubController.cs" />
+    <Compile Include="Assets\Scripts\Hub\MenuFix.cs" />
     <Compile Include="Assets\Scripts\Hub\Scoreboard.cs" />
-    <Compile Include="Assets\Scripts\Memorygame\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Memorygame\Card.cs" />
-    <Compile Include="Assets\Scripts\Memorygame\CardHandler.cs" />
-    <Compile Include="Assets\Scripts\Memorygame\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Memorygame\GameManager.cs" />
     <Compile Include="Assets\Scripts\Memorygame\LevelController.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />

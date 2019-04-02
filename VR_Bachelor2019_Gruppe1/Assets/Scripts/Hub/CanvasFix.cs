@@ -1,7 +1,8 @@
-﻿/* Retrieved from https://answers.unity.com/questions/1437486/vrtk-ui-doesnt-work-after-load-scene.html
- * When Hub scene(index 0) is reloded there was a problem related to 
+﻿/* CanvasFix.cs - 02.04.2019
+ * Retrieved from https://answers.unity.com/questions/1437486/vrtk-ui-doesnt-work-after-load-scene.html
+ * When a Scene is reloded the System has a problem related to 
  * the Unity EventSystem being disabled and not working properly.
- * 
+ * The CanvasFix class adds the controllers as inputmodules.
  */
 
 using System.Collections;
@@ -18,7 +19,6 @@ public class CanvasFix : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("fix started");
         StartCoroutine(LateStart(1));
     }
 
@@ -28,13 +28,11 @@ public class CanvasFix : MonoBehaviour
         {
             if (inputModule.Length > 0)
             {
-                //Debug.Log("inputModule.Length > 0: " + (inputModule.Length > 0));
                 inputModule[0].enabled = true;
-                //Debug.Log(inputModule[0].pointers.Count == 0);
+                
                 if (inputModule[0].pointers.Count == 0) { 
                     inputModule[0].pointers.Add(PointerController[0]);
                     inputModule[0].pointers.Add(PointerController[1]);
-                    Debug.Log("fix added");
                 }
             }
             else

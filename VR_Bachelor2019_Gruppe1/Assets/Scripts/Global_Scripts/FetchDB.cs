@@ -10,7 +10,7 @@ public class FetchDB : MonoBehaviour
 {
     ///Fill in your server data here.
     private string privateKey = "ebba3c2d54e68e4bdd33b638d48cb4ab";
-    private string Top3ScoresURL = "http://ux.uis.no/~vrbach19/GetTop3.php?";
+    private string Top3ScoresURL = "http://ux.uis.no/~sirim/GetTop3.php?";
 
     
     public Scoreboard[] scoreboards;

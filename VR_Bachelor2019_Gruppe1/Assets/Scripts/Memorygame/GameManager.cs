@@ -23,16 +23,14 @@ public class GameManager : MonoBehaviour {
     private int pairs;
     private int attempts;
     private bool lastAttemptSuccessful;
-
-    public bool lockState;
     
     void Awake()
     {
         source = GetComponent<AudioSource>();
     }
 
+
     public void InitializeCards(){
-        lockState = true;
         points = 0;
         pairs = 8;
         attempts = 0;
@@ -47,49 +45,38 @@ public class GameManager : MonoBehaviour {
                 while (!test)
                 {
                     choice = UnityEngine.Random.Range(0, cards.Length);
-                    test = !(cards[choice].Initialized);
+                    test = !(cards[choice].init);
                 }
-                cards[choice].CardValue = i;
-                cards[choice].CardType = j;
-                cards[choice].Initialized = true;
+                cards[choice].cardValue = i;
+                cards[choice].cardType = j;
+                cards[choice].init = true;
             }
         }
 
         foreach (Card c in cards) { 
-            c.SetupGraphics(backsides[(c.CardValue + c.CardValue + c.CardType)]);
+            c.SetupGraphics(backsides[(c.cardValue + c.cardValue + c.cardType)]);
         }
-        lockState = false;
+       
 
         if (!_init) { 
             _init = true;
         }
-
-    }
-
-    void SetLockState(bool state)
-    {
-        if (state)
-        {
-            Card.DO_NOT_TURN = true;
-            lockState = true;
-        }else
-        {
-            Card.DO_NOT_TURN = false;
-            lockState = false;
-        }
     }
     
-    public Material GetBackside(int i){
-        return backsides[i - 1];
+    public void Card_OnClick(Card card)
+    {
+            card.FlipCard();
+            CheckCards();
     }
 
-    public void CheckCards() {
-        
+    //
+    public void CheckCards()
+    {
         List<int> c = new List<int>();
 
         for(int i=0; i< cards.Length; i++)
         {
-            if (cards[i].State == 1)
+            if (cards[i].state == 1)
             {
                 c.Add(i);
             }
@@ -100,39 +87,43 @@ public class GameManager : MonoBehaviour {
             CardComparison(c);
         }
     }
+
+    /* Locks cards and compares if they are a match or not.
+     * 
+     */
     void CardComparison(List<int> c)
     {
-        // sets all card to do not turn
-        SetLockState(true);
-
+        Card.DO_NOT_TURN = true;
+        
         int x = 0;
-        if(cards[c[0]].CardValue ==  cards[c[1]].CardValue && cards[c[0]].CardType != cards[c[1]].CardType)
+        if(cards[c[0]].cardValue ==  cards[c[1]].cardValue && cards[c[0]].cardType != cards[c[1]].cardType)
         {
             x = 2;
-            pairs--;
-            pairsText.text = "Par igjen: "+pairs;
+            
+            pairsText.text = "Par igjen: "+ --pairs;
             source.PlayOneShot(positiveSound, 0.4f);
 
-            Points(true, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
-            //Debug.Log("Cards matches.");
+            Points(true, cards[c[0]].timesFlipped, cards[c[1]].timesFlipped);
+            
             if (pairs == 0)
             {
-                GameOver();
+                StartCoroutine(Global.GoToGameOver(points));
             }
         }
         else
         {
             attempts++;
             attemptsText.text = "Forsok: "+ attempts;
-
-            Points( false, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
+            
+            Points( false, cards[c[0]].timesFlipped, cards[c[1]].timesFlipped);
         }
+
         for (int i =0; i<c.Count; i++)
         {
-            cards[c[i]].GetComponent<Card>().State = x;
-            cards[c[i]].GetComponent<Card>().FalseCheck();
+            cards[c[i]].GetComponent<Card>().state = x;
+            StartCoroutine(cards[c[i]].GetComponent<Card>().RotateBack());
         }
-        SetLockState(false);
+        
     }
 
     /*  The player gets 40 points for each pairs that he or she matches,
@@ -159,15 +150,7 @@ public class GameManager : MonoBehaviour {
         }
         lastAttemptSuccessful = succesStatus;
 
-        // update scoreboard:
         pointsText.text = "Poeng: " + points;
-    }
-
-    public void GameOver()
-    {
-        Global.score = points;
-        Global.gameOver = true;
-        StartCoroutine(Global.GoToGameOver());
     }
     
 }

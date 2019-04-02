@@ -7,7 +7,7 @@ public class ScoreDB: MonoBehaviour
 {
 
     private string privateKey = "ebba3c2d54e68e4bdd33b638d48cb4ab";
-    private string AddScoreURL = "http://ux.uis.no/~vrbach19/AddScore.php?";
+    private string AddScoreURL = "http://ux.uis.no/~sirim/AddScore.php?";
 
   //Called as soon as the class is activated.
   void Start()
@@ -38,13 +38,13 @@ public class ScoreDB: MonoBehaviour
   ///Our IEnumerators
   IEnumerator AddScore()
   {
-      string hash = Md5Sum(Global.username + Global.score + Global.gameChoice + privateKey);
+      string hash = Md5Sum(Global.username + Global.score + Global.gameID + privateKey);
 
 
         WWWForm form = new WWWForm();
-        form.AddField("username", UnityWebRequest.EscapeURL(Global.username));
+        form.AddField("play_name", UnityWebRequest.EscapeURL(Global.username));
         form.AddField("score", Global.score);
-        form.AddField("game", Global.gameChoice);
+        form.AddField("levelID", Global.levelID);
         form.AddField("hash", hash);
 
         UnityWebRequest www = UnityWebRequest.Post(AddScoreURL, form);
@@ -59,31 +59,4 @@ public class ScoreDB: MonoBehaviour
             Debug.Log("score successfully added...");
         }
   }
-
-    /*void Start()
-    {
-        Debug.Log("sending entry");
-        StartCoroutine(postRequest("https://us-central1-uisvr2019.cloudfunctions.net/userentry"));
-    }
-
-    IEnumerator postRequest(string url)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("game", Global.gameChoice);
-
-        form.AddField("username", Global.username);
-        form.AddField("score", Global.score);
-
-        UnityWebRequest uwr = UnityWebRequest.Post(url, form);
-        yield return uwr.SendWebRequest();
-
-        if (uwr.isNetworkError)
-        {
-            Debug.Log("Error While Sending: " + uwr.error);
-        }
-        else
-        {
-            Debug.Log("Received: " + uwr.downloadHandler.text);
-        }
-    }*/
 }

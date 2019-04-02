@@ -1,77 +1,73 @@
-﻿using System.Collections;
+﻿/* EscapeAtomsGameManager.cs - 02.04.2019
+ * 
+ * 
+ */ 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EscapeAtomsGameManager : MonoBehaviour {
-    private bool _init = false;
+    
+    // Lists filled with GameObjects set in inspector.
     public Molecule[] Molecules;
     public Atom[] Atoms;
-    public int moleculesLeft;
 
+    // Text components.
     public Text playerText;
     public Text scoreText;
-    private int points;
-    
 
-    // Use this for initialization
+    public int moleculesLeft;
+    private int points;
+    private bool init = false;
+
+    // Use this for initialization.
     void Start () {
+        Global.level = 1;
+        points = 0;
         playerText.text = "Spiller: "+Global.username;
-        scoreText.text = "Poeng: 0";
+        scoreText.text = "Poeng: "+ points;
         Initialize();
 	}
 
-    // Update is called once per frame
+    // Update is called once per frame and checks if there are any molecules left.
 	void Update(){
         if(moleculesLeft == 0)
         {
-            Debug.Log("gameover");
-            GameOver();
+            StartCoroutine(Global.GoToGameOver(points));
         }
     }
 
+    // Initializes the Molecule placeholders with non-stable atoms.
+    void Initialize()
+    {
+        ListShuffeler.Shuffle(Atoms);
+        int i = 0;
+        moleculesLeft = Molecules.Length;
+
+        foreach (Molecule mol in Molecules)
+        {
+            do {
+                i = (++i < Atoms.Length) ? i : 0;
+            } while (Atoms[i].GetComponent<Atom>().Outer == 0);
+           
+            mol.SetupWall(Atoms[i]);
+        }
+        init = true;
+    }
+
+    // Adds points and updates score text.
     public void Points(int badHits, int electrons)
     {
-        if (badHits==0)
+        if (badHits == 0)
         {
             points += electrons * 10;
         }
         else
         {
-            points = -badHits * electrons;
+            points += -(++badHits) * electrons;
         }
 
-        // update scoreboard
         scoreText.text = "Poeng: " + points;
     }
-
-
-    // set up wall of 9 atoms
-    void Initialize()
-    {
-        ListShuffeler.Shuffle(Atoms);
-        int index = 0;
-        moleculesLeft = Molecules.Length;
-        foreach (Molecule m in Molecules)
-        {
-            //Debug.Log("outer "+Atoms[index].GetComponent<Atom>().Outer+ (Atoms[index].GetComponent<Atom>().Outer == 0));
-            do{
-                index++;
-                index=(index < Atoms.Length) ?  index : 0 ;
-                //Debug.Log(Atoms.Length+"  "+Atoms[index] +"  " + index);
-            } while (Atoms[index].GetComponent<Atom>().Outer == 0);
-           
-            m.SetupWall(Atoms[index]); //post incrementation
-        }
-        _init = true;
-    }
-
-    public void GameOver()
-    {
-        Global.score = points;
-        Global.gameOver = true;
-        StartCoroutine(Global.GoToGameOver());
-    }
-
-
 }
