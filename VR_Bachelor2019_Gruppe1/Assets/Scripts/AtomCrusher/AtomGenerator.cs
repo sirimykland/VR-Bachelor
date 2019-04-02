@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/* AtomGenerator.cs - 02.04.2019
+ * Spawns the atoms into the game. The velocity/fire rate is also regulated in this script.
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,13 +38,11 @@ public class AtomGenerator : MonoBehaviour {
         tutorialMetal = false;
     }
 	
-	// Update is called once per frame
 	void Update () {
         score = gameBehaviour.score;
 
         if (!gameBehaviour.gameOver)
         {
-
             if (tutorialNonMetal)
             {
                 //Vector3 position = new Vector3(-1.3f, 2f, 21f);
@@ -74,6 +77,9 @@ public class AtomGenerator : MonoBehaviour {
         }
     }
 
+    /* Decides type of atom (metal/nonmetal), the path it takes, and the name of the atom by randomizing numbers.
+     * Regulates the velocity and fire rate based on the score of the game.
+     */
     private void GenerateAtom()
     {
         int typeOfAtom = random.Next(1, 5);
@@ -125,11 +131,9 @@ public class AtomGenerator : MonoBehaviour {
             fireRate = 0.4f;
         }
 
-
         switch (atomPath)
         {
             case 1:
-                //position = new Vector3(-4f, 3.5f, 21f);
                 position = new Vector3(-2f, 0.5f, 21f);
                 break;
             case 2:
@@ -139,11 +143,11 @@ public class AtomGenerator : MonoBehaviour {
                 position = new Vector3(1.3f, 2f, 21f);
                 break;
             case 4:
-                //position = new Vector3(4f, 3.5f, 21f);
                 position = new Vector3(2f, 0.5f, 21f);
                 break;
         }
-        //if metal atom
+
+        //If atom is of type metal
         if (typeOfAtom == 4)
         {
             atomNumber = random.Next(0,4);
@@ -151,7 +155,6 @@ public class AtomGenerator : MonoBehaviour {
             AddComponents(atom, velocity, position);
             atom.tag = "Metal";
         }
-        //if nonmetal
         else if (typeOfAtom < 4)
         {
             atomNumber = random.Next(0, 6);
@@ -161,7 +164,7 @@ public class AtomGenerator : MonoBehaviour {
         }
     }
 
-    //Adding components to the atom gameobjects
+    //Adds necessary components to the atom gameobjects.
     private void AddComponents(GameObject gO, float velocity, Vector3 position)
     {
         sC = gO.AddComponent<SphereCollider>();

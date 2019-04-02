@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar fixed-top navbar-dark bg-dark">
+          <div style="font-size: 1em; color:white">
+              <a href="./index.html" id="home-btn"> <span class="glyphicon glyphicon-home"> </span>  VR Bachelor UiS </a>
+          </div>
+
+          <ul class="nav nav-pills" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="crusher-tab" data-toggle="tab" href="#crusher" role="tab" aria-controls="crusher" aria-selected="true">Atom Crusher</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="memory-tab" data-toggle="tab" href="#memory" role="tab" aria-controls="memory" aria-selected="false">Molecular Memory</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="throw-tab" data-toggle="tab" href="#throw" role="tab" aria-controls="throw" aria-selected="false">Atom Thrower</a>
+            </li>
+          </ul>
+        
+          <div>
+            <button id="login" class="btn btn-primary" type="button">Login</button>
+          </div>
+      </nav>
+    </header>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="crusher" role="tabpanel" aria-labelledby="crusher-tab">
+        <div class="container">
+          <h1> Atom Crusher </h1>
+          <h3 class="text-muted"> Easy </h3>
+        </br>
+          <button type="button" class="btn btn-secondary">Easy</button>
+          <button type="button" class="btn btn-secondary">Normal</button>
+          <table class="table">
+            <thead>
+              <tr>
+                <th> # </th>
+                <th> Name </th>
+                <th> Score </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> 1 </td>
+                <td> JJ </td>
+                <td> 999 </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane" id="memory" role="tabpanel" aria-labelledby="memory-tab">
+        <div class="container">
+          <h1> Molecule Memory </h1>
+          <h3 class="text-muted"> Level 1</h3>
+        </br>
+          <button type="button" class="btn btn-secondary">Easy</button>
+          <button type="button" class="btn btn-secondary">Normal</button>
+          <table class="table">
+            <thead>
+              <tr>
+                <th> # </th>
+                <th> Name </th>
+                <th> Score </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> 2 </td>
+                <td> KK </td>
+                <td> 555 </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="tab-pane" id="throw" role="tabpanel" aria-labelledby="throw-tab">
+        <div class="container">
+          <h1> Atom Thrower </h1>
+          <h3 class="text-muted"> Scoreboard </h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th> # </th>
+                <th> Name </th>
+                <th> Score </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> 3 </td>
+                <td> FF </td>
+                <td> 888 </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="databaseRetrival.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

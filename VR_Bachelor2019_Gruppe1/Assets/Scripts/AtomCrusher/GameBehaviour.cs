@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* GameBehaviour.cs - 02.04.2019
+ * Handles public variables and functionality used througout the game. 
+ * Initialization when game starts, and finishes the game when it should end.
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,7 +44,9 @@ public class GameBehaviour : MonoBehaviour {
         minutes = 0;
     }
 
-    //Checks, after every frame, if game should finish
+    /* Checks, after every frame, if game should finish. Game is over when the player is out of lives.
+     * Displays score and lives in-game.
+     */ 
     void Update () {
         if (!gameOver)
         {
@@ -53,7 +61,9 @@ public class GameBehaviour : MonoBehaviour {
         livesText.text = "Lives: " + lives.ToString();
     }
 
-    //Sets bool gameOver to true to stop other functions. Displays final score and runs an animation on the remaining atom in scene.
+    /* Sets bool gameOver to true to stop other functions from running. 
+     * Displays final score and runs an animation on the remaining atoms in scene.
+     */     
     void GameOver()
     {
         gameOver = true;
