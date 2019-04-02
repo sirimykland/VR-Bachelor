@@ -1,32 +1,63 @@
-﻿//Hentet fra "VR Application for the Faculty
-// of Science and Technology"
-// av Oanæs, Sondre
-//Idsø, Leiv Erling
-//Kolberg, Lars-Espen
-
+﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HubController : MonoBehaviour {
-   
-    // lag en metoder per portal
-    public void StartMemory_OnClick()
+
+    
+    private string playerName;
+    private GameObject textBox;
+    private GameObject keyBoardObject;
+    private GameObject messageObject;
+    private GameObject[] startPortal;
+
+    public GameObject eventSystem;
+
+    // Use this for initialization
+    void Start()
     {
-            Debug.Log("Memorybutton was clicked");
-            Global.gameChoice = Global.scenes[1];
-        Initiate.Fade(Global.scenes[1], Color.red, 1.0f);
-        //SceneManager.LoadScene(Global.scenes[1]);
+        //finds all Objects with these tags
+        textBox = GameObject.FindGameObjectWithTag("NameOfPlayer");
+        keyBoardObject = GameObject.FindGameObjectWithTag("KeyBoard");
+        messageObject = GameObject.FindGameObjectWithTag("Message");
+        startPortal = GameObject.FindGameObjectsWithTag("Portal");
+
+        ActivateObjects(true);
+        messageObject.GetComponent<Text>().text = "Skriv på tastaturet ved å trykke på: \n" +
+            "1. Touchpad-knappen med tommelen \n" +
+            "2. Trigger-knappen med pekefingeren \n\n" +
+            "Du kan telepotere deg rundt på gresset ved å trykke på Touchpadden mens du peker på gulvet";
+
+
     }
 
-    void Start () {
-        // lage et scoreboard per game, bruk loop til å fylle dem
-        //scoreboard = GameObject.FindGameObjectWithTag("ScoreBoard");
-        Global.level = 1;
-        Global.gameOver = false;
-        Global.score = 0;
-        //Global.InsertSomePlayersOnScoreBoard();
-        //scoreboard.GetComponent<Text>().text = Global.PlayerScoreToString();
-        //Global.ResetPlayer();
-	}
+    // lag en metoder per portal
+    public void StartGame_OnClick(int i)
+    {
+        Debug.Log("startbutton for " + Global.scenes[i] + " was clicked");
+        Global.gameChoice = Global.scenes[i];
+        SceneManager.LoadScene(Global.scenes[i]);
+    }
+
+    public void Enter_Onclick()
+    {
+        Debug.Log(textBox.GetComponent<Text>().text);
+        playerName = textBox.GetComponent<Text>().text;
+        Global.username = playerName;
+        ActivateObjects(false);
+        messageObject.GetComponent<Text>().text = "Velg spill ved å klikke\n på tilhørende dør.";
+    }
+
+    private void ActivateObjects(bool state)
+    {
+        textBox.SetActive(state);
+        keyBoardObject.SetActive(state);
+        //messageObject.SetActive(!state);
+        foreach(GameObject g in startPortal)
+        {
+            g.SetActive(!state);
+        }
+        
+    }
 }

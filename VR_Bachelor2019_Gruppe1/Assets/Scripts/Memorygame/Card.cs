@@ -2,10 +2,10 @@
 using UnityEngine;
 
 public class Card : MonoBehaviour {
-    
+
     public static bool DO_NOT_TURN = false;
 
-    
+
     private int _state; //has a state, being {0=not open, 1= open, 2= locked open }
     private int _cardValue;
     private int _cardType;
@@ -39,8 +39,9 @@ public class Card : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, root, 0);
             yield return null;
         }
+        //Debug.Log("fully rotated ");
     }
-    
+
     // rotatong animation, and adding backside material to Card object
     public void SetupGraphics(Material backside) {
         StartCoroutine(RotateStuff(360));
@@ -55,13 +56,13 @@ public class Card : MonoBehaviour {
             _state = 0;
         }
         _timesFlipped++; // counter used to calculate points.
-        
+
         if (_state == 0 && !DO_NOT_TURN){
-            StartCoroutine(RotateStuff(180));     
+            StartCoroutine(RotateStuff(180));
         }
         else if (_state == 1 && !DO_NOT_TURN){
             StartCoroutine(RotateStuff(180));
-        }  
+        }
     }
 
     public void FailedAttempt(){
@@ -99,4 +100,23 @@ public class Card : MonoBehaviour {
         get { return _initialized; }
         set { _initialized = value; }
     }
+
+    public void FalseCheck() {
+        StartCoroutine(pause());
+    }
+
+
+    IEnumerator pause() {
+        yield return new WaitForSeconds(2);
+        if (_state == 0)
+        {
+            StartCoroutine(RotateStuff(180));
+        }
+        else if (_state == 1)
+        {
+            StartCoroutine(RotateStuff(180));
+        }
+        //DO_NOT_TURN = false;
+    }
+
 }

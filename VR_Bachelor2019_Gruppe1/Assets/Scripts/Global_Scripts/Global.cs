@@ -19,7 +19,7 @@ public static class Global
     public static bool gameOver { get; set; }
 
 
-    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "GameStop" };
+    public static List<string> scenes = new List<string> { "Hub", "MemoryGame", "AtomCrusher","EscapeAtoms","GameStop" };
 
     public static List<Player> playerScores = new List<Player> { };
 
@@ -87,8 +87,7 @@ public static class Global
     public static IEnumerator GoToGameOver()
     {
         yield return new WaitForSeconds(3);
-        Initiate.Fade("GameOver", Color.black, 1.0f);
-        //SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("GameOver");
     }
 
 

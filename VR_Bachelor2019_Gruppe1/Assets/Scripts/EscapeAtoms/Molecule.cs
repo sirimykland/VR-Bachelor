@@ -8,9 +8,7 @@ public class Molecule : MonoBehaviour {
     public ParticleSystem explosion;
 
     public EscapeAtomsGameManager gameManager;
-
- 
-
+    public Material[] materials;
 
     // Use this for initialization
     private int BadCollision;
@@ -39,62 +37,56 @@ public class Molecule : MonoBehaviour {
  * 2: receive electrons
  * 4: full outer shell
  */
-    public  GiveAwayState()
+    private void GiveAwayState()
     {
-        if(outer==2 && atomslist)
-        if (outer == 0 || outer == 8 || ())
+        if (outer == 0 || outer == 8 || (outer == 2 && atomsList.Count == 2))
         {
             give = 4;
             StartCoroutine(FullMolecule());
         }
+        else if (outer==1 && atomsList.Count==1 && atomsList[0].electrons == 1)
+        {   //hydrogen
+            give = 1;
+        }
         else if (outer <= 4)
         {
-            give = 0;
+            give = 0;     
         }
         else if (outer >= 5)
         {
             give = 2;
         }
-        
+    }
+    private void ChangeStateColor()
+    {
+        Debug.Log(outer + "color");
+        this.gameObject.GetComponentInChildren<Renderer>().material = new Material(materials[outer]);
     }
 
 
     public void OnCollisionEnter(Collision col) {
-        Debug.Log("collision");
+        //Debug.Log("collision");
 
         if (_init)
         {
             if (col.gameObject.GetComponent<Atom>())
             {
                 Atom colAtom = col.gameObject.GetComponent<Atom>();
-                Debug.Log(_init+": "+ colAtom.Name + " collided with " + atomsList[0].Name);
+                //Debug.Log(_init+": "+ colAtom.Name + " collided with " + atomsList[0].Name);
 
                 int sum = outer + colAtom.Outer;
 
-                Debug.Log("GiveState: " + colAtom.Give + " collided with givestate" + give);
-                Debug.Log("Outer: " + colAtom.Outer + " collided with Outer" + outer);
-                if (sum <= 8) { 
-                    if(((give + colAtom.Give) <4 && (give + colAtom.Give) > 0)) // give: 0+1,1+0 | 1+1,0+2,2+0 | 1+2,2+1
+                //Debug.Log("GiveState: " + colAtom.Give + " collided with givestate " + give);
+                //Debug.Log("Outer: " + colAtom.Outer + " collided with Outer " + outer);
+                if (sum <= 8) {
+
+                    Debug.Log("give + colAtom.Give: "+ give +"  " + colAtom.Give);
+                    if (((give + colAtom.Give) <4 && (give + colAtom.Give) > 0)) // give: 0+1,1+0 | 1+1,0+2,2+0 | 1+2,2+1
                     {
-                        Debug.Log("Collition valid give [2 between 1]");
-                        AddAtom(colAtom);
-                    }/*else if ((give==0 && colAtom.Give ==2) || (give==2 && colAtom.Give==0))
-                    {
-                        Debug.Log("Collition valid");
-                        AddAtom(colAtom);
-                    }else if (give == 1 && colAtom.Give==1)
-                    {
-                        Debug.Log("Collition valid");
                         AddAtom(colAtom);
                     }
-                    else if (give == 1 && colAtom.Give == 2 || (give == 2 && colAtom.Give == 1))
-                    {
-                        Debug.Log("Collition valid");
-                        AddAtom(colAtom);
-                    }*/
                     BadCollision = 0;
-                }
-                else
+                }else
                 {
                     BadCollision++;
                 }
@@ -109,9 +101,18 @@ public class Molecule : MonoBehaviour {
         //Atom atomScript = newAtom.GetComponent<Atom>();
         //fjerner ridgid body
         Destroy(newAtom.GetComponent<Rigidbody>());
+        int min=Math.Min(outer, newAtom.Outer);
+        int max=Math.Max( newAtom.Outer, outer);
+        if ((give+ newAtom.Give) == 1)
+        {
+            outer= max-min; //H can absorb electons so that i.e. H and Li will react
+        }
+        else {
+            outer += newAtom.Outer;
+        }
 
         atomsList.Add(newAtom);//.GetComponent<Atom>());
-        outer += newAtom.Outer;
+        
         //Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ outer);
 
 
@@ -125,7 +126,8 @@ public class Molecule : MonoBehaviour {
 
         //sjekker om fullt ytterskal
         GiveAwayState();
-        
+        ChangeStateColor();
+
     }
     void SetLocation(Transform trans)
     {
@@ -159,7 +161,7 @@ public class Molecule : MonoBehaviour {
 
     IEnumerator FullMolecule(){
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         Debug.Log("Destroying");
         //eksplosjon 
         Explode();

@@ -23,8 +23,8 @@
 
         public void Enter()
         {
-            VRTK_Logger.Info("You've typed [" + input.text + "]");
-          
+            Debug.Log("You've typed [" + input.text + "]");
+            input.text = "";
         }
 
         void Start()

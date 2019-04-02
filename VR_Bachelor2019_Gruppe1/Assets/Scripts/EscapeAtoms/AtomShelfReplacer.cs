@@ -12,10 +12,10 @@ public class AtomShelfReplacer : MonoBehaviour
     void Start()
     {
         // Call TimedUpdate immediately, repeat every 3 seconds
-        InvokeRepeating("IsObjectGrabbed", 0f, 3);
+        InvokeRepeating("IsObjectGone", 0f, 3);
         InvokeRepeating("IsOnFloor", 0f, 10);
     }
-    void IsObjectGrabbed()
+    void IsObjectGone()
     {
         if(gameObject.transform.childCount == 0)
         {
@@ -35,6 +35,11 @@ public class AtomShelfReplacer : MonoBehaviour
 
     public void CleanUpShelf()
     {
-        Start();
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        GameObject newatom = Instantiate(atomobject, transform.position, transform.rotation);
+        newatom.transform.parent = gameObject.transform;
     }
 }

@@ -9,8 +9,5 @@ public class Scoreboard : MonoBehaviour
     public Text textbox;
     public string gameName;
 
-    void Start()
-    {
-        Title.text = gameName;
-    }
+    void Start() => Title.GetComponent<Text>().text = gameName;
 }

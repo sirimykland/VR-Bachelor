@@ -17,38 +17,46 @@ public class LevelController : MonoBehaviour
 
 
     // Start is called before the first frame update
-    GameObject gamemanagerObject;
-    GameObject cardlistObject;
-    GameObject levelbuttonsObject;
-    GameObject menuObject;
+    private GameObject gamemanagerObject;
+    private GameObject cardlistObject;
+    private GameObject[] levelbuttonObjects;
+    private GameObject menuObject;
+    private GameObject messageObject;
 
     private void Start()
     {
-        levelbuttonsObject = GameObject.FindGameObjectWithTag("LevelButtons");
+        levelbuttonObjects = GameObject.FindGameObjectsWithTag("LevelButtons");
         gamemanagerObject = GameObject.FindGameObjectWithTag("GameManager");
         cardlistObject = GameObject.FindGameObjectWithTag("CardList");
         menuObject = GameObject.FindGameObjectWithTag("Menu");
+        messageObject = GameObject.FindGameObjectWithTag("Message");
 
         ActivateObjects(false);
 
-        levels = new List<Material[]>();
-        levels.Add(level1);
-        levels.Add(level2);
-        levels.Add(level3);
-        playerText.text = "Player: " + Global.username;
-        
+        levels = new List<Material[]>{ level1, level2, level3};
+
+        playerText.text = "Spiller: " + Global.username;
+        messageObject.GetComponent<Text>().text = "Velg level ved å trykke på: \n" +
+            "1. Touchpad-knappen med tommelen \n" +
+            "2. og samtidig trykke på Trigger-knappen med pekefingeren\n\n" +
+            "Du kan telepotere deg rundt i rommet ved å trykke på Touchpadden mens du peker på gulvet";
+
     } 
+
+    // hides and shows objects, based on where in the game the player are
     private void ActivateObjects(bool state)
     {
-        levelbuttonsObject.SetActive(!state);
+        foreach (GameObject g in levelbuttonObjects)
+        {
+            g.SetActive(!state);
+        }
         gamemanagerObject.SetActive(state);
         cardlistObject.SetActive(state);
         menuObject.SetActive(state);
     }
 
-    // Update is called once per frame
+    // initilizes the game at level i
     public void Level_OnClick(int i){
-        Debug.Log("Level "+i+" chosen");
         ActivateObjects(true);
         gamemanager.backsides = levels[i-1];
         gamemanager.InitializeCards();
