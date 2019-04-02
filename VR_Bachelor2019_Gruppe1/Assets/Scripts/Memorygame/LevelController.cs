@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
@@ -18,15 +19,17 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     GameObject gamemanagerObject;
     GameObject cardlistObject;
+    GameObject levelbuttonsObject;
+    GameObject menuObject;
 
     private void Start()
     {
-        
+        levelbuttonsObject = GameObject.FindGameObjectWithTag("LevelButtons");
         gamemanagerObject = GameObject.FindGameObjectWithTag("GameManager");
         cardlistObject = GameObject.FindGameObjectWithTag("CardList");
-       
-        gamemanagerObject.SetActive(false);
-        cardlistObject.SetActive(false);
+        menuObject = GameObject.FindGameObjectWithTag("Menu");
+
+        ActivateObjects(false);
 
         levels = new List<Material[]>();
         levels.Add(level1);
@@ -34,19 +37,31 @@ public class LevelController : MonoBehaviour
         levels.Add(level3);
         playerText.text = "Player: " + Global.username;
         
+    } 
+    private void ActivateObjects(bool state)
+    {
+        levelbuttonsObject.SetActive(!state);
+        gamemanagerObject.SetActive(state);
+        cardlistObject.SetActive(state);
+        menuObject.SetActive(state);
     }
-    // Update is called once per frame
-    public void level_OnClick(int i){
 
+    // Update is called once per frame
+    public void Level_OnClick(int i){
         Debug.Log("Level "+i+" chosen");
-        GameObject.FindGameObjectWithTag("LevelButtons").SetActive(false);
-        gamemanagerObject.SetActive(true);
-        cardlistObject.SetActive(true);
+        ActivateObjects(true);
         gamemanager.backsides = levels[i-1];
         gamemanager.InitializeCards();
         levelText.text = "Level: "+i;
         Global.level = i;
-
-        Destroy(gameObject);
     }
+
+    public void NewLevel_OnClick() {
+        SceneManager.LoadScene(Global.scenes[1]);
+    }
+
+    public void Quit_OnClick(){
+        SceneManager.LoadScene(Global.scenes[0]);
+    }
+
 }

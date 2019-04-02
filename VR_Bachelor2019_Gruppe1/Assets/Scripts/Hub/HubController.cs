@@ -1,45 +1,59 @@
-﻿//Hentet fra "VR Application for the Faculty
-// of Science and Technology"
-// av Oanæs, Sondre
-//Idsø, Leiv Erling
-//Kolberg, Lars-Espen
-
+﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HubController : MonoBehaviour {
-   
-    public GameObject scoreboard;
 
-    public void StartButton_OnClick(Collider col)
+    
+    private string playerName;
+    private GameObject textBox;
+    private GameObject keyBoardObject;
+    //private GameObject playerInformation; info om tid og navn før spillet starter
+    private GameObject startMemoryObject;
+    private GameObject startAtomCrusherObject;
+    private GameObject startEscapeAtomsObject;
+
+    public GameObject eventSystem;
+
+    // Use this for initialization
+    void Start()
     {
-        Debug.Log("StartButton_OnClick(Collider col):  was entered");
-        if (col.CompareTag("StartButton"))
-        {
-            Debug.Log("startbutton was clicked");
-            Global.gameChoice = "MemoryGame";
-            SceneManager.LoadScene("MemoryGame");
-        }
+
+        textBox = GameObject.FindGameObjectWithTag("NameOfPlayer");
+        keyBoardObject = GameObject.FindGameObjectWithTag("Keyboard");
+
+        //insert more buttons(doors/portals)
+
+        startMemoryObject = GameObject.FindGameObjectWithTag("StartMemory");
+        startAtomCrusherObject = GameObject.FindGameObjectWithTag("StartAtomCrusher");
+        startEscapeAtomsObject = GameObject.FindGameObjectWithTag("StartEscapeAtoms");
+        ActivateObjects(true);
+
     }
 
     // lag en metoder per portal
-    public void StartMemory_OnClick()
+    public void StartGame_OnClick(int i)
     {
-            Debug.Log("Memorybutton was clicked");
-            Global.gameChoice = "MemoryGame";
-            SceneManager.LoadScene("MemoryGame");//Global.scenes[1]);
+        Debug.Log("startbutton for " + Global.scenes[i] + " was clicked");
+        Global.gameChoice = Global.scenes[i];
+        SceneManager.LoadScene(Global.scenes[i]);
     }
 
-    void Start () {
-        // lage et scoreboard per game, bruk loop til å fylle dem
-        scoreboard = GameObject.FindGameObjectWithTag("ScoreBoard");
-        Global.level = 1;
-        Global.MGLvl = 1;
-        Global.gameOver = false;
-        Global.score = 0;
-        Global.InsertSomePlayersOnScoreBoard();
-        scoreboard.GetComponent<Text>().text = Global.PlayerScoreToString();
-        Global.ResetPlayer();
-	}
+    public void Enter_Onclick()
+    {
+        Debug.Log(textBox.GetComponent<Text>().text);
+        playerName = textBox.GetComponent<Text>().text;
+        Global.username = playerName;
+        ActivateObjects(false);
+    }
+
+    private void ActivateObjects(bool state)
+    {
+        textBox.SetActive(state);
+        keyBoardObject.SetActive(state);
+        startMemoryObject.SetActive(!state);
+        startAtomCrusherObject.SetActive(!state);
+        startEscapeAtomsObject.SetActive(!state);
+    }
 }
