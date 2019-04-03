@@ -19,6 +19,7 @@ public static class Global
         get { return (gameID + level); }
     }
 
+    // List of scene titles
     public static List<string> scenes = new List<string> {
         "Hub",
         "MemoryGame",

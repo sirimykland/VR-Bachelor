@@ -1,27 +1,25 @@
 ﻿/* EscapeAtomsGameManager.cs - 02.04.2019
+ * Manages the 
  * 
- * 
- */ 
-using System.Collections;
-using System.Collections.Generic;
+ */
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EscapeAtomsGameManager : MonoBehaviour {
-    
-    // Lists filled with GameObjects set in inspector.
-    public Molecule[] Molecules;
-    public Atom[] Atoms;
 
-    // Text components.
+    // Public Prefabs and GameObjects assigned in Inspector.
+    public Molecule[] Molecules;
+    public Atom[] StarterAtoms;
     public Text playerText;
     public Text scoreText;
 
-    public int moleculesLeft;
+    
+    public static int moleculesLeft;
     private int points;
     private bool init = false;
 
-    // Use this for initialization.
+    // Start is called before the first frame update
     void Start () {
         Global.level = 1;
         points = 0;
@@ -30,7 +28,8 @@ public class EscapeAtomsGameManager : MonoBehaviour {
         Initialize();
 	}
 
-    // Update is called once per frame and checks if there are any molecules left.
+    // Update is called once per frame and checks if there are any molecules left,
+    // -if not, start coroutine.
 	void Update(){
         if(moleculesLeft == 0)
         {
@@ -41,18 +40,20 @@ public class EscapeAtomsGameManager : MonoBehaviour {
     // Initializes the Molecule placeholders with non-stable atoms.
     void Initialize()
     {
-        ListShuffeler.Shuffle(Atoms);
+        ListShuffeler.Shuffle(StarterAtoms);
+
         int i = 0;
         moleculesLeft = Molecules.Length;
 
         foreach (Molecule mol in Molecules)
         {
             do {
-                i = (++i < Atoms.Length) ? i : 0;
-            } while (Atoms[i].GetComponent<Atom>().Outer == 0);
+                i = (++i < StarterAtoms.Length) ? i : 0;
+            } while (StarterAtoms[i].GetComponent<Atom>().outer == 0);
            
-            mol.SetupWall(Atoms[i]);
+            mol.SetupWall(StarterAtoms[i]);
         }
+        
         init = true;
     }
 
@@ -61,11 +62,11 @@ public class EscapeAtomsGameManager : MonoBehaviour {
     {
         if (badHits == 0)
         {
-            points += electrons * 10;
+            points += electrons * 5;
         }
         else
         {
-            points += -(++badHits) * electrons;
+            points -= (++badHits) * electrons;
         }
 
         scoreText.text = "Poeng: " + points;

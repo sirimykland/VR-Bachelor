@@ -367,7 +367,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -565,7 +565,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2472,7 +2472,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -3050,7 +3050,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -4389,7 +4389,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -4720,7 +4720,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -6048,7 +6048,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -9737,7 +9737,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9771,13 +9771,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009846260}
-  m_LocalRotation: {x: 0.88859266, y: -0.24761905, z: -0.07531345, w: 0.37870276}
-  m_LocalPosition: {x: -0.9261098, y: 2.7660203, z: 5.411441}
+  m_LocalRotation: {x: 0.90623534, y: -0.2729519, z: -0.10839173, w: 0.30411527}
+  m_LocalPosition: {x: -0.773, y: 0.934, z: 5.785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1005362955}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 39.474003, y: -155.395, z: -139.91}
+  m_LocalEulerAnglesHint: {x: 29.474, y: -155.395, z: -139.91}
 --- !u!1001 &1010375198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10645,7 +10645,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.65
-  m_Range: 10
+  m_Range: 14
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -15443,11 +15443,10 @@ MonoBehaviour:
   - {fileID: 1143908990}
   - {fileID: 1435924486}
   - {fileID: 1987439679}
+  positiveSound: {fileID: 8300000, guid: 49caa62bcbd844634880cf7f42639101, type: 3}
   pointsText: {fileID: 1995011151}
   pairsText: {fileID: 657583324}
   attemptsText: {fileID: 92561176}
-  positiveSound: {fileID: 8300000, guid: 49caa62bcbd844634880cf7f42639101, type: 3}
-  lockState: 0
 --- !u!4 &1880509551
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/* LevelController.cs - 03.04.2019
+ * Manages the Canvases and Levels of MemoryGame.
+ * This includes activating and deactivating GameObjects 
+ * and OnClick methods for the Menu and Level canvases.
+ */
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,24 +10,25 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
+    // Public Prefabs and GameObjects assigned in Inspector.
     public GameManager gamemanager;
     public Material[] level1;
     public Material[] level2;
     public Material[] level3;
-
-    private static List<Material[]> levels;
     public Text playerText;
     public Text levelText;
 
-
-    // Start is called before the first frame update
+    // Private list and GameObjects used to manage the behaviour 
+    // of the LevelContoller.
+    private static List<Material[]> levels;
     private GameObject gamemanagerObject;
     private GameObject cardlistObject;
     private GameObject[] levelbuttonObjects;
     private GameObject menuObject;
     private GameObject messageObject;
 
-    private void Start()
+    // Awake() is called after all objects are initialized.
+    void Awake()
     {
         levelbuttonObjects = GameObject.FindGameObjectsWithTag("LevelButtons");
         gamemanagerObject = GameObject.FindGameObjectWithTag("GameManager");
@@ -40,10 +45,9 @@ public class LevelController : MonoBehaviour
             "1. Touchpad-knappen med tommelen \n" +
             "2. og samtidig trykke på Trigger-knappen med pekefingeren\n\n" +
             "Du kan telepotere deg rundt i rommet ved å trykke på Touchpadden mens du peker på gulvet";
+    }
 
-    } 
-
-    // hides and shows objects, based on where in the game the player are
+    // ActivateObjects() hides and shows multiple objects.
     private void ActivateObjects(bool state)
     {
         foreach (GameObject g in levelbuttonObjects)
@@ -55,7 +59,7 @@ public class LevelController : MonoBehaviour
         menuObject.SetActive(state);
     }
 
-    // initilizes the game at level i
+    // Level_OnClick() initilizes the game at level i.
     public void Level_OnClick(int i){
         ActivateObjects(true);
         gamemanager.backsides = levels[i-1];
@@ -64,10 +68,12 @@ public class LevelController : MonoBehaviour
         Global.level = i;
     }
 
+    // NewLevel_OnClick() loads this scene again.
     public void NewLevel_OnClick() {
         SceneManager.LoadScene(Global.scenes[1]);
     }
 
+    // Quit_OnClick() loads Hub scene.
     public void Quit_OnClick(){
         SceneManager.LoadScene(Global.scenes[0]);
     }
