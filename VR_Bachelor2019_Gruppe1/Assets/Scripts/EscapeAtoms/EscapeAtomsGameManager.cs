@@ -3,6 +3,7 @@
  * 
  */
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class EscapeAtomsGameManager : MonoBehaviour {
     public Text scoreText;
 
     
-    public static int moleculesLeft;
+    public int moleculesLeft;
     private int points;
     private bool init = false;
 
@@ -26,7 +27,7 @@ public class EscapeAtomsGameManager : MonoBehaviour {
         playerText.text = "Spiller: "+Global.username;
         scoreText.text = "Poeng: "+ points;
         Initialize();
-	}
+    }
 
     // Update is called once per frame and checks if there are any molecules left,
     // -if not, start coroutine.
@@ -40,35 +41,45 @@ public class EscapeAtomsGameManager : MonoBehaviour {
     // Initializes the Molecule placeholders with non-stable atoms.
     void Initialize()
     {
-        ListShuffeler.Shuffle(StarterAtoms);
-
+        ListShuffeler.Shuffle<Atom>(StarterAtoms);
+        Atom atom;
         int i = 0;
         moleculesLeft = Molecules.Length;
 
         foreach (Molecule mol in Molecules)
-        {
-            do {
-                i = (++i < StarterAtoms.Length) ? i : 0;
-            } while (StarterAtoms[i].GetComponent<Atom>().outer == 0);
-           
-            mol.SetupWall(StarterAtoms[i]);
+        {   
+            do{
+                i++;
+                i = (i < StarterAtoms.Length) ? i : 0;
+                
+                atom = StarterAtoms[i];
+                atom.SetState();//atom initialization
+
+            } while (atom.outer == 0);
+
+            mol.SetupWall(atom);
         }
-        
-        init = true;
+        if(!init)
+            init = true;
     }
 
     // Adds points and updates score text.
-    public void Points(int badHits, int electrons)
+    public void Points(int badHits, Atom atom)
     {
+        // Calculates the number of electron shells
+        int layer = (int)Math.Floor((decimal)(atom.electrons - 2) / 8) + 2;
+
         if (badHits == 0)
         {
-            points += electrons * 5;
+            Debug.Log(atom.atomname + ": 10* layer" + layer + " + outer" + atom.outer + " 5 =" + (layer * 10 + atom.outer * 5));
+            points += layer*10 + atom.outer*5;
         }
         else
         {
-            points -= (++badHits) * electrons;
+            Debug.Log(atom.atomname + ": 3* badHits" + badHits + " * layer" + layer + " + outer" + atom.outer + " 3 =" + (-(badHits * layer + atom.outer * 3)));
+            points -= 3*badHits * layer  +  atom.outer * 3;
         }
-
         scoreText.text = "Poeng: " + points;
     }
+
 }

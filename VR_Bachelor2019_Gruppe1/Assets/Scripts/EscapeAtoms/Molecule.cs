@@ -3,143 +3,161 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Molecule : MonoBehaviour
-{
+public class Molecule : MonoBehaviour {
     private List<Atom> atomsList;
-    public ParticleSystem explosion;
+    public Explotion explotion;
 
     public EscapeAtomsGameManager gameManager;
     public Material[] materials;
 
     // Use this for initialization
-    private int BadCollision;
+    private int badCollision;
     private int outer;
-    private int give;
+    private int state;
 
-    private bool _init = false;
+    private bool init = false;
+
+    private AudioSource source;
+    public AudioClip hitSound;
+    public AudioClip positiveSound;
 
 
-    public void SetupWall(Atom gObj)
-    {
+    public void SetupWall(Atom gObj){
         atomsList = new List<Atom>();
-        Atom newAtom = (Atom)Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
-        //gObj.Start();
-
+        Atom newAtom = Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
+        
         outer = 0;
-        BadCollision = 0;
+        badCollision=0;
         AddAtom(newAtom);
-        _init = true;
 
+        source = GetComponent<AudioSource>();
+        init = true;
     }
 
 
-    /* give meaning:
- * 0: give electrons
- * 1: give and receive (Hydrogen only)
- * 2: receive electrons
- * 4: full outer shell
- */
-    private void GiveAwayState()
+    /* State() sets the give state to the molecule
+     * with numbered meaning:
+     *       0: give electrons
+     *       1: give and receive (Hydrogen only)
+     *       2: absorbs electrons
+     *       4: full outer shell, must be destroyed
+     */
+
+    void NewState()
     {
-        if (outer == 0 || outer == 8 || (outer == 2 && atomsList.Count == 2))
+        if (outer == 0 || outer == 8 )
         {
-            give = 4;
+            state = 4;
             StartCoroutine(FullMolecule());
         }
-        else if (outer == 1 && atomsList.Count == 1 && atomsList[0].electrons == 1)
+        else if (outer==1 && atomsList.Count==1 && atomsList[0].electrons == 1)
         {   //hydrogen
-            give = 1;
+            state = 1;
         }
         else if (outer <= 4)
         {
-            give = 0;
+            state = 0;     
         }
         else if (outer >= 5)
         {
-            give = 2;
+            state = 2;
         }
-    }
-    private void ChangeStateColor()
-    {
-        Debug.Log(outer + "color");
-        this.gameObject.GetComponentInChildren<Renderer>().material = new Material(materials[outer]);
+
     }
 
-
-    public void OnCollisionEnter(Collision col)
+    /* GiveAbsorb() computes outer.
+     * if the sum of the colided atom's state and the molecule's state  is 1,
+     *      (meaning one is hydrogen, one is state=0), 
+     *      then the hydrogen will absorb an electron, and outer decreases with 1
+     * Otherwise the colided atom's outer shell is added to the molecule's outer shell 
+     */
+    void GiveAbsorb(Atom newAtom)
     {
-        //Debug.Log("collision");
-
-        if (_init)
+        
+        if (init && (state + newAtom.state) == 1) // one of them is a hydrogen
         {
-            if (col.gameObject.GetComponent<Atom>())
-            {
-                Atom colAtom = col.gameObject.GetComponent<Atom>();
-                //Debug.Log(_init+": "+ colAtom.Name + " collided with " + atomsList[0].Name);
+            int hydrogen = Math.Min(outer, newAtom.outer);
+            int other = Math.Max(newAtom.outer, outer);
 
-                int sum = outer + colAtom.outer;
-
-                //Debug.Log("GiveState: " + colAtom.Give + " collided with givestate " + give);
-                //Debug.Log("Outer: " + colAtom.Outer + " collided with Outer " + outer);
-                if (sum <= 8)
-                {
-
-                    Debug.Log("give + colAtom.Give: " + give + "  " + colAtom.state);
-                    if (((give + colAtom.state) < 4 && (give + colAtom.state) > 0)) // give: 0+1,1+0 | 1+1,0+2,2+0 | 1+2,2+1
-                    {
-                        AddAtom(colAtom);
-                    }
-                    BadCollision = 0;
-                }
-                else
-                {
-                    BadCollision++;
-                }
-                gameManager.Points(BadCollision, colAtom.electrons);
-            }
-        }
-    }
-
-    void AddAtom(Atom newAtom)
-    {
-        //sky av collisjon elns
-
-        //Atom atomScript = newAtom.GetComponent<Atom>();
-        //fjerner ridgid body
-        Destroy(newAtom.GetComponent<Rigidbody>());
-        int min = Math.Min(outer, newAtom.state);
-        int max = Math.Max(newAtom.state, outer);
-        if ((give + newAtom.state) == 1)
-        {
-            outer = max - min; //H can absorb electons so that i.e. H and Li will react
+            Debug.Log("m/a" + outer + newAtom.outer + " min/max" + hydrogen + other);
+            outer = other - hydrogen; 
         }
         else
         {
             outer += newAtom.outer;
         }
+    }
 
-        atomsList.Add(newAtom);//.GetComponent<Atom>());
+    void ChangeColor()
+    {
+        this.gameObject.GetComponentInChildren<Renderer>().material = new Material(materials[outer]);
+    }
 
-        //Debug.Log("Atom is "+newAtom+". Outer of molecule is: "+ outer);
+    /* OnCollisionEnter() determines if a collison is valid.
+     * If the game is initialized, it will play a sound on collision, then
+     *  If the collided object has a Atom component, then
+     *     If it passes the conditions of a reaction between atoms it calls AddAtom()
+     *     else it will be counted as a badCollision
+     *  Points() in EscapeAtomsGameManager.cs is called.
+     */
+    public void OnCollisionEnter(Collision col)
+    {
+        if (init)
+        {
+            source.PlayOneShot(hitSound, 0.4f);
+
+            if (col.gameObject.GetComponent<Atom>())
+            {
+                Atom colAtom = col.gameObject.GetComponent<Atom>();
+
+                 int sumOuter = outer + colAtom.outer;
+                 int sumState = state + colAtom.state;
+
+                // States that goes together: 0 & 1 | 1 & 1, 0 & 2 | 1+2,2+1
+                if ((sumOuter <= 8) && (sumState < 4) && (sumState > 0))
+                {
+                    AddAtom(colAtom);
+                    source.PlayOneShot(positiveSound, 0.4f);
+                }
+
+                else
+                {
+                    badCollision++;
+                }
+                
+                gameManager.Points(badCollision, colAtom);
+            }
+        }
+    }
 
 
-        // her og nedover må noe gjøres for å få posisjon 000
+    /* AddAtom() adds the collided atom to the Molecule.
+     *  Removes the Ridgidbody, adds new atom to the list of atoms.
+     *  Sets the molecule to be its parent/placeholder.
+     *  Sets the atoms new rotation and calls SetLocation() for new scaleing and location
+     *  Calls GiveAbsorb(), NewState(), ChangeColor(), to set the molecules new conditions
+     */
+    void AddAtom(Atom newAtom)
+    {
+        Destroy(newAtom.GetComponent<Rigidbody>());
+        atomsList.Add(newAtom);
+        
         newAtom.transform.parent = gameObject.transform;
-
-        //Debug.Log(newAtom.transform.localPosition);
+        newAtom.transform.rotation =  Quaternion.Euler(0, -90, 0);
         SetLocation(newAtom.transform);
-        newAtom.transform.rotation = Quaternion.Euler(0, -90, 0);//gameObject.transform.parent.rotation;
-        //Debug.Log(newAtom.transform.localPosition );
 
-        //sjekker om fullt ytterskal
-        GiveAwayState();
-        ChangeStateColor();
+        GiveAbsorb(newAtom);
+        NewState();
+        ChangeColor();
 
     }
+
+    /* SetLocation() sets the scale and position of the Atom
+     * based on number of atom in the molecule.
+     */
     void SetLocation(Transform trans)
     {
         int length = atomsList.Count;
-        //Debug.Log("atomlist is of length "+length);
         switch (length)
         {
             case 1:
@@ -159,208 +177,39 @@ public class Molecule : MonoBehaviour
                 trans.localScale = new Vector3(3, 3, 3);
                 trans.localPosition = new Vector3(0, 1, 0);
                 break;
-            default:
+            case 5:
                 trans.localScale = new Vector3(3, 3, 3);
                 trans.localPosition = new Vector3(-1, 0, 0);
                 break;
-        }
-    }
-
-    IEnumerator FullMolecule()
-    {
-
-        yield return new WaitForSeconds(1);
-        Debug.Log("Destroying");
-        //eksplosjon 
-        Explode();
-        EscapeAtomsGameManager.moleculesLeft--;
-        Destroy(gameObject);
-
-    }
-
-    public void Explode()
-    {
-        explosion = Instantiate(explosion, transform.position, Quaternion.identity);
-    }
-}
-
-
-
-
-/*using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Molecule : MonoBehaviour {
-    private List<Atom> atomsList;
-    public ParticleSystem explosion;
-
-    public EscapeAtomsGameManager gameManager;
-    public Material[] materials;
-
-    // Use this for initialization
-    private int badCollision;
-    private int outer;
-    private int state;
-
-    private bool init= false;
-
-
-    public void SetupWall(Atom gObj){
-        atomsList = new List<Atom>();
-        Atom newAtom = Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
-        
-        outer = 0;
-        badCollision=0;
-        //AddAtom(newAtom);
-        init = true;
-
-    }
-
-
-    * State() sets the give state to the molecule
-     * with numbered meaning:
-     *       0: give electrons
-     *       1: give and receive (Hydrogen only)
-     *       2: absorbs electrons
-     *       4: full outer shell, must be destroyed
-     *
-
-    void State()
-    {
-        if (outer == 0 || outer == 8 || (outer == 2 && atomsList.Count == 2))
-        {
-            state = 4;
-            StartCoroutine(FullMolecule());
-        }
-        else if (outer==1 && atomsList.Count==1 && atomsList[0].electrons == 1)
-        {   //hydrogen
-            state = 1;
-        }
-        else if (outer <= 4)
-        {
-            state = 0;     
-        }
-        else if (outer >= 5)
-        {
-            state = 2;
-        }
-    }
-
-    * GiveAbsorb() computes outer.
-     * if the sum of the colided atom's state and the molecule's state  is 1,
-     *      (meaning one is hydrogen, one is state=0), 
-     *      then the hydrogen will absorb an electron, and outer decreases with 1
-     * Otherwise the colided atom's outer shell is added to the molecule's outer shell 
-     *
-    void GiveAbsorb(Atom newAtom)
-    {
-        if ((state + newAtom.state) == 1) // one of them is a hydrogen
-        {
-            int hydrogen = Math.Min(outer, newAtom.outer);
-            int other = Math.Max(newAtom.outer, outer);
-            outer = other - hydrogen; 
-        }
-        else
-        {
-            outer += newAtom.outer;
-        }
-    }
-
-    void ChangeColor()
-    {
-        this.gameObject.GetComponentInChildren<Renderer>().material = new Material(materials[outer]);
-    }
-
-
-    public void OnCollisionEnter(Collision col)
-    {
-        if (init)
-        {
-            if (col.gameObject.GetComponent<Atom>())
-            {
-                Atom colAtom = col.gameObject.GetComponent<Atom>();
-
-                int sum = outer + colAtom.outer;
-                badCollision++;
-                if (sum <= 8)
-                { 
-                    Debug.Log("give + colAtom.Give: "+ state +"  " + colAtom.state);
-                    if (((state + colAtom.state) <4 && (state + colAtom.state) > 0)) // give: 0+1,1+0 | 1+1,0+2,2+0 | 1+2,2+1
-                    {
-                        AddAtom(colAtom);
-                        badCollision = 0;
-                    }
-
-                }
-                
-                gameManager.Points(badCollision, colAtom.electrons);
-            }
-        }
-    }
-
-    void AddAtom(Atom newAtom)
-    {
-        //fjerner ridgid body
-        Destroy(newAtom.GetComponent<Rigidbody>());
-
-        GiveAbsorb(newAtom);
-
-        atomsList.Add(newAtom);
-        
-        // her og nedover må noe gjøres for å få posisjon 000
-        newAtom.transform.parent = gameObject.transform;
-
-        SetLocation(newAtom.transform);
-        newAtom.transform.rotation =  Quaternion.Euler(0, -90, 0);
-
-        //sjekker om fullt ytterskal
-        State();
-        ChangeColor();
-
-    }
-
-    void SetLocation(Transform trans)
-    {
-        int length = atomsList.Count;
-        switch (length)
-        {
-            case 1:
-                trans.localScale = new Vector3(5, 5, 5);
-                trans.localPosition=new Vector3(0, 0, 0);
-                break;
-            case 2:
+            case 6:
                 trans.localScale = new Vector3(3, 3, 3);
-                trans.localPosition = new Vector3(1, 0, 0);
+                trans.localPosition = new Vector3(0.65f, .65f, 0);
+                break;
+            case 7:
+                trans.localScale = new Vector3(3, 3, 3);
+                trans.localPosition = new Vector3(-0.65f, -0.65f, 0);
+                break;
 
-                break;
-            case 3:
-                trans.localScale = new Vector3(3, 3, 3);
-                trans.localPosition = new Vector3(0, -1, 0);
-                break;
-            case 4:
-                trans.localScale = new Vector3(3, 3, 3);
-                trans.localPosition = new Vector3(0, 1, 0);
-                break;
-            default:
-                trans.localScale = new Vector3(3, 3, 3);
-                trans.localPosition = new Vector3(-1, 0, 0);
-                break;
         }
     }
 
+    // FullMolecule() destroyes this gameObject and calls Explode()
     IEnumerator FullMolecule()
     {
         yield return new WaitForSeconds(1);
+        string str="";
+        foreach (Atom a in atomsList)
+            str += (" " + a.atomname);
+        Debug.Log(str);
         Explode();
-        EscapeAtomsGameManager.moleculesLeft--;
+        gameManager.moleculesLeft--;
         Destroy(gameObject);
     }
 
+    // Creates an explotion of the Prefab Explotion at the molecule's position
     public void Explode()
-    { 
-        explosion= Instantiate(explosion, transform.position, Quaternion.identity);
+    {
+        explotion= Instantiate(explotion, transform.position, Quaternion.identity);
     }
 }
-*/
+

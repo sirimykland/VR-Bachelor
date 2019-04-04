@@ -295,7 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   electrons: 6
   atomname: Carbon
-  Outer: 0
+  outer: 0
+  state: 0
 --- !u!1 &1260835854
 GameObject:
   m_ObjectHideFlags: 0
