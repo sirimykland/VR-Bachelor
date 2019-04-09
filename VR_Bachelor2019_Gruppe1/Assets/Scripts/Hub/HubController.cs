@@ -12,8 +12,6 @@ public class HubController : MonoBehaviour {
     private GameObject messageObject;
     private GameObject[] startPortal;
 
-    public GameObject eventSystem;
-
     // Use this for initialization
     void Start()
     {

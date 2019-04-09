@@ -9,7 +9,6 @@
 
         public void ClickKey(string character)
         {
-            Debug.Log("Character pressed "+character);
             input.text += character;
         }
 
@@ -30,7 +29,6 @@
         void Start()
         {
             input = GetComponentInChildren<InputField>();
-            Debug.Log("ui_keyboard started" + input.text+ " .");
         }
     }
 }

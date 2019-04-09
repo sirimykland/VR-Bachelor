@@ -10,10 +10,10 @@ using UnityEngine.SceneManagement;
 public static class Global
 {
     // Getters and setters.
-    public static string username { get; set; }
-    public static int score { get; set; }
-    public static int gameID { get; set; }
-    public static int level { get; set; }
+    public static string username { get; set; } = "hanne";
+    public static int score { get; set; } = 544400;
+    public static int gameID { get; set; } = 300;
+    public static int level { get; set; } = 1;
 
     public static int levelID {
         get { return (gameID + level); }
