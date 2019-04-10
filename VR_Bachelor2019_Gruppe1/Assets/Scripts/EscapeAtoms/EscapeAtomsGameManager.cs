@@ -77,7 +77,8 @@ public class EscapeAtomsGameManager : MonoBehaviour {
         else
         {
             Debug.Log(atom.atomname + ": 3* badHits" + badHits + " * layer" + layer + " + outer" + atom.outer + " 3 =" + (-(badHits * layer + atom.outer * 3)));
-            points -= 3*badHits * layer  +  atom.outer * 3;
+            points -= 2*badHits * layer  +  atom.outer * 3;
+            if (points < 0) points = 0;
         }
         scoreText.text = "Poeng: " + points;
     }

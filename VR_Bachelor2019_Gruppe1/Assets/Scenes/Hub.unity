@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 31876687}
   - component: {fileID: 31876686}
   m_Layer: 0
-  m_Name: Scoreboard
+  m_Name: MemoryScoreboard
   m_TagString: ScoreBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,12 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a58de0b2143ff4fa58482021153b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 1493261604}
+  title: {fileID: 1493261604}
   textboxes:
   - {fileID: 1630392537}
   - {fileID: 2039201142}
   - {fileID: 966209830}
-  gameName: Molecular Memory
   levelID: 650000006600000067000000
 --- !u!114 &31876685
 MonoBehaviour:
@@ -526,7 +525,7 @@ GameObject:
   - component: {fileID: 39768381}
   - component: {fileID: 39768386}
   m_Layer: 5
-  m_Name: MemoryCanvas
+  m_Name: MolecularMemoryCanvas
   m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -970,7 +969,7 @@ GameObject:
   - component: {fileID: 130029617}
   - component: {fileID: 130029616}
   m_Layer: 5
-  m_Name: EscapeAtomsCanvas
+  m_Name: AtomThrowerCanvas
   m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1254,7 +1253,7 @@ GameObject:
   - component: {fileID: 142353027}
   - component: {fileID: 142353026}
   m_Layer: 0
-  m_Name: Scoreboard
+  m_Name: ThrowAtomScoreboard
   m_TagString: ScoreBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,10 +1292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a58de0b2143ff4fa58482021153b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 1253323733}
+  title: {fileID: 1253323733}
   textboxes:
   - {fileID: 1612481584}
-  gameName: Atom Thrower
   levelID: 2d010000
 --- !u!114 &142353025
 MonoBehaviour:
@@ -3106,12 +3104,12 @@ GameObject:
   - component: {fileID: 302515181}
   - component: {fileID: 302515182}
   m_Layer: 0
-  m_Name: DB
+  m_Name: FetchDB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &302515181
 Transform:
   m_ObjectHideFlags: 0
@@ -3138,6 +3136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beb8ba5269a9b6428328832bb8475d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  limit: 3
+  scoreboards:
+  - {fileID: 31876684}
+  - {fileID: 1916319298}
+  - {fileID: 142353024}
 --- !u!1 &302657893
 GameObject:
   m_ObjectHideFlags: 0
@@ -7191,7 +7194,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &924003458
 MonoBehaviour:
@@ -9059,7 +9062,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1093380675
 GameObject:
@@ -12392,7 +12395,7 @@ GameObject:
   - component: {fileID: 1537376250}
   - component: {fileID: 1537376249}
   m_Layer: 5
-  m_Name: EscapeAtoms
+  m_Name: AtomThrowerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13509,7 +13512,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.4
   m_Text: Waiting...
 --- !u!222 &1612481585
 CanvasRenderer:
@@ -13586,7 +13589,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1630392535
 GameObject:
@@ -15568,7 +15571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 182}
+  m_AnchoredPosition: {x: 0, y: 163}
   m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1889847943
@@ -15604,7 +15607,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Skriv inn navnet ditt og trykk p\xE5 enter for \xE5 lagre."
+  m_Text: "Skriv inn navnet ditt og trykk p\xE5 Lagre."
 --- !u!222 &1889847944
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15706,7 +15709,7 @@ GameObject:
   - component: {fileID: 1916319301}
   - component: {fileID: 1916319300}
   m_Layer: 0
-  m_Name: Scoreboard
+  m_Name: AtomCrusherScoreboard
   m_TagString: ScoreBoard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15746,11 +15749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a58de0b2143ff4fa58482021153b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Title: {fileID: 551415450}
+  title: {fileID: 551415450}
   textboxes:
   - {fileID: 355353711}
   - {fileID: 1497454462}
-  gameName: Atom Crusher
   levelID: c9000000ca000000
 --- !u!114 &1916319299
 MonoBehaviour:
@@ -16286,7 +16288,7 @@ GameObject:
   - component: {fileID: 1990405377}
   - component: {fileID: 1990405376}
   m_Layer: 0
-  m_Name: MemoryDoor
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

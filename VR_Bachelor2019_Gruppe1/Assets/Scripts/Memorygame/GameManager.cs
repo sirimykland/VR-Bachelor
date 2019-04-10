@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour {
         {
             attemptsSuccessful = 0;
             points -= 5 * (timesflipped1 + timesflipped2);
+            if (points < 0) points = 0;
         }
         pointsText.text = "Poeng: " + points;
     }

@@ -1,48 +1,102 @@
 using UnityEngine;
 using System.Collections;
-using System;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+using System;
 
 public class FetchDB : MonoBehaviour
 {
-    ///Fill in your server data here.
-    /*private string Top3ScoresURL = "www.ux.uis.no/~sirim/GetTop3.php?";
+    //Fill in your server data here.
+    private string TopScoresURL = "www.ux.uis.no/~sirim/GetTop.php?";
 
-    
+    public int limit;
     public Scoreboard[] scoreboards;
 
-    //Our standard Unity functions
-    //Called as soon as the class is activated.
     void Start()
     {
         Debug.Log("retrieving scores");
-        StartCoroutine(GetTopScores()); // We post our scores.
-    }
-
-    IEnumerator GetTopScores()
-    {
-        foreach (Scoreboard g in scoreboards)
+        foreach (Scoreboard s in scoreboards)
         {
-
-            UnityWebRequest www = UnityWebRequest.Post(Top3ScoresURL, "GameID=" + g.gameID);
-            //www.downloadHandler = new DownloadHandlerBuffer();
-            yield return www.SendWebRequest();
-
-            if (www.isNetworkError || www.isHttpError)
+            for (int i = 0; i < s.LevelID.Length; i++)
             {
-                Debug.Log("an error occured when feching scores from "+g.gameName+"...\n" + www.error);
-            }
-            else
-            {
-                Debug.Log("sucessfully fetched from " + g.gameName);
-                //string[] textlist = GetTop3.text.Split(new string[] { "\n", "\t" }, System.StringSplitOptions.RemoveEmptyEntries);
-                g.setText((string) www.downloadHandler.text);
-                Debug.Log(www.downloadHandler.text);
+                StartCoroutine(GetTopScores(s.LevelID[i], s.textboxes[i])); // Fetching scores.
             }
         }
+    }
 
-    }*/
+    IEnumerator GetTopScores(int levelID, Text textbox)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("LevelID", levelID);
+        form.AddField("Limit", limit);
+
+        UnityWebRequest www = UnityWebRequest.Post(TopScoresURL, form);
+
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log("an error occured when feching scores from " + levelID + "...\n" + www.error);
+            textbox.text = "An Error occured...\n" + www.error;
+        }
+        else
+        {
+            Debug.Log("sucessfully fetched from " + levelID);
+            string jsonString = www.downloadHandler.text;
+            Debug.Log(jsonString);
+            ScoreList scores = new ScoreList();
+            scores = ScoreList.CreateFromJSON(jsonString);
+            Debug.Log(scores.ToString());
+            textbox.text = scores.ToString();
+        }
+    }
+
+    [Serializable]
+    public class ScoreList
+    {
+        public List<PlayerScore> items;
+
+        public static ScoreList CreateFromJSON(string jsonString)
+        {
+            Debug.Log("str");
+            return JsonUtility.FromJson<ScoreList>("{\"items\":" + jsonString + "}");
+        }
+
+        public ScoreList()
+        {
+            items = new List<PlayerScore>();
+        }
+
+        override
+        public string ToString()
+        {
+            Debug.Log("items count " + items.Count);
+            string str = "";
+            for (int i = 0; i < items.Count; i++)
+            {
+                str += items[i].ToString(i + 1) + "\n";
+            }
+            return str;
+        }
+    }
+
+    [Serializable]
+    public class PlayerScore
+    {
+        public int ScoreID;
+        public string Player_Name;
+        public int Score;
+
+        public static PlayerScore CreateFromJSON(string jsonString)
+        {
+            return JsonUtility.FromJson<PlayerScore>(jsonString);
+        }
+
+        public string ToString(int i)
+        {
+            return i + ".\t" + Player_Name + "\t" + Score;
+        }
+    }
+
 }

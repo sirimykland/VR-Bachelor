@@ -22,9 +22,9 @@ public static class Global
     // List of scene titles
     public static List<string> scenes = new List<string> {
         "Hub",
-        "MemoryGame",
+        "MolecularMemory",
         "AtomCrusherEasy",
-        "EscapeAtoms",
+        "AtomThrower",
         "GameOver"
     };
 
@@ -33,7 +33,9 @@ public static class Global
     {
         yield return new WaitForSeconds(3);
         score = points;
-        Debug.Log("gameover");
         SceneManager.LoadScene("GameOver");
     }
+
+
+
 }

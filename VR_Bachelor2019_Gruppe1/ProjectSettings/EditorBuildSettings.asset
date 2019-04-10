@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub.unity
     guid: 87d445d8af05e9942b66542fc80c61cb
   - enabled: 1
-    path: Assets/Scenes/MemoryGame.unity
-    guid: 04ab8dac796eaaf4b9174cd1a7bef24f
+    path: Assets/Scenes/MolecularMemory.unity
+    guid: be8065ddfd82e62448b940ab1968a2b3
   - enabled: 1
-    path: Assets/Scenes/EscapeAtoms.unity
-    guid: 21bb731dc56532c4790af6f12528a7d3
+    path: Assets/Scenes/AtomThrower.unity
+    guid: 0023dbf710dbbb3499272584704d4aa7
   - enabled: 1
     path: Assets/Scenes/AtomCrusherEasy.unity
     guid: e9f64aa9a2a035547a794671bcba1051
