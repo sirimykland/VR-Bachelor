@@ -1,173 +1,162 @@
-﻿using System;
-using System.Collections;
+﻿/* GameManager.cs - 03.04.2019 
+ * Manages MemoryGame and contains all behaviour nessecary to play the game,
+ * including initializing, rules, and a score function
+ */
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour {
 
+    // Public Prefabs and GameObjects assigned in Inspector
     public Material[] backsides { get; set; }
-    public Card[] cards;
-
-    private bool _init = false;
-
+    public Card[]     cards;
+    public AudioClip  positiveSound;
     public Text pointsText;
     public Text pairsText;
     public Text attemptsText;
 
-    public AudioClip positiveSound;
+
+    // Private AudioSource component and variables used in game
     private AudioSource source;
+    private int  points;
+    private int  pairs;
+    private int  attempts;
+    private int  attemptsSuccessful;
+    private bool init = false;
 
-    private int points;
-    private int pairs;
-    private int attempts;
-    private bool lastAttemptSuccessful;
-
-    public bool lockState;
-    
+    // Awake is called after all objects are initialized
     void Awake()
     {
         source = GetComponent<AudioSource>();
     }
 
+    /* InitializeCards() assigns cardValue, cardType to all cards in the list cards.
+     * The card list is shuffled to randomize the cards.
+     * the call to .SetUpGraphic() sends the assigned backside material to the card.
+     */
     public void InitializeCards(){
-        lockState = true;
+        
         points = 0;
         pairs = 8;
         attempts = 0;
-        lastAttemptSuccessful = false;
+        attemptsSuccessful = 0;
 
-        for (int i = 0; i < 8; i++)
+        ListShuffeler.Shuffle<Card>(cards);
+
+        int i = 0;
+        for (int j = 0; j < pairs; j++)
         {
-            for (int j = 0; j < 2; j++)
+            for (int k = 0; k < 2; k++)
             {
-                bool test = false;
-                int choice = 0;
-                while (!test)
-                {
-                    choice = UnityEngine.Random.Range(0, cards.Length);
-                    test = !(cards[choice].Initialized);
-                }
-                cards[choice].CardValue = i;
-                cards[choice].CardType = j;
-                cards[choice].Initialized = true;
+            i = j * 2 + k;
+                cards[i].cardValue = j;
+                cards[i].cardType = k;
+                cards[i].SetupGraphics(backsides[i]);
+                cards[i].init = true;
             }
         }
 
-        foreach (Card c in cards) { 
-            c.SetupGraphics(backsides[(c.CardValue + c.CardValue + c.CardType)]);
+        if (!init) { 
+            init = true;
         }
-        lockState = false;
-
-        if (!_init) { 
-            _init = true;
-        }
-
     }
 
-    void SetLockState(bool state)
+    // Card_OnClick() calls the clicked card's FlipCard() method and CheckCards().
+    public void Card_OnClick(Card card)
     {
-        if (state)
-        {
-            Card.DO_NOT_TURN = true;
-            lockState = true;
-        }else
-        {
-            Card.DO_NOT_TURN = false;
-            lockState = false;
-        }
-    }
-    
-    public Material GetBackside(int i){
-        return backsides[i - 1];
+            card.FlipCard();
+            CheckCards();
     }
 
-    public void CheckCards() {
-        
-        List<int> c = new List<int>();
+    /* CheckCards() iterates through cards[] and if any cards 
+     * have state = 1 it is added to a list flipped.
+     * If two cards are flipped, CardComparison() is called. 
+     */
+    void CheckCards()
+    {
+        List<int> flipped = new List<int>();
 
         for(int i=0; i< cards.Length; i++)
         {
-            if (cards[i].State == 1)
+            if (cards[i].state == 1)
             {
-                c.Add(i);
+                flipped.Add(i);
             }
         }
 
-        if (c.Count == 2)
+        if (flipped.Count == 2)
         {
-            CardComparison(c);
+            CardComparison(flipped);
         }
     }
+
+    /* CardComparison() locks all cards and compares if the flipped cards are a match or not.
+     * Cards are a match if they have the same cardValue and different cardTypes 
+     * If match:    the newState is set to 2, meaning it is matched 
+     *              isSuccessful is set to true,
+     *              #pairs left is decremented,
+     *              sound is played, 
+     *              checks if there are any unmached pairs left.
+     * If failed:   #attempts is incremented. 
+     * 
+     * Points() are called,  
+     * and for both cards the new state of the card is set and isFailedCheck() is called
+     */
     void CardComparison(List<int> c)
     {
-        // sets all card to do not turn
-        SetLockState(true);
+        Card.DO_NOT_TURN = true;
 
-        int x = 0;
-        if(cards[c[0]].CardValue ==  cards[c[1]].CardValue && cards[c[0]].CardType != cards[c[1]].CardType)
+        bool isSuccessful= false;
+        int newState = 0;
+
+        if(cards[c[0]].cardValue ==  cards[c[1]].cardValue && cards[c[0]].cardType != cards[c[1]].cardType)
         {
-            x = 2;
-            pairs--;
-            pairsText.text = "Par igjen: "+pairs;
+            newState = 2;
+            isSuccessful = true;
+
+            pairsText.text = "Par igjen: "+ (--pairs);
             source.PlayOneShot(positiveSound, 0.4f);
+            
+            if (pairs == 0)  StartCoroutine(Global.GoToGameOver(points));
 
-            Points(true, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
-            //Debug.Log("Cards matches.");
-            if (pairs == 0)
-            {
-                GameOver();
-            }
-        }
-        else
+        }else
         {
-            attempts++;
-            attemptsText.text = "Forsok: "+ attempts;
-
-            Points( false, cards[c[0]].TimesFlipped, cards[c[1]].TimesFlipped);
+            attemptsText.text = "Forsok: "+  (++attempts);
         }
+
+        Points(isSuccessful, cards[c[0]].timesFlipped, cards[c[1]].timesFlipped);
+
         for (int i =0; i<c.Count; i++)
         {
-            cards[c[i]].GetComponent<Card>().State = x;
-            cards[c[i]].GetComponent<Card>().FalseCheck();
+            cards[c[i]].GetComponent<Card>().state = newState;
+            StartCoroutine(cards[c[i]].GetComponent<Card>().IsFailedCheck());
         }
-        SetLockState(false);
+        
     }
 
     /*  The player gets 40 points for each pairs that he or she matches,
-     *  If the player manages to match 2 pairs in a row, the points will be doubled.
-     *  For each mistake the player looses at least -10 points for each mistake, 
-     *  NOTE: if the card have been flipped before this number will increase.  
-     *   ex:    timesflipped1 =number_of_times_the_first_card_have_been_flipped
-     *          timesflipped2 =number_of_times_the_second_card_have_been_flipped
-     *          points+= -5*timesflipped1 + -5*timesflipped2;
+     *  If the player manages to match multiple pairs in a row, the points will be multiplied for each time.
+     *  For each mismatched pair the score goes down at least 5 x total #flipped points, 
+     *  
+     *          timesflipped1 : #the_first_card_have_been_flipped
+     *          timesflipped2 : #the_second_card_have_been_flipped
      */
-    public void Points(bool succesStatus, int timesflipped1, int timesflipped2)
-    {
-        if (succesStatus && lastAttemptSuccessful)
+    void Points(bool isSuccessful, int timesflipped1, int timesflipped2)
+    {   
+        if (isSuccessful)
         {
-            points += 80;
+            attemptsSuccessful++;
+            points += 40 * attemptsSuccessful;
         }
-        else if (succesStatus)
+        else if (!isSuccessful)
         {
-            points += 40;
+            attemptsSuccessful = 0;
+            points -= 5 * (timesflipped1 + timesflipped2);
+            if (points < 0) points = 0;
         }
-        else if (!succesStatus)
-        {
-            points += -5*timesflipped1 + -5*timesflipped2;
-        }
-        lastAttemptSuccessful = succesStatus;
-
-        // update scoreboard:
         pointsText.text = "Poeng: " + points;
-    }
-
-    public void GameOver()
-    {
-        Global.score = points;
-        Global.gameOver = true;
-        StartCoroutine(Global.GoToGameOver());
     }
     
 }

@@ -1,117 +1,71 @@
-﻿using System.Collections;
+﻿/* Card.cs - 02.04.2019
+ * Card class that contains all variables and functions of a Card.
+ */
+using System.Collections;
 using UnityEngine;
 
-
-
 public class Card : MonoBehaviour {
-    
+
+    // Getters and Setters
+    public int state        { get; set; }  = 0 ;
+    public int cardValue    { get; set; }
+    public int cardType     { get; set; }
+    public bool init        { get; set; }  = false;
+    public int timesFlipped { get; set; }  = 0;
+
+    // Locks all objects of class Card
     public static bool DO_NOT_TURN = false;
 
-    [SerializeField]
-    private int _state;
-    [SerializeField]
-    private int _cardValue;
-    [SerializeField]
-    private int _cardType;
-    [SerializeField]
-    private bool _initialized = false;
 
-    private float _speed = 10F;
-    private int _timesFlipped;
-
-    void Start(){
-        _state = 0;
-        _timesFlipped = 0;
-       
-    }
-
-    IEnumerator RotateStuff(int angle)
+    /* A Coroutine that rotates the GameObjcet a specified amount degrees over time.
+     *      - i is the interpolation
+     *      - root is the cards rotation in the y-direction 
+     *      - target is the target rotation in the y-direction.
+     * While root is less than the target
+     *      The Mathf.Lerp returns (to root) the linearly interpolated result 
+     *      between current root and target by steps of i
+     *      The GameObject's transform component is set to the new angle.
+     */
+    IEnumerator RotateCard(int angle)
     {
-        float t = 0;
+        float i = 0;
         float root = transform.eulerAngles.y;
-
-        float target = transform.eulerAngles.y+ angle;
-
-        if (root > target)
-        {
-            root= target;
-            target = 0;
-        }
+        float target = root + angle;
 
         while (root < target)
         {
-            t += Time.deltaTime;
-            root = Mathf.Lerp(root, target, t * 0.5f);
+            i += 0.5f * Time.deltaTime;
+            root = Mathf.Lerp(root, target, i);
             transform.rotation = Quaternion.Euler(0, root, 0);
             yield return null;
         }
-        //Debug.Log("fully rotated ");
     }
-    
+
+    // Adding backside material to the Card and animates a 360 rotation.
     public void SetupGraphics(Material backside) {
-        StartCoroutine(RotateStuff(360));
+        StartCoroutine(RotateCard(360));
         this.gameObject.GetComponentInChildren<Renderer>().material = new Material(backside);
     }
 
+    // Changes the state of the card and starts rotating it
     public void FlipCard() {
-
-        if (_state == 0){
-            _state = 1;
-        }else if (_state == 1){
-            _state = 0;
+        if (state == 0 && !DO_NOT_TURN){
+            state = 1;
+            timesFlipped++;
+            StartCoroutine(RotateCard(180));
         }
-
-        _timesFlipped++;
-
-        if (_state == 0 && !DO_NOT_TURN){
-            StartCoroutine(RotateStuff(180));     
-        }
-        else if (_state == 1 && !DO_NOT_TURN){
-            StartCoroutine(RotateStuff(180));
-        }  
     }
 
-    public int CardValue{
-        get { return _cardValue; }
-        set { _cardValue = value; }
-    }
-
-    public int CardType{
-        get { return _cardType; }
-        set { _cardType = value; }
-    }
-    public int TimesFlipped
+    // Pauses for 1 sec, and rotates card if state = 0,
+    // All cards are unlocked
+    public IEnumerator IsFailedCheck()
     {
-        get { return _timesFlipped; }
-        set { _timesFlipped = value; }
-    }
-
-    public int State {
-        get { return _state; }
-        set { _state = value; }
-    }
-
-    public bool Initialized{
-        get { return _initialized; }
-        set { _initialized = value; }
-    }
-
-    public void FalseCheck() {
-        StartCoroutine(pause());
-    }
-
-
-    IEnumerator pause() {
-        yield return new WaitForSeconds(2);
-        if (_state == 0)
+        yield return new WaitForSeconds(1);
+        if (state == 0)
         {
-            StartCoroutine(RotateStuff(180));
+            StartCoroutine(RotateCard(180));
         }
-        else if (_state == 1)
-        {
-            StartCoroutine(RotateStuff(180));
-        } 
-        //DO_NOT_TURN = false;
+        DO_NOT_TURN = false;
     }
 
 }

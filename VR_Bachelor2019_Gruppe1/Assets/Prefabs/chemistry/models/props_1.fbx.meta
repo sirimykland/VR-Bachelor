@@ -1,0 +1,248 @@
+fileFormatVersion: 2
+guid: f1454d531200f0d479350206e2cc5570
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: antibodies
+    100002: antibodies_color
+    100004: b_color
+    100006: bathtub
+    100008: bottle
+    100010: bottle_2
+    100012: cap
+    100014: cap.001
+    100016: cap_3
+    100018: color
+    100020: holder
+    100022: microplate
+    100024: p1
+    100026: poli_dispenser
+    100028: //RootNode
+    100030: sample
+    100032: samples
+    100034: samples_color
+    400000: antibodies
+    400002: antibodies_color
+    400004: b_color
+    400006: bathtub
+    400008: bottle
+    400010: bottle_2
+    400012: cap
+    400014: cap.001
+    400016: cap_3
+    400018: color
+    400020: holder
+    400022: microplate
+    400024: p1
+    400026: poli_dispenser
+    400028: //RootNode
+    400030: sample
+    400032: samples
+    400034: samples_color
+    2300000: antibodies
+    2300002: antibodies_color
+    2300004: b_color
+    2300006: bathtub
+    2300008: bottle
+    2300010: bottle_2
+    2300012: cap
+    2300014: cap.001
+    2300016: cap_3
+    2300018: color
+    2300020: holder
+    2300022: microplate
+    2300024: p1
+    2300026: poli_dispenser
+    2300028: sample
+    2300030: samples
+    2300032: samples_color
+    3300000: antibodies
+    3300002: antibodies_color
+    3300004: b_color
+    3300006: bathtub
+    3300008: bottle
+    3300010: bottle_2
+    3300012: cap
+    3300014: cap.001
+    3300016: cap_3
+    3300018: color
+    3300020: holder
+    3300022: microplate
+    3300024: p1
+    3300026: poli_dispenser
+    3300028: sample
+    3300030: samples
+    3300032: samples_color
+    4300000: antibodies
+    4300002: antibodies_color
+    4300004: cap_3
+    4300006: bottle_2
+    4300008: cap.001
+    4300010: bathtub
+    4300012: bottle
+    4300014: b_color
+    4300016: cap
+    4300018: sample
+    4300020: samples_color
+    4300022: samples
+    4300024: holder
+    4300026: poli_dispenser
+    4300028: color
+    4300030: p1
+    4300032: microplate
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: antibodies
+    second: {fileID: 2100000, guid: 304b98a0c58d873499db20f01cfa4794, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: antibodies_color
+    second: {fileID: 2100000, guid: 96753cc95a288a4459f6bb74e2759c6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bottle
+    second: {fileID: 2100000, guid: 04b00915e19ad6a49a9b718d86202fa5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bottle_2
+    second: {fileID: 2100000, guid: 949672af39160ff48a1990346d46546f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bottle_cap
+    second: {fileID: 2100000, guid: 48463ffb104e46f49b59ac2ab26cf902, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bottle_cap_2
+    second: {fileID: 2100000, guid: fbb37c82384bac6408cc507647b33288, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bottle_color
+    second: {fileID: 2100000, guid: 229bc7b1bcbc807458682e49de892264, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: color
+    second: {fileID: 2100000, guid: 4d453b14e33a6a8469964516f79e60ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dispenser_props
+    second: {fileID: 2100000, guid: cc80d8c1b66b5f74dbe76069eedddbc5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: microplate
+    second: {fileID: 2100000, guid: 0c2ac75c48d988644907b2a399ce5b68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poli_dispenser
+    second: {fileID: 2100000, guid: bc3b947797e90b54d9ccabd521c162c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: poli_dispenser_s
+    second: {fileID: 2100000, guid: b4ea7db2ae76840419b7d9e1c8fd6ebb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: red
+    second: {fileID: 2100000, guid: d6d089d9567aeaf4aa8514f0cc2fabc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: samples
+    second: {fileID: 2100000, guid: d00c2c405d539194eae841eac6c5ebf2, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

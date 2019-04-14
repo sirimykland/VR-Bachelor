@@ -12,8 +12,6 @@ public class HubController : MonoBehaviour {
     private GameObject messageObject;
     private GameObject[] startPortal;
 
-    public GameObject eventSystem;
-
     // Use this for initialization
     void Start()
     {
@@ -36,7 +34,7 @@ public class HubController : MonoBehaviour {
     public void StartGame_OnClick(int i)
     {
         Debug.Log("startbutton for " + Global.scenes[i] + " was clicked");
-        Global.gameChoice = Global.scenes[i];
+        Global.gameID = i*100;
         SceneManager.LoadScene(Global.scenes[i]);
     }
 
