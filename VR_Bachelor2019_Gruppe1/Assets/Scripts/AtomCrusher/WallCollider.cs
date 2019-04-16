@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿/* WallCollider.cs - 02.04.2019
+ * Handles action when atom gameObjects collides with the South Wall.
+ * Updates the player's lives.
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WallCollider : MonoBehaviour {
-
-    //Connects script with the script AtomCollider to get its public variables
     public GameBehaviour gameBehaviour;
 
     public AudioClip positiveWallSound;

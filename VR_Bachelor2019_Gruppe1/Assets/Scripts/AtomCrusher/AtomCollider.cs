@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/* AtomCollider.cs - 02.04.2019
+ * Handles game functionality when an atom collides with the lightsaber GameObject.
+ * The atom explodes and the variables score/lives are updated.
+ */
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +25,7 @@ public class AtomCollider : MonoBehaviour
         source = GetComponent<AudioSource>();
     }
 
-    //Destroys atom and updates score when hit with sword
+    //Destroys atom and updates score when hit with sword.
     void OnTriggerEnter(Collider atom)
     {
         if (!gameBehaviour.gameOver)
@@ -42,7 +48,7 @@ public class AtomCollider : MonoBehaviour
         }
     }
 
-
+    //Function to simulate an atom exploding. 
     private void AtomExplode(GameObject atom, GameObject cube)
     {
         float cubeSize = 0.2f;
