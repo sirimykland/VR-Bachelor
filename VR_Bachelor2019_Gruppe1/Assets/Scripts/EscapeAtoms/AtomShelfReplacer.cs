@@ -6,6 +6,7 @@ public class AtomShelfReplacer : MonoBehaviour
 {
     public GameObject atomobject;
 
+
     // Update is called once per frame
 
     void Start()

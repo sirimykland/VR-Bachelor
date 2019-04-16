@@ -26,7 +26,7 @@
             input.text = "";
         }
 
-        private void Start()
+        void Start()
         {
             input = GetComponentInChildren<InputField>();
         }

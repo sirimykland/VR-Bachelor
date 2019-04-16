@@ -358,7 +358,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 26261825}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: b4570c0a3e337426298f00cd2f2206d2, type: 3}
+=======
+  m_Script: {fileID: 11500000, guid: a0a6dae16ef7dbd4283834a00b67b459, type: 3}
+>>>>>>> master
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 831503127}
@@ -368,7 +372,11 @@ MonoBehaviour:
   score: 0
   lives: 0
   gameOver: 0
+<<<<<<< HEAD
   gameOverSound: {fileID: 8300000, guid: 96915e19e3ea34ec4a8ed8925d0a4534, type: 3}
+=======
+  gameOverSound: {fileID: 0}
+>>>>>>> master
 --- !u!4 &26261827
 Transform:
   m_ObjectHideFlags: 0
@@ -5331,6 +5339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556db5c0cbfdf456899b18155891f390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   gameBehaviour: {fileID: 26261826}
   positiveHitSound: {fileID: 8300000, guid: 38bf65f9dad3c4aa487b7a69d37d7e24, type: 3}
   negativeHitSound: {fileID: 8300000, guid: 5363cc11aa760451aaf8bb5434c1754e, type: 3}
@@ -5338,6 +5347,8 @@ MonoBehaviour:
     type: 3}
   metalCube: {fileID: 7985111730372791978, guid: 54533a53f272847c38ce4e4b5774a03f,
     type: 3}
+=======
+>>>>>>> master
 --- !u!33 &769015790
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5565,9 +5576,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2398661222d0d4c46bbf8649e2f38f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   gameBehaviour: {fileID: 26261826}
   positiveWallSound: {fileID: 8300000, guid: de59d7f3ee9b24972ab66491c677c86b, type: 3}
   negativeWallSound: {fileID: 8300000, guid: 3abd0ac1ea730436c80be940b6012acc, type: 3}
+=======
+>>>>>>> master
 --- !u!82 &779272608
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8470,10 +8484,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1146775909}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: a66cffcf6f0f848be8f886479283976f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameBehaviour: {fileID: 26261826}
+=======
+  m_Script: {fileID: 11500000, guid: a3293814f12447b4dab3de3f7dbd9a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameBehaviour: {fileID: 26261826}
+  infoText: {fileID: 0}
+>>>>>>> master
   nonMetal:
   - {fileID: 100000, guid: abbb882b6bf4041d08646ca0c00fb8bf, type: 3}
   - {fileID: 100000, guid: 35947c4b912f14c6abf83401efee0ba3, type: 3}

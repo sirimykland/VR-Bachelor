@@ -12,6 +12,7 @@ CREATE TABLE tbl_Players(
 )
 
 CREATE TABLE tbl_Scores(
+<<<<<<< HEAD
 	LevelID INT(10) NOT NULL,
 	PlayerID INT(7) NOT NULL,
 	Score INT(5) UNSIGNED NOT NULL DEFAULT ‘0’,
@@ -31,4 +32,14 @@ CREATE TABLE tbl_Levels(
 
 
 
+=======
+	ScoreID VARCHAR(10) NOT NULL,
+	GameID INT(3) NOT NULL,
+	PlayerID INT(7) NOT NULL,
+	Score INT(5) UNSIGNED NOT NULL DEFAULT ‘0’,
+	Date_Set TIMESTAMP(),
+	PRIMARY KEY(ScoreID)
+)
+
+>>>>>>> master
 ENGINE=InnoDB;
