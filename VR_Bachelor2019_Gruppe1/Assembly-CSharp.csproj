@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\AtomCrusher\AtomGenerator.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\FloorCollider.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\GameBehaviour.cs" />
+    <Compile Include="Assets\Scripts\AtomCrusher\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\WallCollider.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\Atom.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\AtomShelfReplacer.cs" />
@@ -71,7 +72,6 @@
     <Compile Include="Assets\Scripts\EscapeAtoms\ListShuffeler.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\MenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\Molecule.cs" />
-    <Compile Include="Assets\Scripts\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\FetchDB.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\Global.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\ScoreDB.cs" />
@@ -189,7 +189,6 @@
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
-    <Compile Include="Assets\testExplosion.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\SceneResources\[001 - Interactions] ControllerEvents\Scripts\VRTKExample_ControllerEventsDelegateListeners.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\SceneResources\[002 - Pointers] StraightPointer\Scripts\VRTKExample_PointerObjectHighlighterActivator.cs" />
     <Compile Include="Assets\VRTK\Examples\ExampleResources\SceneResources\[003 - Pointers] BezierPointer\Scripts\VRTKExample_BezierPointerChanger.cs" />

@@ -1,7 +1,9 @@
 fileFormatVersion: 2
 guid: 9333352500077c74aba7dfe6a3d372d2
+timeCreated: 1501072141
+licenseType: Store
 ModelImporter:
-  serializedVersion: 23
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
     100002: flask_1
@@ -105,42 +107,10 @@ ModelImporter:
     4300034: solution_10
     4300036: flask_5
     4300038: solution_5
-    6400000: flask_1
-    6400002: flask_10
-    6400004: flask_2
-    6400006: flask_3
-    6400008: flask_4
-    6400010: flask_5
-    6400012: flask_6
-    6400014: flask_7
-    6400016: flask_8
-    6400018: flask_8.001
-    6400020: flask_9
-    6400022: solution_1
-    6400024: solution_10
-    6400026: solution_2
-    6400028: solution_3
-    6400030: solution_4
-    6400032: solution_5
-    6400034: solution_6
-    6400036: solution_7
-    6400038: solution_9
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: flask
-    second: {fileID: 2100000, guid: e4c9c21ced7248040a7c0954e92835c5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: solution
-    second: {fileID: 2100000, guid: 67c0ce6b7c4ae4348ab5c9bf72abf154, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -153,50 +123,35 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 1
-    addColliders: 1
-    useSRGBMaterialColor: 1
-    importVisibility: 0
+    meshCompression: 0
+    addColliders: 0
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
-    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -211,6 +166,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
