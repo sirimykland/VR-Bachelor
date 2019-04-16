@@ -9,9 +9,50 @@
     <meta charset="utf-8">
     <title></title>
     <script>
-      function buttonClick(label){
+      function buttonClick(label, game){
         var btn = label.children;
-        document.getElementById("level_header").innerHTML = btn[0].value;
+        if (game == "atomCrusher") {
+          document.getElementById("level_headerA").innerHTML = btn[0].id;
+        }
+        else if (game == "molecularMemory") {
+          document.getElementById("level_headerM").innerHTML = btn[0].id;
+        }
+      }
+      function showTable() {
+        console.log("Start showTable");
+        var levelID = 201;
+        var radioButtons = document.getElementsByName("levels");
+        for (var i = 0, length = radioButtons.length; i < length; i++)
+        {
+         if (radioButtons[i].checked)
+         {
+           levelID = radioButtons[i].value;
+         }
+        }
+        console.log(levelID);
+        if (levelID == null) {
+          document.getElementById("dataTable").innerHTML = "Error...";
+          return;
+        } else {
+            if (window.XMLHttpRequest) {
+              // code for IE7+, Firefox, Chrome, Opera, Safari
+              xmlhttp = new XMLHttpRequest();
+            } else {
+              // code for IE6, IE5
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+              console.log("on ready state change");
+              console.log(xmlhttp);
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("dataTable").innerHTML = this.responseText;
+                  console.log("status code 200");
+              }
+            }
+            xmlhttp.open("GET","http://www.ux.uis.no/~sirim/GetLeaderboard.php?levelID="+levelID,true);
+            xmlhttp.send();
+            console.log("done with showTable");
+        }
       }
     </script>
   </head>
@@ -43,49 +84,37 @@
       <div class="tab-pane active" id="crusher" role="tabpanel" aria-labelledby="crusher-tab">
         <div class="container">
           <h1> Atom Crusher </h1>
-          <h3 class="text-muted" id="level_header"> Easy </h3>
+          <h3 class="text-muted" id="level_headerA"> Easy </h3>
           </br>
-          <div class="btn-group btn.group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active" onclick="buttonClick(this)">
-              <input type="radio" name="levels" class="level_buttons" id="crusher_easy" value="Easy" autocomplete="off" checked> Easy
-            </label>
-            <label class="btn btn-secondary" onclick="buttonClick(this)">
-              <input type="radio" name="levels" class="level_buttons" id="cursher_normal" value="Normal" autocomplete="off"> Normal
-            </label>
-          </div>
+          <form onchange="showTable()">
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn btn-secondary active" onclick="buttonClick(this, 'atomCrusher')">
+                <input type="radio" name="levels" class="level_buttons" id="Easy" value="201" autocomplete="off" checked> Easy
+              </label>
+              <label class="btn btn-secondary" onclick="buttonClick(this, 'atomCrusher')">
+                <input type="radio" name="levels" class="level_buttons" id="Normal" value="202" autocomplete="off"> Normal
+              </label>
+            </div>
+          </form>
           <a class="btn_refresh"><span class="glyphicon glyphicon-refresh"></span></a>
-          <table class="table">
-            <thead>
-              <tr>
-                <th> # </th>
-                <th> Name </th>
-                <th> Score </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> 1 </td>
-                <td> JJ </td>
-                <td> 999 </td>
-              </tr>
-            </tbody>
-          </table>
+          <div id="dataTable">
+          </div>
         </div>
       </div>
       <div class="tab-pane" id="memory" role="tabpanel" aria-labelledby="memory-tab">
         <div class="container">
           <h1> Molecule Memory </h1>
-          <h3 class="text-muted"> Level 1</h3>
+          <h3 class="text-muted" id="level_headerM"> Level 1</h3>
           </br>
           <div class="btn-group btn.group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">
-              <input type="radio" name="levels" id="memory_1" autocomplete="off" checked> Level 1
+            <label class="btn btn-secondary active" onclick="buttonClick(this, 'molecularMemory')">
+              <input type="radio" name="levels" value="101" id="Level 1" autocomplete="off" checked> Level 1
             </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="levels" id="memory_2" autocomplete="off"> Level 2
+            <label class="btn btn-secondary" onclick="buttonClick(this, 'molecularMemory')">
+              <input type="radio" name="levels" value="102" id="Level 2" autocomplete="off"> Level 2
             </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="levels" id="memory_3" autocomplete="off"> Level 3
+            <label class="btn btn-secondary" onclick="buttonClick(this, 'molecularMemory')">
+              <input type="radio" name="levels" value="103" id="Level 3" autocomplete="off"> Level 3
             </label>
           </div>
           <table class="table">
