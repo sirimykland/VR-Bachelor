@@ -3,10 +3,7 @@ guid: 2398661222d0d4c46bbf8649e2f38f6f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - gameBehaviour: {instanceID: 0}
-  - positiveWallSound: {fileID: 8300000, guid: 7b2b20f1e6546456d82dcf5bd8645c9d, type: 3}
-  - negativeWallSound: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
