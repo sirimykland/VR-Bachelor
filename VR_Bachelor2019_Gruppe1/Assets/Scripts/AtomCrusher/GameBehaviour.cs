@@ -37,8 +37,8 @@ public class GameBehaviour : MonoBehaviour {
         gameOver = false;
         lives = 3;
         score = 0;
-        scoreText.text = "Score: " + score.ToString();
-        livesText.text = "Lives: " + lives.ToString();
+        scoreText.text = "Poeng: " + score.ToString();
+        livesText.text = "Liv: " + lives.ToString();
         gameText.text = "";
         seconds = 0;
         minutes = 0;
@@ -57,17 +57,18 @@ public class GameBehaviour : MonoBehaviour {
         {
             GameOver();
         }
-        scoreText.text = "Score: " + score.ToString();
-        livesText.text = "Lives: " + lives.ToString();
+        scoreText.text = "Poeng: " + score.ToString();
+        livesText.text = "Liv: " + lives.ToString();
     }
 
     /* Sets bool gameOver to true to stop other functions from running. 
      * Displays final score and runs an animation on the remaining atoms in scene.
+     * Sends player to the GameOver scene.
      */     
     void GameOver()
     {
         gameOver = true;
-        gameText.text = "GAME OVER \n Final Score: " + score;
+        gameText.text = "GAME OVER \n Poengsum: " + score;
         source.PlayOneShot(gameOverSound, 0.15f);
         GameObject[] metalsInScene = GameObject.FindGameObjectsWithTag("Metal");
         GameObject[] nonMetalsInScene = GameObject.FindGameObjectsWithTag("NonMetal");
@@ -79,6 +80,7 @@ public class GameBehaviour : MonoBehaviour {
         {
             nonMetal.GetComponent<Rigidbody>().useGravity = true;
         }
+        StartCoroutine(Global.GoToGameOver(score));
     }
 
     //Runs the timer shown in-game.

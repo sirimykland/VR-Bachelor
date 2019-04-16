@@ -32,7 +32,7 @@ public class AtomGenerator : MonoBehaviour {
     // Initialization
     void Start () {
         fireRate = 3f;
-        nextFire = 25f;
+        nextFire = 20f;
         score = gameBehaviour.score;
         tutorialNonMetal = true;
         tutorialMetal = false;
@@ -45,25 +45,25 @@ public class AtomGenerator : MonoBehaviour {
         {
             if (tutorialNonMetal)
             {
-                //Vector3 position = new Vector3(-1.3f, 2f, 21f);
-                Vector3 position = new Vector3(-1.3f, 2f, 5f);
+                Vector3 position = new Vector3(-1.3f, 2f, 21f);
+                //Vector3 position = new Vector3(-1.3f, 2f, 5f);
                 GameObject atom = Instantiate(nonMetal[0]);
                 AddComponents(atom, -0.5f, position);
                 atom.tag = "NonMetal";
                 tutorialNonMetal = false;
                 tutorialMetal = true;
             }
-            else if (tutorialMetal && Time.time > 10f)
+            else if (tutorialMetal && Time.time > 8f)
             {
                 Vector3 position = new Vector3(1.3f, 2f, 21f);
                 GameObject atom = Instantiate(metal[0]);
-                AddComponents(atom, -0.5f, position);
+                AddComponents(atom, -0.7f, position);
                 atom.tag = "Metal";
-                infoText.text = "Avoid metal atoms like this one";
+                infoText.text = "Unngå metallatomer slik som denne";
                 tutorialMetal = false;
             }
 
-            if ((!tutorialMetal && !tutorialNonMetal) && score < 8 && Time.time > 25)
+            if ((!tutorialMetal && !tutorialNonMetal) && score < 8 && Time.time > 20)
             {
                 fireRate = 2f;
                 infoText.text = "";
@@ -86,7 +86,7 @@ public class AtomGenerator : MonoBehaviour {
         int atomPath = random.Next(1, 5);
         int atomNumber;
         Vector3 position = new Vector3(0f,0f,21f);
-        float velocity = -0.5f;
+        float velocity = -0.7f;
 
         if (score >= 8 && score < 12)
         {
@@ -134,7 +134,7 @@ public class AtomGenerator : MonoBehaviour {
         switch (atomPath)
         {
             case 1:
-                position = new Vector3(-2f, 0.5f, 21f);
+                position = new Vector3(-2f, 0.7f, 21f);
                 break;
             case 2:
                 position = new Vector3(-1.3f, 2f, 21f);
@@ -143,14 +143,13 @@ public class AtomGenerator : MonoBehaviour {
                 position = new Vector3(1.3f, 2f, 21f);
                 break;
             case 4:
-                position = new Vector3(2f, 0.5f, 21f);
+                position = new Vector3(2f, 0.7f, 21f);
                 break;
         }
 
-        //If atom is of type metal
         if (typeOfAtom == 4)
         {
-            atomNumber = random.Next(0,4);
+            atomNumber = random.Next(0,3);
             GameObject atom = Instantiate(metal[atomNumber]);
             AddComponents(atom, velocity, position);
             atom.tag = "Metal";
@@ -176,7 +175,7 @@ public class AtomGenerator : MonoBehaviour {
         cF.force = new Vector3(0f, 0f, velocity);
         gO.transform.position = position;
         gO.transform.rotation = Quaternion.Euler(0f, 90f, 0f);
-        gO.transform.localScale = new Vector3(2.2f, 2.2f, 2.2f);
+        gO.transform.localScale = new Vector3(2.3f, 2.3f, 2.3f);
     }
 
 }

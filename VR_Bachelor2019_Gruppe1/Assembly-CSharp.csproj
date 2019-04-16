@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Explotion.cs" />
+    <Compile Include="Assets\InitializeAtomCrusher.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\AtomCollider.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\AtomGenerator.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\FloorCollider.cs" />

@@ -14,13 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AtomThrower.unity
     guid: 0023dbf710dbbb3499272584704d4aa7
-  - enabled: 1
-    path: Assets/Scenes/AtomCrusherEasy.unity
-    guid: e9f64aa9a2a035547a794671bcba1051
-  - enabled: 1
-    path: Assets/Scenes/AtomCrusherNormal.unity
-    guid: 97fef6cfd6842a943b4164720f95fdcc
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: ad328c887bbad224480c56c072a48bdd
+  - enabled: 1
+    path: Assets/Scenes/AtomCrusherStart.unity
+    guid: 7d91c06d79c1a3e408376c47eb5785e1
+  - enabled: 1
+    path: Assets/Scenes/AtomCrusherNormal.unity
+    guid: fc1f1411412cb4ce1a05d5dedbeb7999
+  - enabled: 1
+    path: Assets/Scenes/AtomCrusherEasy.unity
+    guid: 73d67780b42473f4db81d078e65eb9a4
   m_configObjects: {}
