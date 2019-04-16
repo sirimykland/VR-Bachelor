@@ -21,11 +21,6 @@ public class GameBehaviour : MonoBehaviour {
     private int seconds;
     private int minutes;
 
-<<<<<<< HEAD
-=======
-    private float time;
-
->>>>>>> master
     void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -41,19 +36,10 @@ public class GameBehaviour : MonoBehaviour {
         gameText.text = "";
         seconds = 0;
         minutes = 0;
-<<<<<<< HEAD
-=======
-        time = 0;
->>>>>>> master
     }
 
     //Checks, after every frame, if game should finish
     void Update () {
-<<<<<<< HEAD
-=======
-        time = Time.timeSinceLevelLoad;
-
->>>>>>> master
         if (!gameOver)
         {
             UpdateTimer();
@@ -88,15 +74,8 @@ public class GameBehaviour : MonoBehaviour {
     //Runs the timer shown in-game.
     private void UpdateTimer()
     {
-<<<<<<< HEAD
         seconds = (int)Time.time % 60;
         minutes = (int)Time.time / 60;
-=======
-        //seconds = (int)Time.time % 60;
-        //minutes = (int)Time.time / 60;
-        seconds = (int)time % 60;
-        minutes = (int)time / 60;
->>>>>>> master
         if (seconds < 10)
         {
             timeText.text = minutes.ToString() + ":0" + seconds.ToString();

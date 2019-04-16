@@ -60,33 +60,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Explotion.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\AtomCollider.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\AtomGenerator.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\FloorCollider.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\GameBehaviour.cs" />
-    <Compile Include="Assets\Scripts\AtomCrusher\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\AtomCrusher\WallCollider.cs" />
+    <Compile Include="Assets\Scripts\CamMouseLook.cs" />
+    <Compile Include="Assets\Scripts\CharacterController.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\Atom.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\AtomShelfReplacer.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\EscapeAtomsGameManager.cs" />
-    <Compile Include="Assets\Scripts\EscapeAtoms\ListShuffeler.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\MenuBehaviour.cs" />
     <Compile Include="Assets\Scripts\EscapeAtoms\Molecule.cs" />
+    <Compile Include="Assets\Scripts\GameOver\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\FetchDB.cs" />
     <Compile Include="Assets\Scripts\Global_Scripts\Global.cs" />
-    <Compile Include="Assets\Scripts\Global_Scripts\ScoreDB.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\ListShuffeler.cs" />
+    <Compile Include="Assets\Scripts\Global_Scripts\SendDB.cs" />
     <Compile Include="Assets\Scripts\Hub\CanvasFix.cs" />
     <Compile Include="Assets\Scripts\Hub\HubController.cs" />
+    <Compile Include="Assets\Scripts\Hub\MenuFix.cs" />
     <Compile Include="Assets\Scripts\Hub\Scoreboard.cs" />
-    <Compile Include="Assets\Scripts\Memorygame\CamMouseLook.cs" />
     <Compile Include="Assets\Scripts\Memorygame\Card.cs" />
-    <Compile Include="Assets\Scripts\Memorygame\CardHandler.cs" />
-    <Compile Include="Assets\Scripts\Memorygame\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Memorygame\GameManager.cs" />
     <Compile Include="Assets\Scripts\Memorygame\LevelController.cs" />
-    <Compile Include="Assets\Simple Scene Fade Load System\Demo (You don't have to import this folder)\DemoScript.cs" />
-    <Compile Include="Assets\Simple Scene Fade Load System\Scripts\Fader.cs" />
-    <Compile Include="Assets\Simple Scene Fade Load System\Scripts\Initiate.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
@@ -540,7 +538,6 @@
     <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\VRTK_OutlineBasic.shader" />
     <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\AdaptiveQualityDebugVisualization.shader" />
     <None Include="Assets\Art\Fonts\Read me.txt" />
-    <None Include="Assets\Simple Scene Fade Load System\ReadMeFirst.txt" />
     <None Include="Assets\VRTK\Source\Scripts\Internal\Shaders\VRTK_TunnelEffect.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
     <None Include="Assets\SteamVR\Resources\SteamVR_AlphaOut.shader" />

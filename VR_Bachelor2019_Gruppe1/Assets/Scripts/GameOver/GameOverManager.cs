@@ -7,7 +7,7 @@ public class GameOverManager : MonoBehaviour {
     public Text message;
     public Text scoreboard;
 
-    void Start()
+    private void Start()
     {
         switch (Global.gameID)
         {

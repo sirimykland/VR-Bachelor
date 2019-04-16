@@ -4,25 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - KeyBoard
-  - Portal
-  - IncludeTeleport
-  - NameOfPlayer
-  - ScoreBoard
-  - LevelButtons
-  - CardList
+  - Message
   - DB
-  - EventSystem
-<<<<<<< HEAD
+  - ToHub
   - Sword
   - Metal
   - NonMetal
   - Cube
-=======
-  - Message
-  - GameManager
-  - Menu
->>>>>>> master
   layers:
   - Default
   - TransparentFX
