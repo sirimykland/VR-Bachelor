@@ -1,4 +1,4 @@
-﻿/* Global.cs - 02.04.2019 
+﻿/* Global.cs - 02.04.2019
  * Static class holding all static game variables that are used throughout the game.
  */
 using System;
@@ -10,8 +10,8 @@ using UnityEngine.SceneManagement;
 public static class Global
 {
     // Getters and setters.
-    public static string username { get; set; } = "hanne";
-    public static int score { get; set; } = 544400;
+    public static string username { get; set; } = "Test";
+    public static int score { get; set; } = 0;
     public static int gameID { get; set; } = 300;
     public static int level { get; set; } = 1;
 

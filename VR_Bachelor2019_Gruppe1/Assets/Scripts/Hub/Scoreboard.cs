@@ -16,7 +16,7 @@ public class Scoreboard : MonoBehaviour
 
     public int[] LevelID{
 
-        get { 
+        get {
             if (levelID.Length == 0)
             {
                 levelID = new int[1];
