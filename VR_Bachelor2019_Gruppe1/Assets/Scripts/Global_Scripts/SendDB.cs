@@ -7,6 +7,8 @@ public class SendDB : MonoBehaviour
 {
     //Fill in your server data here.
     private string AddScoreURL = "www.ux.uis.no/~sirim/AddScore.php?";
+    public FetchDB fetch;
+
 
     void Start()
     {
@@ -30,8 +32,10 @@ public class SendDB : MonoBehaviour
         }
         else
         {
+            
             Debug.Log("score successfully added...");
             Debug.Log(www.downloadHandler.text);
+            fetch.Fetch();
         }
     }
 }

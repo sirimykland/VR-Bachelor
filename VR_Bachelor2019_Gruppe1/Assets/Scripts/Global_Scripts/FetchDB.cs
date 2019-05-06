@@ -9,11 +9,17 @@ public class FetchDB : MonoBehaviour
 {
     //Fill in your server data here.
     private string TopScoresURL = "www.ux.uis.no/~sirim/GetTop.php?";
+    public bool allowFetch = true;
 
     public int limit;
     public Scoreboard[] scoreboards;
 
-    void Start()
+    void Start() {
+        if(allowFetch)
+            Fetch();
+    }
+
+    public void Fetch()
     {
         Debug.Log("retrieving scores");
         foreach (Scoreboard s in scoreboards)
@@ -23,9 +29,12 @@ public class FetchDB : MonoBehaviour
                 StartCoroutine(GetTopScores(s.LevelID[i], s.textboxes[i])); // Fetching scores.
             }
         }
+        
     }
 
-    IEnumerator GetTopScores(int levelID, Text textbox)
+
+
+    public IEnumerator GetTopScores(int levelID, Text textbox)
     {
         WWWForm form = new WWWForm();
         form.AddField("LevelID", levelID);
@@ -38,7 +47,7 @@ public class FetchDB : MonoBehaviour
         if (www.isNetworkError || www.isHttpError)
         {
             Debug.Log("an error occured when feching scores from " + levelID + "...\n" + www.error);
-            textbox.text = "An Error occured...\n" + www.error;
+            textbox.text = "\nAn Error occured...\n" + www.error;
         }
         else
         {
@@ -47,7 +56,7 @@ public class FetchDB : MonoBehaviour
             Debug.Log(jsonString);
             ScoreList scores = new ScoreList();
             scores = ScoreList.CreateFromJSON(jsonString);
-            Debug.Log(scores.ToString());
+
             textbox.text = scores.ToString();
         }
     }

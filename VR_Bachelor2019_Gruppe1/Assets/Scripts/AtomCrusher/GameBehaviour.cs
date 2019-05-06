@@ -24,6 +24,8 @@ public class GameBehaviour : MonoBehaviour {
     public AudioClip gameOverSound;
     private AudioSource source;
 
+    public float timer;
+    private float deltaTime;
     private int seconds;
     private int minutes;
 
@@ -40,6 +42,8 @@ public class GameBehaviour : MonoBehaviour {
         scoreText.text = "Poeng: " + score.ToString();
         livesText.text = "Liv: " + lives.ToString();
         gameText.text = "";
+        timer = 0;
+        deltaTime = Time.time;
         seconds = 0;
         minutes = 0;
     }
@@ -86,8 +90,14 @@ public class GameBehaviour : MonoBehaviour {
     //Runs the timer shown in-game.
     private void UpdateTimer()
     {
-        seconds = (int)Time.time % 60;
-        minutes = (int)Time.time / 60;
+      
+        timer = Time.time - deltaTime;
+        seconds = (int)timer % 60;
+        minutes = (int)timer / 60;
+
+        //seconds = (int)Time.time % 60;
+        //minutes = (int)Time.time / 60;
+
         if (seconds < 10)
         {
             timeText.text = minutes.ToString() + ":0" + seconds.ToString();

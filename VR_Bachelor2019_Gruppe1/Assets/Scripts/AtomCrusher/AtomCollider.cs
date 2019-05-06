@@ -16,8 +16,8 @@ public class AtomCollider : MonoBehaviour {
     public AudioClip negativeHitSound;
     private AudioSource source;
 
-    public GameObject nonMetalCube;
-    public GameObject metalCube;
+    public Material nonMetalMaterial;
+    public Material metalMaterial;
 
     void Awake()
     {
@@ -32,14 +32,14 @@ public class AtomCollider : MonoBehaviour {
 
             if (atom.gameObject.CompareTag("NonMetal"))
             {
-                AtomExplode(atom.gameObject, nonMetalCube);
+                AtomExplode(atom.gameObject, nonMetalMaterial);
                 source.PlayOneShot(positiveHitSound, 0.3f);
                 Destroy(atom.gameObject);
                 gameBehaviour.score++;
             }
             if (atom.gameObject.CompareTag("Metal"))
             {
-                AtomExplode(atom.gameObject, metalCube);
+                AtomExplode(atom.gameObject, metalMaterial);
                 source.PlayOneShot(negativeHitSound, 0.4f);
                 Destroy(atom.gameObject);
                 gameBehaviour.lives--;
@@ -47,38 +47,48 @@ public class AtomCollider : MonoBehaviour {
         }
     }
 
-    //Function to simulate an atom exploding. 
-    private void AtomExplode(GameObject atom, GameObject cube)
+    //Simulates an atom exploding by creating 3x3x3 cubes and then use the AddExplosionForce() function for a rigidbody
+    private void AtomExplode(GameObject atom, Material material)
     {
-        float cubeSize = 0.2f;
-        float explosionRadius = 0.5f;
-        float explosionForce = 500f;
+        float cubeSize = 0.08f;
+        float explosionRadius = 0.3f;
+        float explosionForce = 40f;
         float explosionUpwards = 0.2f;
-        GameObject partOfAtom;
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
                 for (int k = 0; k < 3; k++)
                 {
-                    partOfAtom = Instantiate(cube);
-                    partOfAtom.transform.position = atom.transform.position + new Vector3(cubeSize * i, cubeSize * j, cubeSize*k);
-                    partOfAtom.tag = "Cube";
-                    Vector3 explosionPos = new Vector3(-1.17f, 0.73f, 1.52f);
-                    //Vector3 explosionPos = partOfAtom.transform.position;
-                    Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
-                    foreach (Collider col in colliders)
-                    {
-                        Rigidbody rB = col.GetComponent<Rigidbody>();
-                        if (rB != null)
-                        {
-                            rB.AddExplosionForce(explosionForce, explosionPos, 10f, 1f);
-                            Debug.Log("EXPLOSION");
-                        }
-                    }
+                    CreateCube(i, j, k, cubeSize, material);
                 }
             }
         }
+        Vector3 explosionPos = transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
+        foreach (Collider col in colliders)
+        {
+            Rigidbody rB = col.GetComponent<Rigidbody>();
+            if (rB != null)
+            {
+                rB.AddExplosionForce(explosionForce, explosionPos, explosionRadius, explosionUpwards);
+            }
+        }
+    }
+
+    //Creates a primitive cube and adds necessary components to it
+    void CreateCube(int x, int y, int z, float cubeSize, Material material)
+    {
+
+        GameObject cube;
+        cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.GetComponent<Renderer>().material = material;
+        cube.transform.position = transform.position + new Vector3(cubeSize * x, cubeSize * y, cubeSize * z);
+        cube.transform.localScale = new Vector3(cubeSize, cubeSize, cubeSize);
+        cube.AddComponent<Rigidbody>();
+        cube.GetComponent<Rigidbody>().mass = cubeSize;
+        cube.GetComponent<BoxCollider>().isTrigger = true;
+        cube.tag = "Cube";
     }
 
 }

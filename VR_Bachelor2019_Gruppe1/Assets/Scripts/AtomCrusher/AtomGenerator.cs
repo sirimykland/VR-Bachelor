@@ -36,6 +36,7 @@ public class AtomGenerator : MonoBehaviour {
         score = gameBehaviour.score;
         tutorialNonMetal = true;
         tutorialMetal = false;
+        Debug.Log(Time.realtimeSinceStartup);
     }
 	
 	void Update () {
@@ -53,7 +54,7 @@ public class AtomGenerator : MonoBehaviour {
                 tutorialNonMetal = false;
                 tutorialMetal = true;
             }
-            else if (tutorialMetal && Time.time > 8f)
+            else if (tutorialMetal && gameBehaviour.timer > 8f)
             {
                 Vector3 position = new Vector3(1.3f, 2f, 21f);
                 GameObject atom = Instantiate(metal[0]);
@@ -63,15 +64,15 @@ public class AtomGenerator : MonoBehaviour {
                 tutorialMetal = false;
             }
 
-            if ((!tutorialMetal && !tutorialNonMetal) && score < 8 && Time.time > 20)
+            if ((!tutorialMetal && !tutorialNonMetal) && score < 8 && gameBehaviour.timer > 18)
             {
                 fireRate = 2f;
                 infoText.text = "";
             }
 
-            if (Time.time > nextFire)
+            if (gameBehaviour.timer > nextFire)
             {
-                nextFire = Time.time + fireRate;
+                nextFire = gameBehaviour.timer + fireRate;
                 GenerateAtom();
             }
         }
@@ -134,7 +135,7 @@ public class AtomGenerator : MonoBehaviour {
         switch (atomPath)
         {
             case 1:
-                position = new Vector3(-2f, 0.7f, 21f);
+                position = new Vector3(-1.8f, 0.7f, 21f);
                 break;
             case 2:
                 position = new Vector3(-1.3f, 2f, 21f);
@@ -143,7 +144,7 @@ public class AtomGenerator : MonoBehaviour {
                 position = new Vector3(1.3f, 2f, 21f);
                 break;
             case 4:
-                position = new Vector3(2f, 0.7f, 21f);
+                position = new Vector3(1.8f, 0.7f, 21f);
                 break;
         }
 
@@ -170,7 +171,8 @@ public class AtomGenerator : MonoBehaviour {
         rB = gO.AddComponent<Rigidbody>();
         cF = gO.AddComponent<ConstantForce>();
         sC.isTrigger = true;
-        //sC.center = new Vector3(0f, 0f, 0f);
+        sC.center = new Vector3(0f, 0f, 0f);
+        sC.radius = 0.16f;
         rB.useGravity = false;
         cF.force = new Vector3(0f, 0f, velocity);
         gO.transform.position = position;
