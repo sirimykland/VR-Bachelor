@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -88,7 +88,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 160f25a3c4ed7d040903a32c900acfea,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -2092,6 +2093,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 835986862}
     m_Modifications:
+    - target: {fileID: 1000011660833422, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3, type: 3}
+      propertyPath: m_TagString
+      value: EventSystem
+      objectReference: {fileID: 0}
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2584,10 +2589,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderMode
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011660833422, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3, type: 3}
-      propertyPath: m_TagString
-      value: EventSystem
       objectReference: {fileID: 0}
     - target: {fileID: 114000013760325250, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 3}
@@ -3136,6 +3137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beb8ba5269a9b6428328832bb8475d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowFetch: 1
   limit: 3
   scoreboards:
   - {fileID: 31876684}

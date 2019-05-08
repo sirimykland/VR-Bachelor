@@ -10,7 +10,7 @@ Assets/Scenes/AtomCrusherStart.unity
 Assets/Scenes/AtomCrusherNormal.unity
 Assets/Scenes/AtomCrusherEasy.unity
 SceneListEnd?
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SendDB
+fcd016917a32b55157cda9243a935330 Assembly-CSharp.dll:.SendDB
 c9614aede91768c2de10fd59d4ec28c5 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_SDKSetup_UnityEvents
 527b04c36d3ecdb60eb3485821e1e9b6 Assembly-CSharp.dll:VRTK.Examples.Utilities.VRTKExample_SceneSwitcher
 3800f5e3156a1e54f5c990c4e514eda1 Assembly-CSharp.dll:.SteamVR_Ears
@@ -44,7 +44,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 d0d292693a1a531afe3ed8bf74412e35 Assembly-CSharp.dll:VRTK.VRTK_AvatarHandController
 9c4933142c1ab0945cd2bfb87287387a Assembly-CSharp.dll:Valve.VR.InteractionSystem.Throwable
 3fe4a4c11462e5af6c290fb61ba59bf3 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_InteractHaptics_UnityEvents
-a3b10747a6d6ffffa7e5baea99ba60c6 Assembly-CSharp.dll:.AtomCollider
+09eee3ed0616e632a1b246d312cab5da Assembly-CSharp.dll:.AtomCollider
 90ac7c017443220a3a327283d9cdc9f1 Assembly-CSharp.dll:VRTK.VRTK_TrackedController
 55eb197fbec0277a093b584be9b30145 Assembly-CSharp.dll:VRTK.Examples.HandLift
 6283697ded5fd7271a9e1c5523b6d32c Assembly-CSharp.dll:VRTK.Highlighters.VRTK_OutlineObjectCopyHighlighter
@@ -114,6 +114,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+876057b35445176749b96af771922ad5 Assembly-CSharp.dll:.TestExplode
 f53353aadf7a88ea54da9f1e48a6d181 Assembly-CSharp.dll:.SteamVR_LoadLevel
 5db2306e0d63360cf54f182810d642d7 Assembly-CSharp.dll:VRTK.VRTK_SDKManager
 c71e2a86b483a4d46c8103d75fcc8732 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_SnapDropZone_UnityEvents
@@ -121,8 +122,6 @@ c71e2a86b483a4d46c8103d75fcc8732 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_
 d32e4ed26298e8faf5b53e981cf669c1 Assembly-CSharp.dll:.WallCollider
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.SDK_WindowsMRController
 9d75f25b111151a15ebf17e35cd30206 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_DashTeleport_UnityEvents
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 1ebb0c7a5fb503d2eaaefdbeeeabd99b Assembly-CSharp.dll:VRTK.UICircle
 0a178a1c85198b9dad8fc799b8bfaa65 Assembly-CSharp.dll:Valve.VR.InteractionSystem.BodyCollider
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SteamVR_CameraMask
@@ -273,7 +272,7 @@ bd0f70259e5920d5cc171d0499babc9c Assembly-CSharp.dll:Valve.VR.InteractionSystem.
 c893711e8d5f87691b43bb17a6ab2266 Assembly-CSharp.dll:VRTK.Examples.InteractableWhirlyGig
 eade5a5efd53b0e50dfe8fb48b76f0f7 Assembly-CSharp.dll:Valve.VR.InteractionSystem.SoundPlayOneshot
 95c8456adadbbb84b0a4d960e1e55274 Assembly-CSharp.dll:VRTK.GrabAttachMechanics.VRTK_TrackObjectGrabAttach
-6d1d2a37bc51c551abee9f01f8d64937 Assembly-CSharp.dll:.FetchDB
+815c5bd1869a454c433cac8827268245 Assembly-CSharp.dll:.FetchDB
 361f525e9e51617cb0ac071fa16bd4e6 Assembly-CSharp.dll:VRTK.Examples.ElevatorControl
 d46bf02823d9fd3a7eaca4c32fd9b48e Assembly-CSharp.dll:Valve.VR.InteractionSystem.HapticRack
 d11b581041e47ec58323f6d6fe6263ff Assembly-CSharp.dll:VRTK.VRTK_ControllerTrackedCollider
@@ -402,7 +401,7 @@ bfd7a24fb42877f9e4230bc1bf7f27df Assembly-CSharp.dll:VRTK.GrabAttachMechanics.VR
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.Examples.PanelMenu.PanelMenuDemoFlyingSaucer
 bae5235830852ca9e7e5952184956503 Assembly-CSharp.dll:VRTK.VRTK_TeleportDisableOnControllerObscured
 510fefd6a544e16a3ffefa557ddcba39 Unity.TextMeshPro.dll:TMPro.PackageResourceImporterWindow
-84eb3b82aa8a00f6dd0add88430f8ccc Assembly-CSharp.dll:.GameBehaviour
+db5d10fa10642fbe22aa7e83b3768092 Assembly-CSharp.dll:.GameBehaviour
 ed943a7a92b210b2fcabebe6a253fb7c Assembly-CSharp.dll:VRTK.VRTK_IndependentRadialMenuController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:Valve.VR.InteractionSystem.ControllerHintsExample
 a0f834ed3cc94acde5ef611cf6cb7444 Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_DestinationPoint_UnityEvents
@@ -505,6 +504,7 @@ f9321e5459e113f9b20218453b654a8f Assembly-CSharp.dll:VRTK.VRTK_HipTracking
 b3af75dcb745b0747e0d25ab17e76196 Assembly-CSharp.dll:VRTK.Examples.Archery.Arrow
 f91cb688355a2c7124846064fa9b7918 Assembly-CSharp.dll:Valve.VR.InteractionSystem.ArcheryTarget
 06a2d61be9e7270a528ec3a25d52e45a Assembly-CSharp.dll:.SteamVR_ExternalCamera
+eeec807af858b07b01396a1c9e9c6764 Assembly-CSharp.dll:.explosionTest
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.WindowsMR_ControllerManager
 a0431403d111bb72053e8aa84771156c Assembly-CSharp.dll:VRTK.UnityEventHelper.VRTK_ObjectControl_UnityEvents
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:VRTK.Examples.RendererOffOnDash
