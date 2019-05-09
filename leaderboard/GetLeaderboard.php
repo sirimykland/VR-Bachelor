@@ -28,8 +28,8 @@
       </tr>
     </thead>
     <tbody>";
+   $i = 1;
   while($row = mysqli_fetch_array($result)) {
-      $i = 1;
       echo "<tr>";
       echo "<td>" . $i++ . "</td>";
       echo "<td>" . $row['Player_Name'] . "</td>";
