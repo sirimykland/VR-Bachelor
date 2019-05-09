@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/AtomThrower.unity
+- path: Assets/Scenes/MolecularMemory.unity
   isLoaded: 1
   isActive: 1
