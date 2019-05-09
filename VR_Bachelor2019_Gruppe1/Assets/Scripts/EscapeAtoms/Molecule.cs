@@ -25,7 +25,7 @@ public class Molecule : MonoBehaviour {
     public void SetupWall(Atom gObj){
         atomsList = new List<Atom>();
         Atom newAtom = Instantiate(gObj, transform.parent.position, Quaternion.Euler(0, -90, 0));
-        
+
         outer = 0;
         badCollision=0;
         AddAtom(newAtom);
@@ -56,7 +56,7 @@ public class Molecule : MonoBehaviour {
         }
         else if (outer <= 4)
         {
-            state = 0;     
+            state = 0;
         }
         else if (outer >= 5)
         {
@@ -67,20 +67,20 @@ public class Molecule : MonoBehaviour {
 
     /* GiveAbsorb() computes outer.
      * if the sum of the colided atom's state and the molecule's state  is 1,
-     *      (meaning one is hydrogen, one is state=0), 
+     *      (meaning one is hydrogen, one is state=0),
      *      then the hydrogen will absorb an electron, and outer decreases with 1
-     * Otherwise the colided atom's outer shell is added to the molecule's outer shell 
+     * Otherwise the colided atom's outer shell is added to the molecule's outer shell
      */
     void GiveAbsorb(Atom newAtom)
     {
-        
+
         if (init && (state + newAtom.state) == 1) // one of them is a hydrogen
         {
             int hydrogen = Math.Min(outer, newAtom.outer);
             int other = Math.Max(newAtom.outer, outer);
 
             Debug.Log("m/a" + outer + newAtom.outer + " min/max" + hydrogen + other);
-            outer = other - hydrogen; 
+            outer = other - hydrogen;
         }
         else
         {
@@ -124,7 +124,7 @@ public class Molecule : MonoBehaviour {
                 {
                     badCollision++;
                 }
-                
+
                 gameManager.Points(badCollision, colAtom);
             }
         }
@@ -141,7 +141,7 @@ public class Molecule : MonoBehaviour {
     {
         Destroy(newAtom.GetComponent<Rigidbody>());
         atomsList.Add(newAtom);
-        
+
         newAtom.transform.parent = gameObject.transform;
         newAtom.transform.rotation =  Quaternion.Euler(0, -90, 0);
         SetLocation(newAtom.transform);
@@ -209,7 +209,6 @@ public class Molecule : MonoBehaviour {
     // Creates an explotion of the Prefab Explotion at the molecule's position
     public void Explode()
     {
-        explotion= Instantiate(explotion, transform.position, Quaternion.identity);
+        explotion = Instantiate(explotion, transform.position, Quaternion.identity);
     }
 }
-

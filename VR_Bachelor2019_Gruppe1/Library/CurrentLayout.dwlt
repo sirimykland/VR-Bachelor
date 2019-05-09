@@ -111,10 +111,10 @@ MonoBehaviour:
     y: 30
     width: 1904
     height: 1051
-  m_MinSize: {x: 771, y: 498}
-  m_MaxSize: {x: 18006, y: 14048}
+  m_MinSize: {x: 773, y: 498}
+  m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 4499
+  controlID: 208
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 496, y: 498}
   m_MaxSize: {x: 14006, y: 14048}
   vertical: 1
-  controlID: 4470
+  controlID: 238
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1445
     height: 637
-  m_MinSize: {x: 406, y: 224}
-  m_MaxSize: {x: 8006, y: 4024}
+  m_MinSize: {x: 404, y: 224}
+  m_MaxSize: {x: 8004, y: 4024}
   vertical: 0
-  controlID: 4471
+  controlID: 239
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -184,8 +184,8 @@ MonoBehaviour:
     y: 0
     width: 275
     height: 637
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -243,7 +243,7 @@ MonoBehaviour:
   m_MinSize: {x: 496, y: 274}
   m_MaxSize: {x: 14006, y: 10024}
   vertical: 0
-  controlID: 4616
+  controlID: 40
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -316,8 +316,8 @@ MonoBehaviour:
     y: 0
     width: 459
     height: 1051
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 74}
+  m_MaxSize: {x: 4002, y: 4024}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -432,9 +432,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: e8d4feff06d5feffcadcfeffc4e0feffdce4feff82e5feff48e6feff6ee6feff3ae7feff38f1feff56f1feff1af9feff14fdfeff2c01ffffd201ffff9802ffffbe02ffff8a03fffff610ffff1411ffffc015ffff6e1affff321fffffdc1fffffa020ffff0222ffffc822fffff631ffff1432ffffd839ffffd23dffffea41ffff9042ffff5643ffff5c43ffff2844ffffcc61ffff4c63ffffd463fffff063ffffb06bffffaa6fffffc273ffff6874ffff2e75ffff3475fffffc75ffffbeb3ffff6cdcffffb0dfffffcedfffff8ee7ffff88ebffffa0efffff46f0ffff0cf1ffffacf5ffffbef5ffffcefbffff66b4000018b7000078b80000f84a0100424b01008e4d0100aa4d0100f64e0100e44f0100f04f010010500100309e0100449e0100789f0100e4a0010038a101004ea101005ea101001aa2010094a2010026a3010046a3010062a4010072a401001aa501001ea5010054a5010082a5010094a501000ea601008aa701008ce20100f4e5010032e701005ce90100603a0200063f020030410200
+      m_SelectedIDs: bc4d0000
+      m_LastClickedID: 19900
+      m_ExpandedIDs: 5cf2ffff6efbffff344c00009a4d0000ae4d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -524,9 +524,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.061729614, y: -0.612422, z: 0.048057675, w: 0.7866507}
   m_Size:
-    m_Target: 13.766672
+    m_Target: 3.289961
     speed: 2
-    m_Value: 13.766672
+    m_Value: 3.289961
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -602,20 +602,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/chemistry/models/Materials
+    - Assets/Scripts/EscapeAtoms
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/chemistry/models/Materials
+  - Assets/Scripts/EscapeAtoms
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\IDE\Documents\GitHub\VR_Bachelor_Thesis\VR_Bachelor2019_Gruppe1
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 251}
-    m_SelectedIDs: ea100000
-    m_LastClickedID: 4330
-    m_ExpandedIDs: 00000000500f0000701300009c140000dc1500007a180000fc1800007e19000098190000661a0000f01a0000541c0000841c0000ca1c00003c1e0000a61e0000761f0000be1f00003e200000ac200000dc470000de470000
+    scrollPos: {x: 0, y: 115}
+    m_SelectedIDs: 483c0000
+    m_LastClickedID: 15432
+    m_ExpandedIDs: 00000000102d0000303100005c3200009c330000ba36000054370000ac3800000e3a00003e3a0000843a00008e3b0000f23b00005c3c00002c3d0000743d0000f43d0000623e00006049000062490000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -643,7 +643,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000500f0000701300009c140000dc1500007a180000fc1800007e19000098190000f01a0000541c0000841c0000ca1c00003c1e0000a61e0000761f0000be1f00003e200000ac200000dc470000de470000
+    m_ExpandedIDs: 00000000102d0000303100005c3200009c33000038360000ba3600003c3700005437000022380000ac3800000e3a00003e3a0000843a0000f23b00005c3c00002c3d0000743d0000f43d0000623e00006049000062490000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -674,18 +674,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Explotion
+      m_OriginalName: Explotion
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 18796
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -695,7 +695,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 301.5}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 357
 --- !u!114 &19
@@ -721,7 +721,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 8
     y: 718
-    width: 866
+    width: 810
     height: 394
   m_PersistentViewDataDictionary: {fileID: 0}
 --- !u!114 &20
@@ -751,7 +751,7 @@ MonoBehaviour:
     height: 394
   m_PersistentViewDataDictionary: {fileID: 0}
   m_VertSplit:
-    ID: 4634
+    ID: 112
     splitterInitialOffset: 0
     currentActiveSplitter: -1
     realSizes: bd000000bd000000
