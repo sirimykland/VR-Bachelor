@@ -5,4 +5,4 @@ To access the code associated with the website and database go to the leaderboar
 
 Video of the project can be found at https://www.youtube.com/watch?v=JuEORnqPRhw 
 
-The website is originally hosted at http://www.ux.uis.no/~sirim/Index.php [avaliable until June 30th 2019]
+The website is originally hosted at http://www.ux.uis.no/~sirim/ [avaliable until June 30th 2019]
